@@ -56,8 +56,6 @@ plain  ---------------(Encryption, key=K)---------------> cipher ---------------
 Is the obscuring of the intended meaning of communication by making the message difficult to understand, 
 usually with confusing and ambiguous language. [Obfuscation]
 
-[![N|Solid](https://www.researchgate.net/publication/355766908/figure/fig1/AS:1084603708256256@1635601083234/A-sample-image-of-Bangladeshi-handwritten-prescription.jpg)](https://www.researchgate.net/figure/A-sample-image-of-Bangladeshi-handwritten-prescription_fig1_355766908/)
-
 <br/>
 
 ## 4- Steganography
