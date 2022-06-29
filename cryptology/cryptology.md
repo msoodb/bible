@@ -1,3 +1,5 @@
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid) \
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 ## 1- Coding
 
@@ -52,12 +54,16 @@ plain  ---------------(Encryption, key=K)---------------> cipher ---------------
 
 ## 3- Obfuscation
 Is the obscuring of the intended meaning of communication by making the message difficult to understand, 
-usually with confusing and ambiguous language. [Obfuscation]
+usually with confusing and ambiguous language. [Obfuscation] \
+
+[![N|Solid](https://www.researchgate.net/publication/355766908/figure/fig1/AS:1084603708256256@1635601083234/A-sample-image-of-Bangladeshi-handwritten-prescription.jpg)](https://www.researchgate.net/figure/A-sample-image-of-Bangladeshi-handwritten-prescription_fig1_355766908/)
 
 <br/>
 
 ## 4- Steganography
-Is the practice of concealing a message within another message or a physical object. [Steganography]
+Is the practice of concealing a message within another message or a physical object. [Steganography] \
+
+[![N|Solid](https://cdn-faoci.nitrocdn.com/loSYgxUOACKTsMzFyjJoiIgMdpOxosmc/assets/static/optimized/rev-f9fd627/wp-content/uploads/2019/08/stego_images.jpg)](https://www.securityondemand.com/detecting-steganography-in-your-soc/)
 
 <b1/>
 
