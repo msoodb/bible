@@ -1,5 +1,5 @@
 
-## Coding
+## 1- Coding
 
 Coding is the process of converting data from/into a format required for a processing needs.
 ```sh
@@ -19,10 +19,11 @@ plain  <---------------(Encoding / Decoding)---------------> coded
 | XER | [XER][XER] |
 | PEM | [PEM][PEM] |
 
->hello ------------------------------(Encoding-Morse)---------------> .... . .-.. .-.. --- \
+>hello ------------------------------(Encoding-Morse)---------------> .... . .-.. .-.. ---
+
 >.... . .-.. .-.. --- ---------------(Decoding-Morse)---------------> hello
 
-## Cryption
+## 2- Cryption
 
 Cryption is the process of securing data for a processing needs.
 
@@ -33,7 +34,8 @@ Cryption is the process of securing data for a processing needs.
 ```sh
 plain  <---------------(Encryption / Decryption, key=K)---------------> cipher
 ```
-> hello -------------------------------(Encryption-AES128, key=123)--------------------> f3OghJUQ+Ci/4+A/qjq8UQ== \
+> hello -------------------------------(Encryption-AES128, key=123)--------------------> f3OghJUQ+Ci/4+A/qjq8UQ==
+
 > f3OghJUQ+Ci/4+A/qjq8UQ== ------------(Decryption-AES128, key=123)--------------------> hello
 
 <br/>
@@ -42,28 +44,38 @@ In this sample we combined encryption and encoding.
 ```sh
 plain  ---------------(Encryption, key=K)---------------> cipher ---------------(Encoding)---------------> cipher-coded
 ```
-> hello ---------------(Encryption-AES128, k=123)---------------> f3OghJUQ+Ci/4+A/qjq8UQ== ---------------(Encoding-Morse)---------------> ..-. ...-- --- --. .... .--- ..- --.- .-.-. -.-. .. -..-. ....- .-.-. .- -..-. --.- .--- --.- ---.. ..- --.- -...- -...- \
+> hello --(Encryption-AES128, k=123)---> f3OghJUQ+Ci/4+A/qjq8UQ== ---(Encoding-Morse)----> ..-. ...-- --- --. .... .--- ..- --.- .-.-. -.-. .. -..-. ....- .-.-. .- -..-. --.- .--- --.- ---.. ..- --.- -...- -...-
+
 > ..-. ...-- --- --. .... .--- ..- --.- .-.-. -.-. .. -..-. ....- .-.-. .- -..-. --.- .--- --.- ---.. ..- --.- -...- -...- ---------------(Decoding-Morse)---------------> f3OghJUQ+Ci/4+A/qjq8UQ== ---------------(Decryption-AES128, k=123)---------------> hello
 
+<br/>
+
+## 3- Obfuscation
+Is the obscuring of the intended meaning of communication by making the message difficult to understand, 
+usually with confusing and ambiguous language. [Obfuscation]
+
+<br/>
+
+## 4- Steganography
+Is the practice of concealing a message within another message or a physical object. [Steganography]
+
+<b1/>
 
 # Cryptography
 Cryptography is a method of protecting information and communications through the use of codes, 
 so that only those for whom the information is intended can read and process it. [Cryptography]
 
-## History
    - Classic cryptography
    - Computer era
    - Modern cryptography
 
 ### Classic cryptography
-   - Caesar cipher
-   - Auguste Kerckhoffs Rules
-   - Enigma machine
+   - [Caesar cipher]
+   - [Auguste Kerckhoffs Rules]
+   - [Enigma machine]
 
 ### Computer era
-   - Mathematics
-   - Steganography
-   - Obfuscation
+   - Mathematics   
 
 ### Modern cryptography
    - Goals
@@ -73,6 +85,7 @@ so that only those for whom the information is intended can read and process it.
    - Cryptographic Hash Functions
    - Tools
 
+<br/>
 
 # Cryptanalysis
 Cryptanalysis refers to the process of analyzing information systems in order to understand hidden aspects of the systems. 
@@ -99,4 +112,9 @@ even if the cryptographic key is unknown. [Cryptanalysis]
    [XER]: <https://en.wikipedia.org/wiki/ASN.1>
    [PEM]: <https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail>
 
-   [Classic_cryptography]: <https://en.wikipedia.org/wiki/Cryptography#Classic_cryptography>
+   [Caesar cipher]: <https://en.wikipedia.org/wiki/Caesar_cipher>
+   [Auguste Kerckhoffs Rules]: <https://en.wikipedia.org/wiki/Auguste_Kerckhoffs>
+   [Enigma machine]: <https://en.wikipedia.org/wiki/Enigma_machine>
+
+   [Steganography]: <https://en.wikipedia.org/wiki/Steganography>
+   [Obfuscation]: <https://en.wikipedia.org/wiki/Obfuscation>
