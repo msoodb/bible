@@ -55,13 +55,13 @@ plain  ---------------(Encryption, key=K)---------------> cipher ---------------
 ## 3- Obfuscation
 Is the obscuring of the intended meaning of communication by making the message difficult to understand, 
 usually with confusing and ambiguous language. [Obfuscation]
-[![N|Solid](Editors-Peak17.jpg)](/Editors-Peak17.jpg/)
+[![N|Solid](src/Editors-Peak17.jpg)](/src/Editors-Peak17.jpg/)
 <br/>
 
 ## 4- Steganography
 Is the practice of concealing a message within another message or a physical object. [Steganography]
 
-[![N|Solid](stego_images.jpg)](/stego_images.jpg/)
+[![N|Solid](src/stego_images.jpg)](/src/stego_images.jpg/)
 <b1/>
 
 # Cryptography
@@ -76,7 +76,7 @@ so that only those for whom the information is intended can read and process it.
    - [Caesar cipher]
    - [Auguste Kerckhoffs Rules]
    - [Enigma machine]
-   [![N|Solid](Enigma.png)](/Enigma.png/)
+   [![N|Solid](src/Enigma.png)](/src/Enigma.png/)
 
 
 ### Computer era
@@ -100,6 +100,9 @@ Claude E. Shannon — Published September 1945
    - Tools
 
 <br/>
+
+### Symmetric-key
+Symmetric-key algorithms[a] are algorithms for cryptography that use the same cryptographic keys for both the encryption of plaintext and the decryption of ciphertext.
 
 # Cryptanalysis
 Cryptanalysis refers to the process of analyzing information systems in order to understand hidden aspects of the systems. 
