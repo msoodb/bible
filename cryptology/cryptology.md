@@ -55,35 +55,44 @@ plain  ---------------(Encryption, key=K)---------------> cipher ---------------
 ## 3- Obfuscation
 Is the obscuring of the intended meaning of communication by making the message difficult to understand, 
 usually with confusing and ambiguous language. [Obfuscation]
-[![N|Solid](https://www.theindependentbd.com/assets/news_images/Editors-Peak17.jpg)](https://www.theindependentbd.com/assets/news_images/Editors-Peak17.jpg/)
-
+[![N|Solid](Editors-Peak17.jpg)](/Editors-Peak17.jpg/)
 <br/>
 
 ## 4- Steganography
 Is the practice of concealing a message within another message or a physical object. [Steganography]
 
-[![N|Solid](https://cdn-faoci.nitrocdn.com/loSYgxUOACKTsMzFyjJoiIgMdpOxosmc/assets/static/optimized/rev-f9fd627/wp-content/uploads/2019/08/stego_images.jpg)](https://www.securityondemand.com/detecting-steganography-in-your-soc/)
-
+[![N|Solid](stego_images.jpg)](/stego_images.jpg/)
 <b1/>
 
 # Cryptography
 Cryptography is a method of protecting information and communications through the use of codes, 
 so that only those for whom the information is intended can read and process it. [Cryptography]
 
-   - Classic cryptography
-   - Computer era
-   - Modern cryptography
+   - Classic cryptography [...-1970]
+   - Computer era         [  1949  ] 
+   - Modern cryptography  [1970-...]
 
 ### Classic cryptography
    - [Caesar cipher]
    - [Auguste Kerckhoffs Rules]
    - [Enigma machine]
+   [![N|Solid](Enigma.png)](/Enigma.png/)
+
 
 ### Computer era
-   - Mathematics   
+A Mathematical Theory of Cryptography
+Claude E. Shannon — Published September 1945
+
+> In 1948, Claude E. Shannon published the paper [A Mathematical Theory of Communication], which is seen as the foundation of modern information theory. \
+> In 1949, Shannon published [Communication Theory of Secrecy Systems] which relates cryptography to information theory, and should be seen as the foundation of modern cryptography. \
+> Both papers derive from a technical report, [A Mathematical Theory of Cryptography], written by Shannon in 1945. In this report, Shannon defined, and mathematically proved, perfect secrecy.
 
 ### Modern cryptography
    - Goals
+      > [Confidentiality], only an authorized recipient should be able to extract the contents of the message from its encrypted form. \
+      > [Integrity], the recipient should be able to determine if the message has been altered. \
+      > [Authentication], the recipient should be able to verify from the message, the identity of the sender. \
+      > [Non-repudiation], the remitter should not be able to deny sending the message.
    - Symmetric-key
    - Asymmetric/Public-key
    - Protocols
@@ -123,3 +132,12 @@ even if the cryptographic key is unknown. [Cryptanalysis]
 
    [Steganography]: <https://en.wikipedia.org/wiki/Steganography>
    [Obfuscation]: <https://en.wikipedia.org/wiki/Obfuscation>
+
+   [A Mathematical Theory of Communication]: <https://evervault.com/papers/shannon-communication.pdf>
+   [Communication Theory of Secrecy Systems]: <https://evervault.com/papers/shannon-secrecy.pdf>
+   [A Mathematical Theory of Cryptography]: <https://evervault.com/papers/shannon.pdf>
+
+   [Confidentiality]: <>
+   [Integrity]: <>
+   [Authentication]: <>
+   [Non-repudiation]: <>
