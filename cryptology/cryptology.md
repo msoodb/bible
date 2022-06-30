@@ -1,11 +1,19 @@
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid) \
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
+# Basic Concept
+   - Coding (Encoding / Decoding)
+   - Cryption (Encryption / Decryption, key=K)
+   - Obfuscation
+   - Steganography
+   - Insecure / Secure Communication
+
+<br/>
 
 ## 1- Coding
 
 Coding is the process of converting data from/into a format required for a processing needs.
 ```sh
-plain  <---------------(Encoding / Decoding)---------------> coded
+plain  <---------------(Encode / Decode)---------------> coded
 ```
 - Two way process Encoding/Decoding
 - Public algorithm / code table
@@ -20,10 +28,7 @@ plain  <---------------(Encoding / Decoding)---------------> coded
 | Unicode | [Unicode][Unicode] |
 | XER | [XER][XER] |
 | PEM | [PEM][PEM] |
-
->hello ------------------------------(Encoding-Morse)---------------> .... . .-.. .-.. ---
-
->.... . .-.. .-.. --- ---------------(Decoding-Morse)---------------> hello
+<br/>
 
 ## 2- Cryption
 
@@ -34,43 +39,62 @@ Cryption is the process of securing data for a processing needs.
 - key
 
 ```sh
-plain  <---------------(Encryption / Decryption, key=K)---------------> cipher
+plain  <---------------(Encrypt / Decrypt, key=K)---------------> cipher
 ```
-> hello -------------------------------(Encryption-AES128, key=123)--------------------> f3OghJUQ+Ci/4+A/qjq8UQ==
-
-> f3OghJUQ+Ci/4+A/qjq8UQ== ------------(Decryption-AES128, key=123)--------------------> hello
-
-<br/>
-In this sample we combined encryption and encoding.
-
-```sh
-plain  ---------------(Encryption, key=K)---------------> cipher ---------------(Encoding)---------------> cipher-coded
-```
-> hello --(Encryption-AES128, k=123)---> f3OghJUQ+Ci/4+A/qjq8UQ== ---(Encoding-Morse)----> ..-. ...-- --- --. .... .--- ..- --.- .-.-. -.-. .. -..-. ....- .-.-. .- -..-. --.- .--- --.- ---.. ..- --.- -...- -...-
-
-> ..-. ...-- --- --. .... .--- ..- --.- .-.-. -.-. .. -..-. ....- .-.-. .- -..-. --.- .--- --.- ---.. ..- --.- -...- -...- ---------------(Decoding-Morse)---------------> f3OghJUQ+Ci/4+A/qjq8UQ== ---------------(Decryption-AES128, k=123)---------------> hello
-
 <br/>
 
 ## 3- Obfuscation
 Is the obscuring of the intended meaning of communication by making the message difficult to understand, 
 usually with confusing and ambiguous language. [Obfuscation]
 [![N|Solid](src/Editors-Peak17.jpg)](/src/Editors-Peak17.jpg/)
+
 <br/>
 
 ## 4- Steganography
 Is the practice of concealing a message within another message or a physical object. [Steganography]
 
 [![N|Solid](src/stego_images.jpg)](/src/stego_images.jpg/)
-<b1/>
+
+<br/>
+
+## 5- Insecure / Secure Communication
+- Insecure Communication
+
+```sh
+plain ---------------(Encode)---------------> coded ---------------(Send)--------------->
+---------------(Recieve)---------> coded ---------------(Decode)---------------> plain
+```
+
+>hello -----------------(Encode-Morse)---------------> .... . .-.. .-.. --- ---------------(Send)---------------> \
+>---------------(Recieve)---------> .... . .-.. .-.. --- ----------(Decode-Morse)---------------> hello
+
+<br/>
+
+- Secure Communication
+
+
+```sh
+plain ---------------(Encrypt, key=K)---------------> cipher ---------------(Encode)---------------> cipher-coded ---------------(Send)------------>
+---------------(Recieve)---------> cipher-coded ---------------(Decode)---------------> cipher ---------------(Decrypt, key=K)---------------> plain
+```
+
+> hello --(Encrypt-AES128, k=123)---> f3OghJUQ+Ci/4+A/qjq8UQ== ---(Encode-Morse)----> ..-. ...-- --- --. .... .--- ..- --.- .-.-. -.-. .. -..-. ....- .-.-. .- -..-. --.- .--- --.- ---.. ..- --.- -...- -...- \
+> ..-. ...-- --- --. .... .--- ..- --.- .-.-. -.-. .. -..-. ....- .-.-. .- -..-. --.- .--- --.- ---.. ..- --.- -...- -...- ---------------(Decode-Morse)---------------> f3OghJUQ+Ci/4+A/qjq8UQ== ---------------(Decrypt-AES128, k=123)---------------> hello
+
+<br/>
+
+
+
 
 # Cryptography
 Cryptography is a method of protecting information and communications through the use of codes, 
 so that only those for whom the information is intended can read and process it. [Cryptography]
 
-   - Classic cryptography [...-1970]
+   - Classic cryptography [...-WWII]
    - Computer era         [  1949  ] 
    - Modern cryptography  [1970-...]
+
+<br/>
 
 ### Classic cryptography
    - [Caesar cipher]
@@ -78,6 +102,7 @@ so that only those for whom the information is intended can read and process it.
    - [Enigma machine]
    [![N|Solid](src/Enigma.png)](/src/Enigma.png/)
 
+<br/>
 
 ### Computer era
 A Mathematical Theory of Cryptography
@@ -87,22 +112,48 @@ Claude E. Shannon — Published September 1945
 > In 1949, Shannon published [Communication Theory of Secrecy Systems] which relates cryptography to information theory, and should be seen as the foundation of modern cryptography. \
 > Both papers derive from a technical report, [A Mathematical Theory of Cryptography], written by Shannon in 1945. In this report, Shannon defined, and mathematically proved, perfect secrecy.
 
+<br/>
+
 ### Modern cryptography
+The main purpose of cryptography is to protect data transmitted or perform secure communication in the likely presence of an adversary.
+   - Applications:
+      > [Military] \
+      > [Intelligence agency] \
+      > [Web] https \
+      > [Email] \
+      > [Messanger] WhatsApp \
+      > [Cryptocurrency] \
+      > [Digital Signatures] \
+      > [IoT]
    - Goals
-      > [Confidentiality], only an authorized recipient should be able to extract the contents of the message from its encrypted form. \
-      > [Integrity], the recipient should be able to determine if the message has been altered. \
-      > [Authentication], the recipient should be able to verify from the message, the identity of the sender. \
-      > [Non-repudiation], the remitter should not be able to deny sending the message.
-   - Symmetric-key
-   - Asymmetric/Public-key
+      > [Confidentiality], the information cannot be understood by anyone for whom it was unintended. \
+      > [Integrity], the information cannot be altered in storage or transit between sender and intended receiver without the alteration being detected. \
+      > [Authentication], the sender and receiver can confirm each other’s identity and the origin/destination of the information. \
+      > [Non-repudiation], the creator/sender of the information cannot deny at a later stage his or her intentions in the creation or transmission of the information.
+   - Algorithms
+      > Symmetric-key \
+      > Asymmetric/Public-key
    - Protocols
+      > SSH \
+      > SSL-TLS \
+      > Kerberos \
+      > IPSec
    - Cryptographic Hash Functions
+      > Hash \
+      > MAC \
+      > HMAC
    - Tools
+      > OpenSSH \
+      > OpenSSL \
+      > GPG
 
 <br/>
 
 ### Symmetric-key
-Symmetric-key algorithms[a] are algorithms for cryptography that use the same cryptographic keys for both the encryption of plaintext and the decryption of ciphertext.
+Are algorithms for cryptography that use the same cryptographic keys for both the encryption of plaintext and the decryption of ciphertext.
+
+<br/>
+<br/>
 
 # Cryptanalysis
 Cryptanalysis refers to the process of analyzing information systems in order to understand hidden aspects of the systems. 
@@ -140,6 +191,15 @@ even if the cryptographic key is unknown. [Cryptanalysis]
    [Communication Theory of Secrecy Systems]: <https://evervault.com/papers/shannon-secrecy.pdf>
    [A Mathematical Theory of Cryptography]: <https://evervault.com/papers/shannon.pdf>
 
+   [Military]: <>
+   [Intelligence agency]: <>
+   [Web]: <>
+   [Email]: <>
+   [Messanger]: <>
+   [Cryptocurrency]: <>
+   [Digital Signatures]: <>
+   [IoT]: <>
+   
    [Confidentiality]: <>
    [Integrity]: <>
    [Authentication]: <>
