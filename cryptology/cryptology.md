@@ -55,6 +55,7 @@ plain  ---------------(Encryption, key=K)---------------> cipher ---------------
 ## 3- Obfuscation
 Is the obscuring of the intended meaning of communication by making the message difficult to understand, 
 usually with confusing and ambiguous language. [Obfuscation]
+[![N|Solid](https://www.theindependentbd.com/assets/news_images/Editors-Peak17.jpg)](https://www.theindependentbd.com/assets/news_images/Editors-Peak17.jpg/)
 
 <br/>
 
