@@ -65,7 +65,7 @@ plain ---------------(Encode)---------------> coded ---------------(Send)-------
 ---------------(Recieve)---------> coded ---------------(Decode)---------------> plain
 ```
 
->hello -----------------(Encode-Morse)---------------> .... . .-.. .-.. --- ---------------(Send)---------------> \
+>hello --------(Encode-Morse)------> .... . .-.. .-.. --- ---------------(Send)---------------> \
 >---------------(Recieve)---------> .... . .-.. .-.. --- ----------(Decode-Morse)---------------> hello
 
 <br/>
@@ -74,8 +74,8 @@ plain ---------------(Encode)---------------> coded ---------------(Send)-------
 
 
 ```sh
-plain ---------------(Encrypt, key=K)---------------> cipher ---------------(Encode)---------------> cipher-coded ---------------(Send)------------>
----------------(Recieve)---------> cipher-coded ---------------(Decode)---------------> cipher ---------------(Decrypt, key=K)---------------> plain
+plain ---(Encrypt, key=K)----> cipher ----(Encode)----> cipher-coded -----(Send)--->
+----(Recieve)---> cipher-coded ---(Decode)----> cipher ---(Decrypt, key=K)----> plain
 ```
 
 > hello --(Encrypt-AES128, k=123)---> f3OghJUQ+Ci/4+A/qjq8UQ== ---(Encode-Morse)----> ..-. ...-- --- --. .... .--- ..- --.- .-.-. -.-. .. -..-. ....- .-.-. .- -..-. --.- .--- --.- ---.. ..- --.- -...- -...- \
@@ -87,7 +87,10 @@ plain ---------------(Encrypt, key=K)---------------> cipher ---------------(Enc
 
 
 # Cryptography
-Cryptography is a method of protecting information and communications through the use of codes, 
+The word cryptography comes from the Greek words kryptos meaning hidden and graphein meaning writing.
+Cryptography is the study of hidden writing, or the science of encrypting and decrypting text and messages.
+
+Cryptography is a method of protecting information and communications, 
 so that only those for whom the information is intended can read and process it. [Cryptography]
 
    - Classic cryptography [...-WWII]
@@ -131,8 +134,8 @@ The main purpose of cryptography is to protect data transmitted or perform secur
       > [Authentication], the sender and receiver can confirm each other’s identity and the origin/destination of the information. \
       > [Non-repudiation], the creator/sender of the information cannot deny at a later stage his or her intentions in the creation or transmission of the information.
    - Algorithms
-      > Symmetric-key \
-      > Asymmetric/Public-key
+      > Symmetric or Secret-key \
+      > Asymmetric or Public-key
    - Protocols
       > SSH \
       > SSL-TLS \
@@ -149,8 +152,15 @@ The main purpose of cryptography is to protect data transmitted or perform secur
 
 <br/>
 
-### Symmetric-key
+### Symmetric
 Are algorithms for cryptography that use the same cryptographic keys for both the encryption of plaintext and the decryption of ciphertext.
+[![N|Solid](src/Symmetric-Encryption.png)](/src/Symmetric-Encryption.png/)
+
+<br/>
+
+### Asymmetric-key
+Asymmetric encryption uses two keys to encrypt and decrypt a plain text.
+[![N|Solid](src/Asymmetric-Encryption.png)](/src/Asymmetric-Encryption.png/)
 
 <br/>
 <br/>
