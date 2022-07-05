@@ -19,6 +19,9 @@ plain  <---------------(Encode / Decode)---------------> coded
 - Public algorithm / code table
 - No key
 
+[![N|Solid](src/morse.jpg)](/src/morse.jpg/)
+<br/>
+
 | Coding | Link |
 | ------ | ------ |
 | Morse | [Morse Code][Morse] |
