@@ -159,14 +159,51 @@ The main purpose of cryptography is to protect data transmitted or perform secur
 Are algorithms for cryptography that use the same cryptographic keys for both the encryption of plaintext and the decryption of ciphertext.
 [![N|Solid](src/Symmetric-Encryption.png)](/src/Symmetric-Encryption.png/)
 
+- Stream
+   - Classic
+      - Substitution: caesar-cipher, Shift-cipher, vigenère-cipher
+      - Transposition
+   - LFSR
+   - OTP
+   - RC4
+- Block
+   - [DES]
+   - AES
+   - 3DES
+
 <br/>
 
 ### Asymmetric-key
 Asymmetric encryption uses two keys to encrypt and decrypt a plain text.
 [![N|Solid](src/Asymmetric-Encryption.png)](/src/Asymmetric-Encryption.png/)
 
+- Diffie-Hellman
+- [RSA]
+- DSA
+- Elliptic-Curve
+
 <br/>
 <br/>
+
+# Tools
+## [openssl] 
+a robust, commercial-grade, full-featured toolkit for general-purpose cryptography and secure communication.
+
+- Base64 Coding
+```sh
+openssl base64 -in <infile> -out <outfile>
+echo -n 'plain' | openssl base64
+```
+
+- Obtaining the List of Supported Suites
+```sh
+openssl ciphers -v 'ALL:COMPLEMENTOFALL'
+```
+
+- Performance
+```sh
+openssl speed rc4 aes rsa ecdh sha
+```
 
 # Cryptanalysis
 Cryptanalysis refers to the process of analyzing information systems in order to understand hidden aspects of the systems. 
@@ -217,3 +254,7 @@ even if the cryptographic key is unknown. [Cryptanalysis]
    [Integrity]: <>
    [Authentication]: <>
    [Non-repudiation]: <>
+
+   [DES]: <https://en.wikipedia.org/wiki/Data_Encryption_Standard>
+   [RSA]: <https://en.wikipedia.org/wiki/RSA_(cryptosystem)>
+   [openssl]: <https://www.openssl.org/>
