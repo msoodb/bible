@@ -107,6 +107,7 @@ so that only those for whom the information is intended can read and process it.
    - [Auguste Kerckhoffs Rules]
    - [Enigma machine]
    [![N|Solid](src/Enigma.png)](/src/Enigma.png/)
+   [Enigma Online Emulator]
 
 <br/>
 
@@ -167,8 +168,8 @@ Are algorithms for cryptography that use the same cryptographic keys for both th
    - OTP
    - RC4
 - Block
-   - [DES]
-   - AES
+   - [DES], 1976
+   - [AES], 2001 
    - 3DES
 
 <br/>
@@ -189,12 +190,6 @@ Asymmetric encryption uses two keys to encrypt and decrypt a plain text.
 ## [openssl] 
 a robust, commercial-grade, full-featured toolkit for general-purpose cryptography and secure communication.
 
-- Base64 Coding
-```sh
-openssl base64 -in <infile> -out <outfile>
-echo -n 'plain' | openssl base64
-```
-
 - Obtaining the List of Supported Suites
 ```sh
 openssl ciphers -v 'ALL:COMPLEMENTOFALL'
@@ -203,6 +198,18 @@ openssl ciphers -v 'ALL:COMPLEMENTOFALL'
 - Performance
 ```sh
 openssl speed rc4 aes rsa ecdh sha
+```
+
+- Base64 Encoding Decoding text
+```sh
+echo -n 'This should be encoded' | openssl base64
+echo VGhpcyBzaG91bGQgYmUgZW5jb2RlZA== | openssl base64 -d
+```
+
+- Base64 Encoding Decoding file
+```sh
+openssl base64 -in letter.txt -out .letter.base64.coded.txt
+openssl base64 -d -in .letter.base64.coded.txt -out .letter.base64.decoded.txt
 ```
 
 # Cryptanalysis
@@ -233,6 +240,7 @@ even if the cryptographic key is unknown. [Cryptanalysis]
    [Caesar cipher]: <https://en.wikipedia.org/wiki/Caesar_cipher>
    [Auguste Kerckhoffs Rules]: <https://en.wikipedia.org/wiki/Auguste_Kerckhoffs>
    [Enigma machine]: <https://en.wikipedia.org/wiki/Enigma_machine>
+   [Enigma Online Emulator]: <https://www.101computing.net/enigma/enigma-M3.html>
 
    [Steganography]: <https://en.wikipedia.org/wiki/Steganography>
    [Obfuscation]: <https://en.wikipedia.org/wiki/Obfuscation>
@@ -256,5 +264,6 @@ even if the cryptographic key is unknown. [Cryptanalysis]
    [Non-repudiation]: <>
 
    [DES]: <https://en.wikipedia.org/wiki/Data_Encryption_Standard>
+   [AES]: <https://en.wikipedia.org/wiki/Advanced_Encryption_Standard>
    [RSA]: <https://en.wikipedia.org/wiki/RSA_(cryptosystem)>
    [openssl]: <https://www.openssl.org/>
