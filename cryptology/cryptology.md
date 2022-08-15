@@ -175,7 +175,7 @@ Are algorithms for cryptography that use the same cryptographic keys for both th
 <br/>
 
 ### Asymmetric-key
-Asymmetric encryption uses two keys to encrypt and decrypt a plain text.
+Asymmetric encryption uses two keys to encrypt and decrypt a plain text.  
 [![N|Solid](src/Asymmetric-Encryption.png)](/src/Asymmetric-Encryption.png/)
 
 - Diffie-Hellman
