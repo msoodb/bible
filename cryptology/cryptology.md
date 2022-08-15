@@ -103,6 +103,8 @@ so that only those for whom the information is intended can read and process it.
 <br/>
 
 ### Classic cryptography
+The main classical cipher types are transposition ciphers, which rearrange the order of letters in a message (e.g., 'hello world' becomes 'ehlol owrdl' in a trivially simple rearrangement scheme), and substitution ciphers, which systematically replace letters or groups of letters with other letters or groups of letters (e.g., 'fly at once' becomes 'gmz bu podf' by replacing each letter with the one following it in the Latin alphabet)
+
    - [Caesar cipher]
    - [Auguste Kerckhoffs Rules]
    - [Enigma machine]
