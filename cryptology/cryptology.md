@@ -96,13 +96,13 @@ Cryptography is the study of hidden writing, or the science of encrypting and de
 Cryptography is a method of protecting information and communications, 
 so that only those for whom the information is intended can read and process it. [Cryptography]
 
-   - Classic cryptography [...-WWII]
-   - Computer era         [  1949  ] 
-   - Modern cryptography  [1970-...]
+   - Classic cryptography [... - WWII]
+   - Computer era         [1945 - 1970]
+   - Modern cryptography  [1970 - ...]
 
 <br/>
 
-### Classic cryptography
+### Classic cryptography [... - WWII]
 The main classical cipher types are transposition ciphers, which rearrange the order of letters in a message (e.g., 'hello world' becomes 'ehlol owrdl' in a trivially simple rearrangement scheme), and substitution ciphers, which systematically replace letters or groups of letters with other letters or groups of letters (e.g., 'fly at once' becomes 'gmz bu podf' by replacing each letter with the one following it in the Latin alphabet)
 
    - [Caesar cipher]
@@ -113,44 +113,46 @@ The main classical cipher types are transposition ciphers, which rearrange the o
 
 <br/>
 
-### Computer era
+### Computer era [1945 - 1970]
 A Mathematical Theory of Cryptography
 Claude E. Shannon — Published September 1945
 
 > In 1948, Claude E. Shannon published the paper [A Mathematical Theory of Communication], which is seen as the foundation of modern information theory. \
-> In 1949, Shannon published [Communication Theory of Secrecy Systems] which relates cryptography to information theory, and should be seen as the foundation of modern cryptography. \
+> In 1949, Shannon published [Communication Theory of Secrecy Systems] which relates cryptography to information theory, and should be seen as the foundation of modern cryptography.
+
 > Both papers derive from a technical report, [A Mathematical Theory of Cryptography], written by Shannon in 1945. In this report, Shannon defined, and mathematically proved, perfect secrecy.
+[![N|Solid](src/Shannon_Claude_E_1948_A_Mathematical_Theory_of_Communication_offprint.jpg)](/src/Shannon_Claude_E_1948_A_Mathematical_Theory_of_Communication_offprint.jpg/)
 
 <br/>
 
-### Modern cryptography
+### Modern cryptography [1970 - ...]
 The main purpose of cryptography is to protect data transmitted or perform secure communication in the likely presence of an adversary.
-   - Applications:
-      > [Military] \
-      > [Intelligence agency] \
-      > [Web] https \
-      > [Email] \
-      > [Messanger] WhatsApp \
-      > [Cryptocurrency] \
-      > [Digital Signatures] \
-      > [IoT]
    - Goals
-      > [Confidentiality], the information cannot be understood by anyone for whom it was unintended. \
-      > [Integrity], the information cannot be altered in storage or transit between sender and intended receiver without the alteration being detected. \
-      > [Authentication], the sender and receiver can confirm each other’s identity and the origin/destination of the information. \
-      > [Non-repudiation], the creator/sender of the information cannot deny at a later stage his or her intentions in the creation or transmission of the information.
+      > Confidentiality \
+      > Integrity \
+      > Authentication \
+      > Non-repudiation
    - Algorithms
       > Symmetric or Secret-key \
       > Asymmetric or Public-key
-   - Protocols
-      > SSH \
-      > SSL-TLS \
-      > Kerberos \
-      > IPSec
    - Cryptographic Hash Functions
       > Hash \
       > MAC \
       > HMAC
+   - Applications:
+      > Military \
+      > Intelligence agency \
+      > Web \
+      > Email \
+      > Messanger \
+      > Cryptocurrency \
+      > Digital Signatures \
+      > IoT     
+   - Protocols
+      > SSH \
+      > SSL-TLS \
+      > Kerberos \
+      > IPSec   
    - Tools
       > OpenSSH \
       > OpenSSL \
@@ -158,7 +160,16 @@ The main purpose of cryptography is to protect data transmitted or perform secur
 
 <br/>
 
-### Symmetric
+### Goals
+ In Cryptography, an Adversary is a malicious entity, which aims to retrieve precious information or data thereby undermining the principles of information security. \
+ Data Confidentiality, Data Integrity, Authentication and Non-repudiation are core principles of modern-day cryptography. \
+[![N|Solid](src/cia-triad.png)](/src/cia-triad.png/)
+- [Confidentiality], the information cannot be understood by anyone for whom it was unintended. \
+- [Integrity], the information cannot be altered in storage or transit between sender and intended receiver without the alteration being detected. \
+- [Authentication], the sender and receiver can confirm each other’s identity and the origin/destination of the information. \
+- [Non-repudiation], the creator/sender of the information cannot deny at a later stage his or her intentions in the creation or transmission of the information. 
+
+### Algorithms: Symmetric
 Are algorithms for cryptography that use the same cryptographic keys for both the encryption of plaintext and the decryption of ciphertext.
 [![N|Solid](src/Symmetric-Encryption.png)](/src/Symmetric-Encryption.png/)
 
@@ -176,7 +187,7 @@ Are algorithms for cryptography that use the same cryptographic keys for both th
 
 <br/>
 
-### Asymmetric-key
+### Algorithms: Asymmetric
 Asymmetric encryption uses two keys to encrypt and decrypt a plain text.  
 [![N|Solid](src/Asymmetric-Encryption.png)](/src/Asymmetric-Encryption.png/)
 
@@ -184,6 +195,11 @@ Asymmetric encryption uses two keys to encrypt and decrypt a plain text.
 - [RSA]
 - DSA
 - Elliptic-Curve
+
+### Cryptographic Hash Functions
+ - Hash
+ - MAC
+ - HMAC
 
 <br/>
 <br/>
