@@ -1,15 +1,54 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-# Basic Concept
-   - Coding (Encoding / Decoding)
-   - Cryption (Encryption / Decryption, key=K)
-   - Obfuscation
-   - Steganography
-   - Insecure / Secure Communication
+
+## What are we looking for
+   - Secure Communication Over Insecure Channels
+
+
+   ```sh
+   Alice <------------------------------------------------------------------------> Bob
+                                             |
+                                             |
+                                             |
+                                             |
+                                             v
+                                          Mallory
+   ```
 
 <br/>
 
-## 1- Coding
+# Concept
+   - Obfuscation
+   - Steganography
+   - Coding
+   - Encryption
+   - Hash Functions
+
+# Process
+   - Communication
+   - Cryptography
+   - Cryptanalysis
+
+
+<br/>
+
+
+## Obfuscation
+Is the obscuring of the intended meaning of communication by making the message difficult to understand, 
+usually with confusing and ambiguous language. [Obfuscation]
+[![N|Solid](src/Editors-Peak17.jpg)](/src/Editors-Peak17.jpg/)
+
+<br/>
+
+## Steganography
+Is the practice of concealing a message within another message or a physical object. [Steganography]
+
+[![N|Solid](src/music-code.jpg)](/src/music-code.jpg/)
+
+[![N|Solid](src/stego_images.jpg)](/src/stego_images.jpg/)
+
+
+## Coding
 
 Coding is the process of converting data from/into a format required for a processing needs.
 ```sh
@@ -22,20 +61,21 @@ plain  <---------------(Encode / Decode)---------------> coded
 [![N|Solid](src/morse.jpg)](/src/morse.jpg/)
 <br/>
 
-| Coding | Link |
-| ------ | ------ |
-| Morse | [Morse Code][Morse] |
-| ASCII | [ASCII][ASCII] |
-| Base16 | [Base16][Base16] |
-| Base64 | [Base64][Base64] |
-| Unicode | [Unicode][Unicode] |
-| XER | [XER][XER] |
-| PEM | [PEM][PEM] |
+[![N|Solid](src/Semaphore_Signals_A-Z.jpg)](/src/Semaphore_Signals_A-Z.jpg/)
 <br/>
 
-## 2- Cryption
+| Coding | Sample | Link |
+| ------ | ------ |------ |
+| Morse | .... . .-.. .-.. --- | [Morse Code][Morse] |
+| Flag semaphore |  | [Flag semaphore][Flag semaphore] |
+| ASCII | 0110100001100101011011000110110001101111 | [ASCII][ASCII] |
+| Base16 | 68656c6c6f | [Base16][Base16] |
+| Base64 | aGVsbG8= | [Base64][Base64] |
+<br/>
 
-Cryption is the process of securing data for a processing needs.
+## Encryption
+
+Encryption is the process of securing data for a processing needs.
 
 - Two way process Encryption/Decryption
 - Public/Private algorithm
@@ -44,31 +84,55 @@ Cryption is the process of securing data for a processing needs.
 ```sh
 plain  <---------------(Encrypt / Decrypt, key=K)---------------> cipher
 ```
+[![N|Solid](src/encryption.png)](/src/encryption.png/)
 <br/>
 
-## 3- Obfuscation
-Is the obscuring of the intended meaning of communication by making the message difficult to understand, 
-usually with confusing and ambiguous language. [Obfuscation]
-[![N|Solid](src/Editors-Peak17.jpg)](/src/Editors-Peak17.jpg/)
-
+[![N|Solid](src/encryption-encrypt.png)](/src/encryption-encrypt.png/)
 <br/>
 
-## 4- Steganography
-Is the practice of concealing a message within another message or a physical object. [Steganography]
-
-[![N|Solid](src/stego_images.jpg)](/src/stego_images.jpg/)
+[![N|Solid](src/encryption-decrypt.png)](/src/encryption-decrypt.png/)
+<br/>
 
 <br/>
 
-## 5- Insecure / Secure Communication
+## Hash Functions
+A cryptographic hash function (CHF) is a mathematical algorithm that maps data of an arbitrary size (often called the "message") to a bit array of a fixed size (the "hash value", "hash", or "message digest"). It is a one-way function, that is, a function for which it is practically infeasible to invert or reverse the computation.
+
+| Algorithm | Sample | Link |
+| ------ | ------ |------ |
+| MD5| b1946ac92492d2347c6235b4d2611184 | [MD5] |
+| SHA-1 | f572d396fae9206628714fb2ce00f72e94f2258f | [SHA-1] |
+| SHA-2 | 5891b5b522d5df086d0ff0b110fbd9d21bb4fc7163af34d08286a2e846f6be03 | [SHA-2] |
+| SHA-3 | 1d0f284efe3edea4b9ca3bd514fa134b17eae361ccc7a1eefeff801b9bd6604e01f21f6bf249ef030599f0c218f2ba8c | [SHA-3] |
+
+
+   - cryptographic hash function must be deterministic.
+   - it is quick to compute the hash value for any given message.
+   - it is infeasible to generate a message that yields a given hash value.
+   - it is infeasible to find two different messages with the same hash value.
+   - a small change to a message should change the hash value so extensively that a new hash value appears uncorrelated with the old hash value (avalanche effect).
+
+| Input | Algorithm | Hash |
+| ------ | ------ |------ |
+| my name is masoud bolhassani, from chenarestan. | SHA-1 | 196cd8dab8e773c68be35016c0c1d83e2a86701d |
+| my name is masoud bolhasani, from chenarestan. | SHA-1 | 239d4a179184852114841fa77c8640511e47bfd5 |
+
+<br/>
+
+## Insecure / Secure Communication
+
 - Insecure Communication
 
 ```sh
 plain ---------------(Encode)---------------> coded ---------------(Send)--------------->
+
+
 ---------------(Recieve)---------> coded ---------------(Decode)---------------> plain
 ```
 
->hello --------(Encode-Morse)------> .... . .-.. .-.. --- ---------------(Send)---------------> \
+>hello --------(Encode-Morse)------> .... . .-.. .-.. --- ---------------(Send)--------------->
+
+
 >---------------(Recieve)---------> .... . .-.. .-.. --- ----------(Decode-Morse)---------------> hello
 
 <br/>
@@ -78,10 +142,14 @@ plain ---------------(Encode)---------------> coded ---------------(Send)-------
 
 ```sh
 plain ---(Encrypt, key=K)----> cipher ----(Encode)----> cipher-coded -----(Send)--->
+
+
 ----(Recieve)---> cipher-coded ---(Decode)----> cipher ---(Decrypt, key=K)----> plain
 ```
 
 > hello --(Encrypt-AES128, k=123)---> f3OghJUQ+Ci/4+A/qjq8UQ== ---(Encode-Morse)----> ..-. ...-- --- --. .... .--- ..- --.- .-.-. -.-. .. -..-. ....- .-.-. .- -..-. --.- .--- --.- ---.. ..- --.- -...- -...- \
+
+
 > ..-. ...-- --- --. .... .--- ..- --.- .-.-. -.-. .. -..-. ....- .-.-. .- -..-. --.- .--- --.- ---.. ..- --.- -...- -...- ---------------(Decode-Morse)---------------> f3OghJUQ+Ci/4+A/qjq8UQ== ---------------(Decrypt-AES128, k=123)---------------> hello
 
 <br/>
@@ -89,9 +157,8 @@ plain ---(Encrypt, key=K)----> cipher ----(Encode)----> cipher-coded -----(Send)
 
 
 
-# Cryptography
-The word cryptography comes from the Greek words kryptos meaning hidden and graphein meaning writing.
-Cryptography is the study of hidden writing, or the science of encrypting and decrypting text and messages.
+## Cryptography
+Cryptography is the practice and study of techniques for secure communication in the presence of adversarial behavior.
 
 Cryptography is a method of protecting information and communications, 
 so that only those for whom the information is intended can read and process it. [Cryptography]
@@ -120,7 +187,7 @@ Claude E. Shannon — Published September 1945
 > In 1948, Claude E. Shannon published the paper [A Mathematical Theory of Communication], which is seen as the foundation of modern information theory. \
 > In 1949, Shannon published [Communication Theory of Secrecy Systems] which relates cryptography to information theory, and should be seen as the foundation of modern cryptography.
 
-> Both papers derive from a technical report, [A Mathematical Theory of Cryptography], written by Shannon in 1945. In this report, Shannon defined, and mathematically proved, perfect secrecy.
+> Both papers derive from a technical report, [A Mathematical Theory of Cryptography], written by Shannon in 1945. In this report, Shannon defined, and mathematically proved, perfect secrecy.  
 [![N|Solid](src/Shannon_Claude_E_1948_A_Mathematical_Theory_of_Communication_offprint.jpg)](/src/Shannon_Claude_E_1948_A_Mathematical_Theory_of_Communication_offprint.jpg/)
 
 <br/>
@@ -248,6 +315,7 @@ even if the cryptographic key is unknown. [Cryptanalysis]
    [Cryptanalysis]: <https://en.wikipedia.org/wiki/Cryptanalysis>
 
    [Morse]: <https://en.wikipedia.org/wiki/Morse_code>
+   [Flag semaphore]: <https://en.wikipedia.org/wiki/Flag_semaphore>
    [ASCII]: <https://en.wikipedia.org/wiki/ASCII>
    [Base16]: <https://en.wikipedia.org/wiki/Base16>
    [Base64]: <https://en.wikipedia.org/wiki/Base64>
@@ -266,6 +334,12 @@ even if the cryptographic key is unknown. [Cryptanalysis]
    [A Mathematical Theory of Communication]: <https://evervault.com/papers/shannon-communication.pdf>
    [Communication Theory of Secrecy Systems]: <https://evervault.com/papers/shannon-secrecy.pdf>
    [A Mathematical Theory of Cryptography]: <https://evervault.com/papers/shannon.pdf>
+
+   [MD5]: <https://en.wikipedia.org/wiki/MD5>
+   [SHA-1]: <https://en.wikipedia.org/wiki/SHA-1>
+   [SHA-2]: <https://en.wikipedia.org/wiki/SHA-2>
+   [SHA-3]: <https://en.wikipedia.org/wiki/SHA-3>
+
 
    [Military]: <>
    [Intelligence agency]: <>
