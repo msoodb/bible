@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 
-## What are we looking for
+## Cryptography, What are we looking for
    - Secure Communication Over Insecure Channels
 
 
@@ -98,6 +98,12 @@ plain  <---------------(Encrypt / Decrypt, key=K)---------------> cipher
 ## Hash Functions
 A cryptographic hash function (CHF) is a mathematical algorithm that maps data of an arbitrary size (often called the "message") to a bit array of a fixed size (the "hash value", "hash", or "message digest"). It is a one-way function, that is, a function for which it is practically infeasible to invert or reverse the computation.
 
+<br/>
+
+[![N|Solid](src/hash.jpg)](/src/hash.jpg/)
+
+<br/>
+
 | Algorithm | Sample | Link |
 | ------ | ------ |------ |
 | MD5| b1946ac92492d2347c6235b4d2611184 | [MD5] |
@@ -158,10 +164,7 @@ plain ---(Encrypt, key=K)----> cipher ----(Encode)----> cipher-coded -----(Send)
 
 
 ## Cryptography
-Cryptography is the practice and study of techniques for secure communication in the presence of adversarial behavior.
-
-Cryptography is a method of protecting information and communications, 
-so that only those for whom the information is intended can read and process it. [Cryptography]
+Cryptography is a method of protecting information and communications, so that only those for whom the information is intended can read and process it. [Cryptography]
 
    - Classic cryptography [... - WWII]
    - Computer era         [1945 - 1970]
@@ -193,22 +196,21 @@ Claude E. Shannon — Published September 1945
 <br/>
 
 ### Modern cryptography [1970 - ...]
-The main purpose of cryptography is to protect data transmitted or perform secure communication in the likely presence of an adversary.
    - Goals
       > Confidentiality \
       > Integrity \
       > Authentication \
       > Non-repudiation
-   - Algorithms
-      > Symmetric or Secret-key \
-      > Asymmetric or Public-key
+   - Encryption Algorithms Algorithms
+      > Symmetric \
+      > Asymmetric
    - Cryptographic Hash Functions
       > Hash \
       > MAC \
       > HMAC
    - Applications:
       > Military \
-      > Intelligence agency \
+      > Intelligence Agency \
       > Web \
       > Email \
       > Messanger \
@@ -231,9 +233,9 @@ The main purpose of cryptography is to protect data transmitted or perform secur
  In Cryptography, an Adversary is a malicious entity, which aims to retrieve precious information or data thereby undermining the principles of information security. \
  Data Confidentiality, Data Integrity, Authentication and Non-repudiation are core principles of modern-day cryptography. \
 [![N|Solid](src/cia-triad.png)](/src/cia-triad.png/)
-- [Confidentiality], the information cannot be understood by anyone for whom it was unintended. \
-- [Integrity], the information cannot be altered in storage or transit between sender and intended receiver without the alteration being detected. \
-- [Authentication], the sender and receiver can confirm each other’s identity and the origin/destination of the information. \
+- [Confidentiality], the information cannot be understood by anyone for whom it was unintended.
+- [Integrity], the information cannot be altered in storage or transit between sender and intended receiver without the alteration being detected.
+- [Authentication], the sender and receiver can confirm each other’s identity and the origin/destination of the information.
 - [Non-repudiation], the creator/sender of the information cannot deny at a later stage his or her intentions in the creation or transmission of the information. 
 
 ### Algorithms: Symmetric
@@ -263,12 +265,7 @@ Asymmetric encryption uses two keys to encrypt and decrypt a plain text.
 - DSA
 - Elliptic-Curve
 
-### Cryptographic Hash Functions
- - Hash
- - MAC
- - HMAC
 
-<br/>
 <br/>
 
 # Tools
@@ -306,9 +303,7 @@ even if the cryptographic key is unknown. [Cryptanalysis]
    - Implementation Attacks
    - Social Engineering Attacks
 
-## Classical Cryptanalysis
-## Implementation Attacks
-## Social Engineering Attacks
+<br/>
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
    [Cryptography]: <https://en.wikipedia.org/wiki/Cryptography>
