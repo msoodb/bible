@@ -1,21 +1,45 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-
-## Cryptography, What are we looking for
-   - Secure Communication Over Insecure Channels
-
-
-   ```sh
-   Alice <------------------------------------------------------------------------> Bob
-                                             |
-                                             |
-                                             |
-                                             |
-                                             v
-                                          Mallory
-   ```
+# Cryptology
+   - Cryptography
+   - Cryptanalysis
 
 <br/>
+<br/>
+
+## Cryptography
+   - Secure Communication Over Insecure Channels
+
+   ```sh
+   Alice <---------------------------------------------------------------------------------> Bob
+                                             |
+                                             |
+                                             |
+                                             |
+                                             |
+                                          Mallory
+   ```
+   Alice and Bob point of view
+
+<br/>
+
+## Cryptanalysis
+   - Cryptanalysis is the process of analyzing cryptographic systems to look for weaknesses or leaks of information.
+
+   ```sh
+   Alice <---------------------------------------------------------------------------------> Bob
+                                             |
+                                             |
+                                             |
+                                             |
+                                             |
+                                          Mallory
+   ```
+   Mallory point of view
+
+<br/>
+<br/>
+
 
 # Concept
    - Obfuscation
@@ -23,13 +47,8 @@
    - Coding
    - Encryption
    - Hash Functions
-
-# Process
-   - Communication
-   - Cryptography
-   - Cryptanalysis
-
-
+<br/>
+<br/>
 <br/>
 
 
@@ -47,16 +66,20 @@ Is the practice of concealing a message within another message or a physical obj
 
 [![N|Solid](src/stego_images.jpg)](/src/stego_images.jpg/)
 
+<br/>
 
 ## Coding
 
 Coding is the process of converting data from/into a format required for a processing needs.
+
 ```sh
-plain  <---------------(Encode / Decode)---------------> coded
+plain  ---------------(Encode)---------------> coded
 ```
-- Two way process Encoding/Decoding
-- Public algorithm / code table
-- No key
+
+```sh
+coded  ---------------(Decode)---------------> plain
+```
+
 
 [![N|Solid](src/morse.jpg)](/src/morse.jpg/)
 <br/>
@@ -73,17 +96,22 @@ plain  <---------------(Encode / Decode)---------------> coded
 | Base64 | aGVsbG8= | [Base64][Base64] |
 <br/>
 
+<br/>
+
 ## Encryption
 
 Encryption is the process of securing data for a processing needs.
 
-- Two way process Encryption/Decryption
-- Public/Private algorithm
-- key
 
-```sh
-plain  <---------------(Encrypt / Decrypt, key=K)---------------> cipher
-```
+   ```sh
+   plain  ---------------(Encrypt, key=K)---------------> cipher
+   ```
+
+   ```sh
+   cipher  ---------------(Decrypt, key=K)---------------> plain
+   ```
+
+
 [![N|Solid](src/encryption.png)](/src/encryption.png/)
 <br/>
 
@@ -91,7 +119,31 @@ plain  <---------------(Encrypt / Decrypt, key=K)---------------> cipher
 <br/>
 
 [![N|Solid](src/encryption-decrypt.png)](/src/encryption-decrypt.png/)
+
 <br/>
+
+
+   > key is a binary string.
+   
+   32 bit key
+   ```sh
+   11101100000111000110001111100111
+   ```   
+
+   <br/>
+
+   128 bit key
+   ```sh
+   10100110110011111000010001101011011011101111111011100111110100101101110100011011010010010001100010101111000011100110000011111110
+   ```
+
+   <br/>
+
+   256 bit key
+   ```sh
+   0011101110101111001000100011111011110110100011001100000101111110000000000000010001110000111101110101111001101001010011011010000001100111111100110100000000111100010011111110101001110011010010011010011101010001101110101000000111101000011011111000000011011100
+   ```
+   
 
 <br/>
 
@@ -125,50 +177,58 @@ A cryptographic hash function (CHF) is a mathematical algorithm that maps data o
 
 <br/>
 
-## Insecure / Secure Communication
-
-- Insecure Communication
-
-```sh
-plain ---------------(Encode)---------------> coded ---------------(Send)--------------->
-
-
----------------(Recieve)---------> coded ---------------(Decode)---------------> plain
-```
-
->hello --------(Encode-Morse)------> .... . .-.. .-.. --- ---------------(Send)--------------->
-
-
->---------------(Recieve)---------> .... . .-.. .-.. --- ----------(Decode-Morse)---------------> hello
-
-<br/>
-
-- Secure Communication
-
-
-```sh
-plain ---(Encrypt, key=K)----> cipher ----(Encode)----> cipher-coded -----(Send)--->
-
-
-----(Recieve)---> cipher-coded ---(Decode)----> cipher ---(Decrypt, key=K)----> plain
-```
-
-> hello --(Encrypt-AES128, k=123)---> f3OghJUQ+Ci/4+A/qjq8UQ== ---(Encode-Morse)----> ..-. ...-- --- --. .... .--- ..- --.- .-.-. -.-. .. -..-. ....- .-.-. .- -..-. --.- .--- --.- ---.. ..- --.- -...- -...- \
-
-
-> ..-. ...-- --- --. .... .--- ..- --.- .-.-. -.-. .. -..-. ....- .-.-. .- -..-. --.- .--- --.- ---.. ..- --.- -...- -...- ---------------(Decode-Morse)---------------> f3OghJUQ+Ci/4+A/qjq8UQ== ---------------(Decrypt-AES128, k=123)---------------> hello
-
-<br/>
-
-
-
-
 ## Cryptography
 Cryptography is a method of protecting information and communications, so that only those for whom the information is intended can read and process it. [Cryptography]
 
-   - Classic cryptography [... - WWII]
-   - Computer era         [1945 - 1970]
-   - Modern cryptography  [1970 - ...]
+   ### Communication
+
+   - Insecure Communication
+
+      ```sh
+      Alice <---------------------------------------------------------------------------------> Bob
+                                                |
+                                                |
+                                                |
+                                                |
+                                                |
+                                             Mallory ✔
+      ```
+      Obfuscation, Steganography, or Coding
+
+      > hello --------(Encode-Morse)------> .... . .-.. .-.. --- \
+      > .... . .-.. .-.. --- ----------(Decode-Morse)---------------> hello
+
+   <br/>
+
+   - Secure Communication
+
+      ```sh
+      Alice <---------------------------------------------------------------------------------> Bob
+                                                |
+                                                |
+                                                |
+                                                |
+                                                |
+                                             Mallory ✗
+      ```
+      Encryption
+
+      > hello ---------(Encrypt -aes-128-cbc -base64 -pbkdf2, k=123)-------> U2FsdGVkX1+7GdnvVY9U/g+ABDxG3n+E9V4ca4pxWzk= \   
+      > U2FsdGVkX1+7GdnvVY9U/g+ABDxG3n+E9V4ca4pxWzk= ---------------(Decrypt -aes-128-cbc -base64 -pbkdf2, k=123)---------------> hello
+
+      ```sh
+      echo -n hello | openssl enc -e -aes-128-cbc base64 -nosalt -pbkdf2 -k 123
+      echo L31utJulbs5/CWmkUixfJA== | openssl base64 -d | openssl enc -d -aes-128-cbc -nosalt -pbkdf2 -k 123
+      ```
+
+      - Perfect secrecy
+      - Computational security
+   <br/>
+
+   ### History
+      - Classic cryptography [... - WWII]
+      - Computer era         [1945 - 1970]
+      - Modern cryptography  [1970 - ...]
 
 <br/>
 
@@ -272,38 +332,50 @@ Asymmetric encryption uses two keys to encrypt and decrypt a plain text.
 ## [openssl] 
 a robust, commercial-grade, full-featured toolkit for general-purpose cryptography and secure communication.
 
-- Obtaining the List of Supported Suites
-```sh
-openssl ciphers -v 'ALL:COMPLEMENTOFALL'
-```
+   - Obtaining the List of Supported Suites
+      ```sh
+      openssl ciphers -v 'ALL:COMPLEMENTOFALL'
+      ```
 
-- Performance
-```sh
-openssl speed rc4 aes rsa ecdh sha
-```
+   - Performance
+      ```sh
+      openssl speed rc4 aes rsa ecdh sha
+      ```
 
-- Base64 Encoding Decoding text
-```sh
-echo -n 'This should be encoded' | openssl base64
-echo VGhpcyBzaG91bGQgYmUgZW5jb2RlZA== | openssl base64 -d
-```
+   - Base64 Encoding Decoding text
+      ```sh
+      echo -n 'This should be encoded' | openssl base64
+      echo VGhpcyBzaG91bGQgYmUgZW5jb2RlZA== | openssl base64 -d
+      ```
 
-- Base64 Encoding Decoding file
-```sh
-openssl base64 -in letter.txt -out .letter.base64.coded.txt
-openssl base64 -d -in .letter.base64.coded.txt -out .letter.base64.decoded.txt
-```
+   - Base64 Encoding Decoding file
+      ```sh
+      openssl base64 -in letter.txt -out .letter.base64.coded.txt
+      openssl base64 -d -in .letter.base64.coded.txt -out .letter.base64.decoded.txt
+      ```
 
 # Cryptanalysis
-Cryptanalysis refers to the process of analyzing information systems in order to understand hidden aspects of the systems. 
-Cryptanalysis is used to breach cryptographic security systems and gain access to the contents of encrypted messages, 
-even if the cryptographic key is unknown. [Cryptanalysis]
+Cryptanalysis refers to the process of analyzing information systems in order to understand hidden aspects of the systems. Cryptanalysis is used to breach cryptographic security systems and gain access to the contents of encrypted messages, even if the cryptographic key is unknown. [Cryptanalysis] or "Simpley decrypty a cipher without knowing the key".
 
-   - Classical Cryptanalysis
-   - Implementation Attacks
-   - Social Engineering Attacks
+   - Brute Force Attack (BFA)
+      - Brute Force
+      - Dictionary
+      - Rainbow Table
+      
+   <br/>
+   
+   - Ciphertext Only Attacks (COA)
+   - Known Plaintext Attack (KPA)
+   - Chosen Plaintext Attack (CPA)
+   - Adaptive Chosen-Plaintext Analysis (ACPA)
+   - Man-In-The-Middle (MITM) attack
+
+   - Side Channel Attack (SCA)
 
 <br/>
+
+## Brute Force Attack (BFA)
+
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
    [Cryptography]: <https://en.wikipedia.org/wiki/Cryptography>
