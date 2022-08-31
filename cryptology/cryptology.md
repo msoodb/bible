@@ -217,7 +217,7 @@ Cryptography is a method of protecting information and communications, so that o
       > U2FsdGVkX1+7GdnvVY9U/g+ABDxG3n+E9V4ca4pxWzk= ---------------(Decrypt -aes-128-cbc -base64 -pbkdf2, k=123)---------------> hello
 
       ```sh
-      echo -n hello | openssl enc -e -aes-128-cbc base64 -nosalt -pbkdf2 -k 123
+      echo -n hello | openssl enc -e -aes-128-cbc -base64 -nosalt -pbkdf2 -k 123
       echo L31utJulbs5/CWmkUixfJA== | openssl base64 -d | openssl enc -d -aes-128-cbc -nosalt -pbkdf2 -k 123
       ```
 
@@ -363,7 +363,7 @@ Cryptanalysis refers to the process of analyzing information systems in order to
       - Rainbow Table
       
    <br/>
-   
+
    - Ciphertext Only Attacks (COA)
    - Known Plaintext Attack (KPA)
    - Chosen Plaintext Attack (CPA)
