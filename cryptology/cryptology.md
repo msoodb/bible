@@ -75,11 +75,11 @@ Is the practice of concealing a message within another message or a physical obj
 Coding is the process of converting data from/into a format required for a processing needs.
 
 ```sh
-plain  ---------------(Encode)---------------> coded
+plaintext  ---------------(Encode)---------------> coded
 ```
 
 ```sh
-coded  ---------------(Decode)---------------> plain
+coded  ---------------(Decode)---------------> plaintext
 ```
 
 
@@ -106,11 +106,11 @@ Encryption is the process of securing data for a processing needs.
 
 
    ```sh
-   plain  ---------------(Encrypt, key=K)---------------> cipher
+   plaintext  ---------------(Encrypt, key=K)---------------> ciphertext
    ```
 
    ```sh
-   cipher  ---------------(Decrypt, key=K)---------------> plain
+   ciphertext  ---------------(Decrypt, key=K)---------------> plaintext
    ```
 
 
@@ -334,7 +334,7 @@ Are algorithms for cryptography that use the same cryptographic keys for both th
 <br/>
 
 ### Algorithms: Asymmetric
-Asymmetric encryption uses two keys to encrypt and decrypt a plain text.  
+Asymmetric encryption uses two keys to encrypt and decrypt a plaintext.  
 [![N|Solid](src/Asymmetric-Encryption.png)](/src/Asymmetric-Encryption.png/)
 
 - Diffie-Hellman
@@ -375,7 +375,7 @@ a robust, commercial-grade, full-featured toolkit for general-purpose cryptograp
 Cryptanalysis refers to the process of analyzing information systems in order to understand hidden
  aspects of the systems. Cryptanalysis is used to breach cryptographic security systems and gain 
  access to the contents of encrypted messages, even if the cryptographic key is unknown. 
- [Cryptanalysis] or "Simpley decrypty a cipher without knowing the key".
+ [Cryptanalysis] or "Simpley decrypty a ciphertext without knowing the key".
 
    - Brute Force Attack (BFA)
       - Brute Force

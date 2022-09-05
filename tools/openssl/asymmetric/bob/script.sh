@@ -17,4 +17,4 @@ openssl rsautl -decrypt -inkey private.pem -in secret.enc -out secret
 # Recieve message_from_alice.enc file
 
 # Decrypt Alice’s sensitive information
-openssl enc -aes256 -d -base64 -pbkdf2 -in cipher.enc -out plain.txt -kfile secret
+openssl enc -aes256 -d -base64 -pbkdf2 -in ciphertext.enc -out plaintext.txt -kfile secret

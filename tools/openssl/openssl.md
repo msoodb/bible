@@ -97,7 +97,7 @@ echo -n 'hello' | openssl dgst -sha3-512
 
 <br/>
 
-- plain text
+- plaintext
 ```
 OJanuary 6, 2010
 FROM: Maj. Francis Hart, 19th Infantry Division
@@ -121,7 +121,7 @@ Sincerely,
 Maj. Francis Hart
 ```
 
-- algorithm
+- cipher
 ```
 symmetric aes-256-cbc
 ```
@@ -132,7 +132,7 @@ symmetric aes-256-cbc
 ```
 <hr/>
 
-- binary Coded text
+- plaintext in binary
 ```
 010011110110001101110100011011110110001001100101011100100010000000110010001101000010110000
 100000001100100011000000110001001101010000101001001101010001010100110101001111010100100100
@@ -161,10 +161,10 @@ symmetric aes-256-cbc
 
 - aes algorithm block size is always 128 bits
 ```
-Block Cipher = aes-256-cbc(128 bit binary code plain, 256 bit key)
+ciphertext block = aes-256-cbc(128 bit binary, 256 bit key)
 ```
 
-- binary cipher text
+- ciphertext in binary
 ```
 0100110001110100001011100010000001010011011101010111010001101000011001010111001001110011001
 0000001101001011100110010000001100001001000000111011001100101011100100111100100100000011000
@@ -186,7 +186,7 @@ Block Cipher = aes-256-cbc(128 bit binary code plain, 256 bit key)
 011000110010100100000011011000110010101100001011001000110010101110010011............
 ```
 
-- base64 coded cipher text
+- ciphertext in base64
 ```
 U2FsdGVkX18rCZ3aYGJTLEPxeQ1UL27JgiSMEQxFJWBojjpEXL3k0rUtTVsWFxcp
 oJc0LwT8zvj9kTICPVXInqG+DNvT5J7GAfVXVa8Vc6cY03SXedLNhGXMwsk//aLt
@@ -219,16 +219,16 @@ if encryption and decryption both use the same key cipher is Symmetric, otherwis
 
 
 - Alice and Bob agree on secret key
-- Alice encrypt plain with key and sent to Bob
-- Bob decrypt plain with key
+- Alice encrypt plaintext with key and sent to Bob
+- Bob decrypt plaintext with key
 
 
 ```
-         Encrypt(plain, key) --> cipher               Decrypt(cipher, key) --> plain
+         Encrypt(plaintext, key) --> ciphertext               Decrypt(ciphertext, key) --> plaintext
    Alice ---------------------------------------------------------------------------------> Bob
                                              |
                                              |
-                                             | Decrypt(cipher, ???) --> xxxxxx
+                                             | Decrypt(ciphertext, ???) --> xxxxxx
                                              |
                                              |
                                           Mallory
@@ -245,13 +245,13 @@ if encryption and decryption both use the same key cipher is Symmetric, otherwis
 - Alice create key, encrypt it with Bob public key and sent it to Bob
 - Bob decrypt key.enc and have key
 - Alice and Bob have key
-- Alice encrypt plain with key and sent to Bob
-- Bob decrypt plain with key
+- Alice encrypt plaintext with key and sent to Bob
+- Bob decrypt plaintext with key
 
 
 ```
          Encrypt(key, Bob's public key) --> key.enc             Decrypt(key.enc, private key) --> key
-         Encrypt(plain, key) --> cipher                         Decrypt(cipher, key) --> plain
+         Encrypt(plaintext, key) --> ciphertext                     Decrypt(ciphertext, key) --> plaintext
    Alice ---------------------------------------------------------------------------------------------------> Bob
                                                          |                                {public key, private key}
                                                          |
