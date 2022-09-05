@@ -231,7 +231,7 @@ if encryption and decryption both use the same key cipher is Symmetric, otherwis
                                              | Decrypt(ciphertext, ???) --> xxxxxx
                                              |
                                              |
-                                          Mallory
+                                          Eve
 ```
 
 
@@ -259,7 +259,7 @@ if encryption and decryption both use the same key cipher is Symmetric, otherwis
                                                          | key = ???
                                                          |
                                                          |
-                                                      Mallory
+                                                      Eve
 ```
 
 <hr/>

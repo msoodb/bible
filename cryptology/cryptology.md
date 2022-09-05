@@ -8,7 +8,7 @@
 <br/>
 
 ## Cryptography
-   - Secure Communication Over Insecure Channels
+   - Secure Communication Over Insecure Channels, Alice and Bob point of view
 
    ```sh
    Alice <---------------------------------------------------------------------------------> Bob
@@ -17,15 +17,15 @@
                                              |
                                              |
                                              |
-                                          Mallory
+                                            Eve
    ```
-   Alice and Bob point of view
+   
 
 <br/>
 
 ## Cryptanalysis
    - Cryptanalysis is the process of analyzing cryptographic systems to look for 
-   weaknesses or leaks of information.
+   weaknesses or leaks of information, Eve point of view
 
    ```sh
    Alice <---------------------------------------------------------------------------------> Bob
@@ -34,12 +34,25 @@
                                              |
                                              |
                                              |
-                                          Mallory
+                                            Eve
    ```
-   Mallory point of view
 
 <br/>
 <br/>
+
+- Some terms and definitions
+
+   - Alice
+   - Bob
+   - Eve
+   - Plaintext
+   - Ciphertext
+   - Encryption
+   - Decryption
+   - Cryptosystem 
+   - Cryptography 
+   - Cryptanalysis
+   - Cryptology
 
 
 # Concept
@@ -203,7 +216,7 @@ the information is intended can read and process it. [Cryptography]
                                                 |
                                                 |
                                                 |
-                                             Mallory ✔
+                                               Eve ✔
       ```
       Obfuscation, Steganography, or Coding
 
@@ -221,7 +234,7 @@ the information is intended can read and process it. [Cryptography]
                                                 |
                                                 |
                                                 |
-                                             Mallory ✗
+                                               Eve ✗
       ```
       Encryption
 
@@ -346,30 +359,9 @@ Asymmetric encryption uses two keys to encrypt and decrypt a plaintext.
 <br/>
 
 # Tools
-## [openssl] 
-a robust, commercial-grade, full-featured toolkit for general-purpose cryptography and secure communication.
-
-   - Obtaining the List of Supported Suites
-      ```sh
-      openssl ciphers -v 'ALL:COMPLEMENTOFALL'
-      ```
-
-   - Performance
-      ```sh
-      openssl speed rc4 aes rsa ecdh sha
-      ```
-
-   - Base64 Encoding Decoding text
-      ```sh
-      echo -n 'This should be encoded' | openssl base64
-      echo VGhpcyBzaG91bGQgYmUgZW5jb2RlZA== | openssl base64 -d
-      ```
-
-   - Base64 Encoding Decoding file
-      ```sh
-      openssl base64 -in letter.txt -out .letter.base64.coded.txt
-      openssl base64 -d -in .letter.base64.coded.txt -out .letter.base64.decoded.txt
-      ```
+- [openssl] a robust, commercial-grade, full-featured toolkit for general-purpose cryptography and secure communication.
+- openssh   
+- gpg 
 
 # Cryptanalysis
 Cryptanalysis refers to the process of analyzing information systems in order to understand hidden
