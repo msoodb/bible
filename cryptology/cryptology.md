@@ -24,7 +24,8 @@
 <br/>
 
 ## Cryptanalysis
-   - Cryptanalysis is the process of analyzing cryptographic systems to look for weaknesses or leaks of information.
+   - Cryptanalysis is the process of analyzing cryptographic systems to look for 
+   weaknesses or leaks of information.
 
    ```sh
    Alice <---------------------------------------------------------------------------------> Bob
@@ -47,6 +48,7 @@
    - Coding
    - Encryption
    - Hash Functions
+
 <br/>
 <br/>
 <br/>
@@ -134,21 +136,29 @@ Encryption is the process of securing data for a processing needs.
 
    128 bit key
    ```sh
-   10100110110011111000010001101011011011101111111011100111110100101101110100011011010010010001100010101111000011100110000011111110
+   10100110110011111000010001101011011011101111111011100111110100101101110100011011010010
+   010001100010101111000011100110000011111110
    ```
 
    <br/>
 
    256 bit key
    ```sh
-   0011101110101111001000100011111011110110100011001100000101111110000000000000010001110000111101110101111001101001010011011010000001100111111100110100000000111100010011111110101001110011010010011010011101010001101110101000000111101000011011111000000011011100
+   001110111010111100100010001111101111011010001100110000010111111000000000000001000111000
+   011110111010111100110100101001101101000000110011111110011010000000011110001001111111010
+   1001110011010010011010011101010001101110101000000111101000011011111000000011011100
    ```
    
 
 <br/>
 
 ## Hash Functions
-A cryptographic hash function (CHF) is a mathematical algorithm that maps data of an arbitrary size (often called the "message") to a bit array of a fixed size (the "hash value", "hash", or "message digest"). It is a one-way function, that is, a function for which it is practically infeasible to invert or reverse the computation.
+
+A cryptographic hash function (CHF) is a mathematical algorithm that maps data of an arbitrary
+size (often called the "message") to a bit array of a fixed size (the "hash value", "hash", or
+"message digest"). It is a  one-way  function, that is, a function for which it is practically
+infeasible to invert or reverse the computation.
+
 
 <br/>
 
@@ -168,7 +178,8 @@ A cryptographic hash function (CHF) is a mathematical algorithm that maps data o
    - it is quick to compute the hash value for any given message.
    - it is infeasible to generate a message that yields a given hash value.
    - it is infeasible to find two different messages with the same hash value.
-   - a small change to a message should change the hash value so extensively that a new hash value appears uncorrelated with the old hash value (avalanche effect).
+   - a small change to a message should change the hash value so extensively that a new hash value appears
+    uncorrelated with the old hash value (avalanche effect).
 
 | Input | Algorithm | Hash |
 | ------ | ------ |------ |
@@ -178,7 +189,8 @@ A cryptographic hash function (CHF) is a mathematical algorithm that maps data o
 <br/>
 
 ## Cryptography
-Cryptography is a method of protecting information and communications, so that only those for whom the information is intended can read and process it. [Cryptography]
+Cryptography is a method of protecting information and communications, so that only those for whom 
+the information is intended can read and process it. [Cryptography]
 
    ### Communication
 
@@ -233,7 +245,11 @@ Cryptography is a method of protecting information and communications, so that o
 <br/>
 
 ### Classic cryptography [... - WWII]
-The main classical cipher types are transposition ciphers, which rearrange the order of letters in a message (e.g., 'hello world' becomes 'ehlol owrdl' in a trivially simple rearrangement scheme), and substitution ciphers, which systematically replace letters or groups of letters with other letters or groups of letters (e.g., 'fly at once' becomes 'gmz bu podf' by replacing each letter with the one following it in the Latin alphabet)
+The main classical cipher types are transposition ciphers, which rearrange the order of letter in a 
+message (e.g., 'hello world' becomes 'ehlol owrdl' in a trivially simple rearrangement scheme), and
+substitution ciphers, which systematically replace letters or groups of letters with other letters or
+groups of letters (e.g., 'fly at once' becomes 'gmz bu podf' by replacing each letter with the one
+following it in the Latin alphabet)
 
    - [Caesar cipher]
    - [Auguste Kerckhoffs Rules]
@@ -290,7 +306,8 @@ Claude E. Shannon — Published September 1945
 <br/>
 
 ### Goals
- In Cryptography, an Adversary is a malicious entity, which aims to retrieve precious information or data thereby undermining the principles of information security. \
+ In Cryptography, an Adversary is a malicious entity, which aims to retrieve precious information
+ or data thereby undermining the principles of information security. \
  Data Confidentiality, Data Integrity, Authentication and Non-repudiation are core principles of modern-day cryptography. \
 [![N|Solid](src/cia-triad.png)](/src/cia-triad.png/)
 - [Confidentiality], the information cannot be understood by anyone for whom it was unintended.
@@ -355,7 +372,10 @@ a robust, commercial-grade, full-featured toolkit for general-purpose cryptograp
       ```
 
 # Cryptanalysis
-Cryptanalysis refers to the process of analyzing information systems in order to understand hidden aspects of the systems. Cryptanalysis is used to breach cryptographic security systems and gain access to the contents of encrypted messages, even if the cryptographic key is unknown. [Cryptanalysis] or "Simpley decrypty a cipher without knowing the key".
+Cryptanalysis refers to the process of analyzing information systems in order to understand hidden
+ aspects of the systems. Cryptanalysis is used to breach cryptographic security systems and gain 
+ access to the contents of encrypted messages, even if the cryptographic key is unknown. 
+ [Cryptanalysis] or "Simpley decrypty a cipher without knowing the key".
 
    - Brute Force Attack (BFA)
       - Brute Force
@@ -377,7 +397,8 @@ Cryptanalysis refers to the process of analyzing information systems in order to
 ## Brute Force Attack (BFA)
 
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
+[//]: # (These are reference links used in the body of this note and get stripped out when 
+the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
    [Cryptography]: <https://en.wikipedia.org/wiki/Cryptography>
    [Cryptanalysis]: <https://en.wikipedia.org/wiki/Cryptanalysis>
 
