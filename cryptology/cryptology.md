@@ -11,7 +11,7 @@
    - Secure Communication Over Insecure Channels, Alice and Bob point of view
 
    ```sh
-   Alice <---------------------------------------------------------------------------------> Bob
+   Alice ---------------------------------------------------------------------------------> Bob
                                              |
                                              |
                                              |
@@ -28,7 +28,7 @@
    weaknesses or leaks of information, Eve point of view
 
    ```sh
-   Alice <---------------------------------------------------------------------------------> Bob
+   Alice ---------------------------------------------------------------------------------> Bob
                                              |
                                              |
                                              |
@@ -42,18 +42,28 @@
 
 - Some terms and definitions
 
-   - Alice
-   - Bob
-   - Eve
-   - Plaintext
-   - Ciphertext
-   - Encryption
-   - Decryption
-   - Cryptosystem 
-   - Cryptography 
-   - Cryptanalysis
-   - Cryptology
+| term | definition | sample |
+| ------ | ------ | ------ |
+| Alice | Sender of the message | |
+| Bob | Receiver | |
+| Eve | Eavesdropper or unintended party | |
+| Plaintext | Message to be sent | "meet me at the hotel." |
+| Codetext | Coded message | -- . . - -- . .- - - .... . .... --- - . .-.. .-.-.- |
+| Ciphertext | Encrypted message| U2FsdGVkX1+iot/Zcl7Oq+4DcNcP/OHtSxH3V4vgAFVXgTXbIWAMMO7zqW0J2/Ue |
+| Encoding | Converting data from plaintext to codetext | |
+| Decoding | Converting data from codetext to plaintext | |
+| Encryption | Converting data from plaintext to ciphertext with a key, which can only be decrypted by the key | |
+| Decryption | Converting data from ciphertext to plaintext by the key | |
+| Hash | It is a one-way function, that maps data of an arbitrary size to a bit array of a fixed size  | sha1("meet me at the hotel.") = af9d989aefce179cd43ee35ffde6824dc5cba257 |
+| cipher | An algorithm for performing encryption or decryption | aes-128-cbc |
+| Cipher suite | A set of algorithms that help secure a network connection, a key exchange algorithm, a bulk encryption algorithm, and a message authentication code (MAC) algorithm | SA-PSK-AES256-GCM-SHA384 TLSv1.2 Kx=RSAPSK   Au=RSA  Enc=AESGCM(256) Mac=AEAD|
+| Cryptosystem | | |
+| Cryptography | | |
+| Cryptanalysis | | |
+| Cryptology | | |
 
+<br/>
+<br/>
 
 # Concept
    - Obfuscation
@@ -64,8 +74,6 @@
 
 <br/>
 <br/>
-<br/>
-
 
 ## Obfuscation
 Is the obscuring of the intended meaning of communication by making the message difficult to understand, 
@@ -88,11 +96,11 @@ Is the practice of concealing a message within another message or a physical obj
 Coding is the process of converting data from/into a format required for a processing needs.
 
 ```sh
-plaintext  ---------------(Encode)---------------> coded
+plaintext  ---------------(Encode)---------------> codetext
 ```
 
 ```sh
-coded  ---------------(Decode)---------------> plaintext
+codetext  ---------------(Decode)---------------> plaintext
 ```
 
 
@@ -210,7 +218,7 @@ the information is intended can read and process it. [Cryptography]
    - Insecure Communication
 
       ```sh
-      Alice <---------------------------------------------------------------------------------> Bob
+      Alice ---------------------------------------------------------------------------------> Bob
                                                 |
                                                 |
                                                 |
@@ -228,7 +236,7 @@ the information is intended can read and process it. [Cryptography]
    - Secure Communication
 
       ```sh
-      Alice <---------------------------------------------------------------------------------> Bob
+      Alice ---------------------------------------------------------------------------------> Bob
                                                 |
                                                 |
                                                 |
@@ -372,10 +380,7 @@ Cryptanalysis refers to the process of analyzing information systems in order to
    - Brute Force Attack (BFA)
       - Brute Force
       - Dictionary
-      - Rainbow Table
-      
-   <br/>
-
+      - Rainbow Table      
    - Ciphertext Only Attacks (COA)
    - Known Plaintext Attack (KPA)
    - Chosen Plaintext Attack (CPA)
@@ -385,8 +390,6 @@ Cryptanalysis refers to the process of analyzing information systems in order to
    - Side Channel Attack (SCA)
 
 <br/>
-
-## Brute Force Attack (BFA)
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when 
