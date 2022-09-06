@@ -217,21 +217,20 @@ if encryption and decryption both use the same key cipher is Symmetric, otherwis
 
 ## Symmetric
 
-
 - Alice and Bob agree on secret key
 - Alice encrypt plaintext with key and sent to Bob
 - Bob decrypt plaintext with key
 
 
 ```
-         Encrypt(plaintext, key) --> ciphertext               Decrypt(ciphertext, key) --> plaintext
-   Alice ---------------------------------------------------------------------------------> Bob
-                                             |
-                                             |
-                                             | Decrypt(ciphertext, ???) --> xxxxxx
-                                             |
-                                             |
-                                            Eve
+         Encrypt(plaintext, key) --> ciphertext         Decrypt(ciphertext, key) --> plaintext
+   Alice --------------------------------------------------------------------------------------> Bob
+                                                 |
+                                                 |
+                                                 | Decrypt(ciphertext, ???) --> xxxxxx
+                                                 |
+                                                 |
+                                                Eve
 ```
 
 
@@ -239,6 +238,27 @@ if encryption and decryption both use the same key cipher is Symmetric, otherwis
 
 ## Asymmetric
 
+- Bob create pair of keys, {public key, private key}
+- Bob send public key to Alice
+- Alice encrypt plaintext with Bob public key and sent it to Bob
+- Bob decrypt plaintext with private key
+
+```
+         Encrypt(plaintext, Bob's public key) --> ciphertext    Decrypt(ciphertext, private key) --> plaintext
+   Alice ---------------------------------------------------------------------------------------------------> Bob
+                                                         |                                {public key, private key}
+                                                         |
+                                                         | Bob's private key = ???
+                                                         | ciphertext = xxxxxx
+                                                         |
+                                                         |
+                                                        Eve
+```
+
+<hr/>
+
+
+## Cipher
 
 - Bob create pair of keys, {public key, private key}
 - Bob send public key to Alice
@@ -251,7 +271,7 @@ if encryption and decryption both use the same key cipher is Symmetric, otherwis
 
 ```
          Encrypt(key, Bob's public key) --> key.enc             Decrypt(key.enc, private key) --> key
-         Encrypt(plaintext, key) --> ciphertext                     Decrypt(ciphertext, key) --> plaintext
+         Encrypt(plaintext, key) --> ciphertext                 Decrypt(ciphertext, key) --> plaintext
    Alice ---------------------------------------------------------------------------------------------------> Bob
                                                          |                                {public key, private key}
                                                          |

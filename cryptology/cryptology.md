@@ -340,6 +340,17 @@ Claude E. Shannon — Published September 1945
 Are algorithms for cryptography that use the same cryptographic keys for both the encryption of plaintext and the decryption of ciphertext.
 [![N|Solid](src/Symmetric-Encryption.png)](/src/Symmetric-Encryption.png/)
 
+```
+          Encrypt(plaintext, key) --> ciphertext        Decrypt(ciphertext, key) --> plaintext
+   Alice --------------------------------------------------------------------------------------> Bob
+                                                   |
+                                                   |
+                                                   | Decrypt(ciphertext, ???) --> xxxxxx
+                                                   |
+                                                   |
+                                                  Eve
+```
+
 - Stream
    - Classic
       - Substitution: caesar-cipher, Shift-cipher, vigenère-cipher
@@ -357,6 +368,19 @@ Are algorithms for cryptography that use the same cryptographic keys for both th
 ### Algorithms: Asymmetric
 Asymmetric encryption uses two keys to encrypt and decrypt a plaintext.  
 [![N|Solid](src/Asymmetric-Encryption.png)](/src/Asymmetric-Encryption.png/)
+
+```
+         Encrypt(plaintext, Bob's public key) --> ciphertext    Decrypt(ciphertext, private key) --> plaintext
+   Alice ---------------------------------------------------------------------------------------------------> Bob
+                                                         |                                {public key, private key}
+                                                         |
+                                                         | ciphertext
+                                                         | Bob's private key = ???
+                                                         | plaintext = xxxxxx
+                                                         |
+                                                         |
+                                                        Eve
+```
 
 - Diffie-Hellman
 - [RSA]
@@ -391,6 +415,95 @@ Cryptanalysis refers to the process of analyzing information systems in order to
 
 <br/>
 
+## Brute force attack
+As an old technique, brute force means exhausting very possibility until a match is found. Even in classic cryptography, brute force attack is considered time-consuming.
+In modern cryptography, the length of a brute force attack depends exponentially on the length of the key. Since modern cryptography uses very long keys, brute force attack is considered inefficient for all practical purposes.
+
+```
+          Encrypt(plaintext, key) --> ciphertext        Decrypt(ciphertext, key) --> plaintext
+   Alice --------------------------------------------------------------------------------------> Bob
+                                                   |
+                                                   |
+                                                   | Decrypt(ciphertext, ???) --> xxxxxx
+                                                   | 128 bit key = ???
+                                                   |
+                                                  Eve
+```
+
+Example: key length is 128 bit
+
+- possible keys:
+```
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000
+   .....
+   .....
+   .....
+   .....
+   11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+```
+- how many possible key: 2^128 = 340,282,366,920,938,463,463,374,607,431,768,211,456 =~ 3.4 x 10^38
+
+So a 128-bit symmetric key is computationally secure against brute-force attack. Why?
+
+- flops: floating point operations per second (FLOPS, flops or flop/s) is a measure of computer performance
+- We have a supercomputer with 100 exaFLOPS power, 100 * 10^18.
+- Number of Flops required per combination check: 1000 
+   - => Number of combination checks per second = (100 * 10^18) / (10^3) = 100 * 10^15 = 1 * 10^17
+   - => Number of Seconds to crack AES with 128-bit Key = (3.4 x 10^38) / (1 * 10^17) = 304 * 10^20 second
+- Number of seconds in one Year = 31536000 = (315 * 10^5)
+   - => Number of Years to crack AES with 128-bit Key = (304 * 10^20) / (315 * 10^5) = 1 * 10^15 years
+
+
+
+<br/>
+
+## Chosen plaintext attack
+The attacker, in this case, inputs a plaintext and observes the output ciphertext obtained. By examining the plaintext – ciphertext pair, he can easily guess the encryption key. The differential analysis done on RSA algorithm is an example of such attack.
+
+<br/>
+
+## Man in the middle attack
+
+Algorithms: Asymmetric
+
+```
+         Encrypt(plaintext, Bob's public key) --> ciphertext    Decrypt(ciphertext, private key) --> plaintext
+   Alice ---------------------------------------------------------------------------------------------------> Bob
+                                                            |                                {public key, private key}
+                                                            |
+                                                            | Bob's private key = ???
+                                                            | ciphertext = xxxxxx
+                                                            |
+                                                            |
+                                                           Eve
+```
+
+attack scenario: Eve send his public key to Alice
+```
+         Encrypt(plaintext, Eve's public key) --> ciphertext    Decrypt(ciphertext, private key) --> xxxxxxx
+   Alice ---------------------------------------------------------------------------------------------------> Bob
+                                                            |                                {public key, private key}
+                                                            |
+                                                            | 
+                                                            | Decrypt(ciphertext, private key) --> plaintext
+                                                            |
+                                                            |
+                                                           Eve {public key, private key}
+```
+<hr/>
+
+- <https://en.wikipedia.org/wiki/Cryptography>
+- <https://en.wikipedia.org/wiki/Cryptanalysis>
+- https://resources.infosecinstitute.com/topic/cryptanalysis-tools/
+- https://en.wikipedia.org/wiki/FLOPS
+- <https://evervault.com/papers/shannon-communication.pdf>
 
 [//]: # (These are reference links used in the body of this note and get stripped out when 
 the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
