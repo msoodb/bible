@@ -8,38 +8,62 @@
 <br/>
 
 ## Cryptography
-   - Secure Communication Over Insecure Channels
+   - Secure Communication Over Insecure Channels, Alice and Bob point of view
 
    ```sh
-   Alice <---------------------------------------------------------------------------------> Bob
+   Alice ---------------------------------------------------------------------------------> Bob
                                              |
                                              |
                                              |
                                              |
                                              |
-                                          Mallory
+                                            Eve
    ```
-   Alice and Bob point of view
+   
 
 <br/>
 
 ## Cryptanalysis
-   - Cryptanalysis is the process of analyzing cryptographic systems to look for weaknesses or leaks of information.
+   - Cryptanalysis is the process of analyzing cryptographic systems to look for 
+   weaknesses or leaks of information, Eve point of view
 
    ```sh
-   Alice <---------------------------------------------------------------------------------> Bob
+   Alice ---------------------------------------------------------------------------------> Bob
                                              |
                                              |
                                              |
                                              |
                                              |
-                                          Mallory
+                                            Eve
    ```
-   Mallory point of view
 
 <br/>
 <br/>
 
+- Some terms and definitions
+
+| term | definition | sample |
+| ------ | ------ | ------ |
+| Alice | Sender of the message | |
+| Bob | Receiver | |
+| Eve | Eavesdropper or unintended party | |
+| Plaintext | Message to be sent | "meet me at the hotel." |
+| Codetext | Coded message | -- . . - -- . .- - - .... . .... --- - . .-.. .-.-.- |
+| Ciphertext | Encrypted message| U2FsdGVkX1+iot/Zcl7Oq+4DcNcP/OHtSxH3V4vgAFVXgTXbIWAMMO7zqW0J2/Ue |
+| Encoding | Converting data from plaintext to codetext | |
+| Decoding | Converting data from codetext to plaintext | |
+| Encryption | Converting data from plaintext to ciphertext with a key, which can only be decrypted by the key | |
+| Decryption | Converting data from ciphertext to plaintext by the key | |
+| Hash | It is a one-way function, that maps data of an arbitrary size to a bit array of a fixed size  | sha1("meet me at the hotel.") = af9d989aefce179cd43ee35ffde6824dc5cba257 |
+| cipher | An algorithm for performing encryption or decryption | aes-128-cbc |
+| Cipher suite | A set of algorithms that help secure a network connection, a key exchange algorithm, a bulk encryption algorithm, and a message authentication code (MAC) algorithm | SA-PSK-AES256-GCM-SHA384 TLSv1.2 Kx=RSAPSK   Au=RSA  Enc=AESGCM(256) Mac=AEAD|
+| Cryptosystem | | |
+| Cryptography | | |
+| Cryptanalysis | | |
+| Cryptology | | |
+
+<br/>
+<br/>
 
 # Concept
    - Obfuscation
@@ -47,10 +71,9 @@
    - Coding
    - Encryption
    - Hash Functions
-<br/>
-<br/>
-<br/>
 
+<br/>
+<br/>
 
 ## Obfuscation
 Is the obscuring of the intended meaning of communication by making the message difficult to understand, 
@@ -73,11 +96,11 @@ Is the practice of concealing a message within another message or a physical obj
 Coding is the process of converting data from/into a format required for a processing needs.
 
 ```sh
-plain  ---------------(Encode)---------------> coded
+plaintext  ---------------(Encode)---------------> codetext
 ```
 
 ```sh
-coded  ---------------(Decode)---------------> plain
+codetext  ---------------(Decode)---------------> plaintext
 ```
 
 
@@ -104,11 +127,11 @@ Encryption is the process of securing data for a processing needs.
 
 
    ```sh
-   plain  ---------------(Encrypt, key=K)---------------> cipher
+   plaintext  ---------------(Encrypt, key=K)---------------> ciphertext
    ```
 
    ```sh
-   cipher  ---------------(Decrypt, key=K)---------------> plain
+   ciphertext  ---------------(Decrypt, key=K)---------------> plaintext
    ```
 
 
@@ -134,21 +157,29 @@ Encryption is the process of securing data for a processing needs.
 
    128 bit key
    ```sh
-   10100110110011111000010001101011011011101111111011100111110100101101110100011011010010010001100010101111000011100110000011111110
+   10100110110011111000010001101011011011101111111011100111110100101101110100011011010010
+   010001100010101111000011100110000011111110
    ```
 
    <br/>
 
    256 bit key
    ```sh
-   0011101110101111001000100011111011110110100011001100000101111110000000000000010001110000111101110101111001101001010011011010000001100111111100110100000000111100010011111110101001110011010010011010011101010001101110101000000111101000011011111000000011011100
+   001110111010111100100010001111101111011010001100110000010111111000000000000001000111000
+   011110111010111100110100101001101101000000110011111110011010000000011110001001111111010
+   1001110011010010011010011101010001101110101000000111101000011011111000000011011100
    ```
    
 
 <br/>
 
 ## Hash Functions
-A cryptographic hash function (CHF) is a mathematical algorithm that maps data of an arbitrary size (often called the "message") to a bit array of a fixed size (the "hash value", "hash", or "message digest"). It is a one-way function, that is, a function for which it is practically infeasible to invert or reverse the computation.
+
+A cryptographic hash function (CHF) is a mathematical algorithm that maps data of an arbitrary
+size (often called the "message") to a bit array of a fixed size (the "hash value", "hash", or
+"message digest"). It is a  one-way  function, that is, a function for which it is practically
+infeasible to invert or reverse the computation.
+
 
 <br/>
 
@@ -168,7 +199,8 @@ A cryptographic hash function (CHF) is a mathematical algorithm that maps data o
    - it is quick to compute the hash value for any given message.
    - it is infeasible to generate a message that yields a given hash value.
    - it is infeasible to find two different messages with the same hash value.
-   - a small change to a message should change the hash value so extensively that a new hash value appears uncorrelated with the old hash value (avalanche effect).
+   - a small change to a message should change the hash value so extensively that a new hash value appears
+    uncorrelated with the old hash value (avalanche effect).
 
 | Input | Algorithm | Hash |
 | ------ | ------ |------ |
@@ -178,20 +210,21 @@ A cryptographic hash function (CHF) is a mathematical algorithm that maps data o
 <br/>
 
 ## Cryptography
-Cryptography is a method of protecting information and communications, so that only those for whom the information is intended can read and process it. [Cryptography]
+Cryptography is a method of protecting information and communications, so that only those for whom 
+the information is intended can read and process it. [Cryptography]
 
    ### Communication
 
    - Insecure Communication
 
       ```sh
-      Alice <---------------------------------------------------------------------------------> Bob
+      Alice ---------------------------------------------------------------------------------> Bob
                                                 |
                                                 |
                                                 |
                                                 |
                                                 |
-                                             Mallory ✔
+                                               Eve ✔
       ```
       Obfuscation, Steganography, or Coding
 
@@ -203,13 +236,13 @@ Cryptography is a method of protecting information and communications, so that o
    - Secure Communication
 
       ```sh
-      Alice <---------------------------------------------------------------------------------> Bob
+      Alice ---------------------------------------------------------------------------------> Bob
                                                 |
                                                 |
                                                 |
                                                 |
                                                 |
-                                             Mallory ✗
+                                               Eve ✗
       ```
       Encryption
 
@@ -233,7 +266,11 @@ Cryptography is a method of protecting information and communications, so that o
 <br/>
 
 ### Classic cryptography [... - WWII]
-The main classical cipher types are transposition ciphers, which rearrange the order of letters in a message (e.g., 'hello world' becomes 'ehlol owrdl' in a trivially simple rearrangement scheme), and substitution ciphers, which systematically replace letters or groups of letters with other letters or groups of letters (e.g., 'fly at once' becomes 'gmz bu podf' by replacing each letter with the one following it in the Latin alphabet)
+The main classical cipher types are transposition ciphers, which rearrange the order of letter in a 
+message (e.g., 'hello world' becomes 'ehlol owrdl' in a trivially simple rearrangement scheme), and
+substitution ciphers, which systematically replace letters or groups of letters with other letters or
+groups of letters (e.g., 'fly at once' becomes 'gmz bu podf' by replacing each letter with the one
+following it in the Latin alphabet)
 
    - [Caesar cipher]
    - [Auguste Kerckhoffs Rules]
@@ -290,7 +327,8 @@ Claude E. Shannon — Published September 1945
 <br/>
 
 ### Goals
- In Cryptography, an Adversary is a malicious entity, which aims to retrieve precious information or data thereby undermining the principles of information security. \
+ In Cryptography, an Adversary is a malicious entity, which aims to retrieve precious information
+ or data thereby undermining the principles of information security. \
  Data Confidentiality, Data Integrity, Authentication and Non-repudiation are core principles of modern-day cryptography. \
 [![N|Solid](src/cia-triad.png)](/src/cia-triad.png/)
 - [Confidentiality], the information cannot be understood by anyone for whom it was unintended.
@@ -301,6 +339,17 @@ Claude E. Shannon — Published September 1945
 ### Algorithms: Symmetric
 Are algorithms for cryptography that use the same cryptographic keys for both the encryption of plaintext and the decryption of ciphertext.
 [![N|Solid](src/Symmetric-Encryption.png)](/src/Symmetric-Encryption.png/)
+
+```
+          Encrypt(plaintext, key) --> ciphertext        Decrypt(ciphertext, key) --> plaintext
+   Alice --------------------------------------------------------------------------------------> Bob
+                                                   |
+                                                   |
+                                                   | Decrypt(ciphertext, ???) --> xxxxxx
+                                                   |
+                                                   |
+                                                  Eve
+```
 
 - Stream
    - Classic
@@ -317,8 +366,21 @@ Are algorithms for cryptography that use the same cryptographic keys for both th
 <br/>
 
 ### Algorithms: Asymmetric
-Asymmetric encryption uses two keys to encrypt and decrypt a plain text.  
+Asymmetric encryption uses two keys to encrypt and decrypt a plaintext.  
 [![N|Solid](src/Asymmetric-Encryption.png)](/src/Asymmetric-Encryption.png/)
+
+```
+         Encrypt(plaintext, Bob's public key) --> ciphertext    Decrypt(ciphertext, private key) --> plaintext
+   Alice ---------------------------------------------------------------------------------------------------> Bob
+                                                         |                                {public key, private key}
+                                                         |
+                                                         | ciphertext
+                                                         | Bob's private key = ???
+                                                         | plaintext = xxxxxx
+                                                         |
+                                                         |
+                                                        Eve
+```
 
 - Diffie-Hellman
 - [RSA]
@@ -329,41 +391,20 @@ Asymmetric encryption uses two keys to encrypt and decrypt a plain text.
 <br/>
 
 # Tools
-## [openssl] 
-a robust, commercial-grade, full-featured toolkit for general-purpose cryptography and secure communication.
-
-   - Obtaining the List of Supported Suites
-      ```sh
-      openssl ciphers -v 'ALL:COMPLEMENTOFALL'
-      ```
-
-   - Performance
-      ```sh
-      openssl speed rc4 aes rsa ecdh sha
-      ```
-
-   - Base64 Encoding Decoding text
-      ```sh
-      echo -n 'This should be encoded' | openssl base64
-      echo VGhpcyBzaG91bGQgYmUgZW5jb2RlZA== | openssl base64 -d
-      ```
-
-   - Base64 Encoding Decoding file
-      ```sh
-      openssl base64 -in letter.txt -out .letter.base64.coded.txt
-      openssl base64 -d -in .letter.base64.coded.txt -out .letter.base64.decoded.txt
-      ```
+- [openssl] a robust, commercial-grade, full-featured toolkit for general-purpose cryptography and secure communication.
+- openssh   
+- gpg 
 
 # Cryptanalysis
-Cryptanalysis refers to the process of analyzing information systems in order to understand hidden aspects of the systems. Cryptanalysis is used to breach cryptographic security systems and gain access to the contents of encrypted messages, even if the cryptographic key is unknown. [Cryptanalysis] or "Simpley decrypty a cipher without knowing the key".
+Cryptanalysis refers to the process of analyzing information systems in order to understand hidden
+ aspects of the systems. Cryptanalysis is used to breach cryptographic security systems and gain 
+ access to the contents of encrypted messages, even if the cryptographic key is unknown. 
+ [Cryptanalysis] or "Simpley decrypty a ciphertext without knowing the key".
 
    - Brute Force Attack (BFA)
       - Brute Force
       - Dictionary
-      - Rainbow Table
-      
-   <br/>
-
+      - Rainbow Table      
    - Ciphertext Only Attacks (COA)
    - Known Plaintext Attack (KPA)
    - Chosen Plaintext Attack (CPA)
@@ -374,10 +415,98 @@ Cryptanalysis refers to the process of analyzing information systems in order to
 
 <br/>
 
-## Brute Force Attack (BFA)
+## Brute force attack
+As an old technique, brute force means exhausting very possibility until a match is found. Even in classic cryptography, brute force attack is considered time-consuming.
+In modern cryptography, the length of a brute force attack depends exponentially on the length of the key. Since modern cryptography uses very long keys, brute force attack is considered inefficient for all practical purposes.
+
+```
+          Encrypt(plaintext, key) --> ciphertext        Decrypt(ciphertext, key) --> plaintext
+   Alice --------------------------------------------------------------------------------------> Bob
+                                                   |
+                                                   |
+                                                   | Decrypt(ciphertext, ???) --> xxxxxx
+                                                   | 128 bit key = ???
+                                                   |
+                                                  Eve
+```
+
+Example: key length is 128 bit
+
+- possible keys:
+```
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111
+   00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000
+   .....
+   .....
+   .....
+   .....
+   11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+```
+- how many possible key: 2^128 = 340,282,366,920,938,463,463,374,607,431,768,211,456 =~ 3.4 x 10^38
+
+So a 128-bit symmetric key is computationally secure against brute-force attack. Why?
+
+- flops: floating point operations per second (FLOPS, flops or flop/s) is a measure of computer performance
+- We have a supercomputer with 100 exaFLOPS power, 100 * 10^18.
+- Number of Flops required per combination check: 1000 
+   - => Number of combination checks per second = (100 * 10^18) / (10^3) = 100 * 10^15 = 1 * 10^17
+   - => Number of Seconds to crack AES with 128-bit Key = (3.4 x 10^38) / (1 * 10^17) = 304 * 10^20 second
+- Number of seconds in one Year = 31536000 = (315 * 10^5)
+   - => Number of Years to crack AES with 128-bit Key = (304 * 10^20) / (315 * 10^5) = 1 * 10^15 years
 
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
+
+<br/>
+
+## Chosen plaintext attack
+The attacker, in this case, inputs a plaintext and observes the output ciphertext obtained. By examining the plaintext – ciphertext pair, he can easily guess the encryption key. The differential analysis done on RSA algorithm is an example of such attack.
+
+<br/>
+
+## Man in the middle attack
+
+Algorithms: Asymmetric
+
+```
+         Encrypt(plaintext, Bob's public key) --> ciphertext    Decrypt(ciphertext, private key) --> plaintext
+   Alice ---------------------------------------------------------------------------------------------------> Bob
+                                                            |                                {public key, private key}
+                                                            |
+                                                            | Bob's private key = ???
+                                                            | ciphertext = xxxxxx
+                                                            |
+                                                            |
+                                                           Eve
+```
+
+attack scenario: Eve send his public key to Alice
+```
+         Encrypt(plaintext, Eve's public key) --> ciphertext    Decrypt(ciphertext, private key) --> xxxxxxx
+   Alice ---------------------------------------------------------------------------------------------------> Bob
+                                                            |                                {public key, private key}
+                                                            |
+                                                            | 
+                                                            | Decrypt(ciphertext, private key) --> plaintext
+                                                            |
+                                                            |
+                                                           Eve {public key, private key}
+```
+<hr/>
+
+- <https://en.wikipedia.org/wiki/Cryptography>
+- <https://en.wikipedia.org/wiki/Cryptanalysis>
+- https://resources.infosecinstitute.com/topic/cryptanalysis-tools/
+- https://en.wikipedia.org/wiki/FLOPS
+- <https://evervault.com/papers/shannon-communication.pdf>
+
+[//]: # (These are reference links used in the body of this note and get stripped out when 
+the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
    [Cryptography]: <https://en.wikipedia.org/wiki/Cryptography>
    [Cryptanalysis]: <https://en.wikipedia.org/wiki/Cryptanalysis>
 
