@@ -10,7 +10,7 @@ chmod +x openvpn-install.sh
 sudo ./openvpn-install.sh
 
 # transfer file
-scp -P 33000 -i ~/.ssh/id_rsa_personal -r samoor@135.181.248.115:~/ovpn_clients/f_mehranfar.ovpn .
+scp -P 33000 -i ~/.ssh/id_rsa_personal -r samoor@135.181.248.115:~/ovpn_clients/samoor.ovpn .
 
 # vpn client: openvpn
 sudo dnf install openvpn

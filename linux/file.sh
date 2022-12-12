@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-# file
+# basic commands
 pwd
 ls file*.txt f??.txt b[arw].txt
 cp -r
@@ -12,10 +12,13 @@ cd ~ .. - /etc/yum.conf.d
 ln [-s] file.txt .
 readlink file.txt
 type ls [passwd]
-which passwd
-whereis passwd
-locate file.txt #updatedb
-find . -maxdepth 2 -iname "*.txt"
+
+# search
+which file                                    # locate the executable file associated with the given command by searching it in the path environment variable
+whereis file
+updatedb
+locate file
+find . -maxdepth 2 -iname "*.txt" 2>/dev/null
 grep -rnw '/path/to/somewhere/' -e 'pattern'
 
 # ownership -rwxrwxr-x 1 masoud masoud 2814 Oct 26 09:42 curl.sh
