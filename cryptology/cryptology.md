@@ -95,11 +95,11 @@ Is the practice of concealing a message within another message or a physical obj
 
 Coding is the process of converting data from/into a format required for a processing needs.
 
-```sh
+```
 plaintext  ---------------(Encode)---------------> codetext
 ```
 
-```sh
+```
 codetext  ---------------(Decode)---------------> plaintext
 ```
 
