@@ -32,6 +32,7 @@ sudo snap install john-the-ripper
 1- Single Crack Mode
 In single-crack mode, John takes a string and generates variations of that string in order to generate a set of passwords.
 ```sh
+john --single --format=raw-md5 single.txt
 ```
 
 2- Dictionary/Wordlist Mode
@@ -57,3 +58,32 @@ zip2john linuxhint.zip > linuxhint_password.txt
 - Crack a Windows Password
 - Crack a Linux Password
 - Crack a Zip File Password
+
+> Crack a Linux Password
+```sh
+sudo cat /etc/passwd
+sudo cat /etc/shadow
+```
+
+> /etc/shadow file fields and format
+
+user01:$6$.ZQU.W4VaOXnWtEe$k4LFzA7BZw.gSe/ZsNUkFa8VQiHS/mbRk5a.Pq/9ZNT0ZSFMsMO5CKMPdYZaJGM/5QiLFDJ5l0vGbt3LNbhbX1:19341:0:99999:7:::
+
+mark:$6$.n.:17736:0:99999:7:::
+[--] [----] [---] - [---] ----
+|      |      |   |   |   |||+-----------> 9. Unused
+|      |      |   |   |   ||+------------> 8. Expiration date
+|      |      |   |   |   |+-------------> 7. Inactivity period
+|      |      |   |   |   +--------------> 6. Warning period
+|      |      |   |   +------------------> 5. Maximum password age
+|      |      |   +----------------------> 4. Minimum password age
+|      |      +--------------------------> 3. Last password change
+|      +---------------------------------> 2. Encrypted Password $type$salt$hashed
++----------------------------------------> 1. Username
+
+type
+- $1$ – MD5
+- $2a$ – Blowfish
+- $2y$ – Eksblowfish
+- $5$ – SHA-256
+- $6$ – SHA-512
