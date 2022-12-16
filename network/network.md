@@ -1,45 +1,18 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-## Introduction
-- Offensive vs Defensive Security
-- Researching
-    - Google
-- Vulnerability Searching
-    - ExploitDB
-    - NVD
-    - CVE Mitre
-- Man Page
 
-## Linux
-- Fundamentals
-- Shell Script
-- Privilege Escalation
+| | OSI | | | TCP/IP | |
+|--|--|--|--|--|--|
+| 7 | Application  | H7+Data | Data | Application | 4 |
+| 6 | Presentation | H6+H7+Data | Data | Application | 4 |
+| 5 | Session | H5+H6+H7+Data | Data | Application | 4 |
+| 4 | Transport | H4+H5+H6+H7+Data | Segment / Datagram | Transport | 3 |
+| 3 | Network | H3+H4+H5+H6+H7+Data | Packet | Internet | 2 |
+| 2 | Data Link | H2+H3+H4+H5+H6+H7+Data+T2 | Frame | Network Interface | 1 |
+| 1 | Physical | | Stream | Network Interface | 1 |
+|||||||
 
-## programming
-- C
-- Python
 
-## Networking
-- OSI Model
-
-## Web
-- Websites
-- Fundamentals
-- OWASP Top 10
-- Burp Suite
-
-## Cryptography
-- Coding 
-- Encryption
-- Hash
-- Cipher
-
-## Windows
-- Fundamentals
-- Active Directory
-- Metasploit
-
-## Port and Services
 | Port    |      Service name     |                    Transport protocol |
 | ----    |      ---     |                    --- |
 | 20, 21  |    File Transfer Protocol (FTP)    |              TCP|
@@ -66,4 +39,22 @@
 | 3389    |     Remote Desktop Protocol           |       TCP and UDP |
 ||||
 
-https://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-sg-en-4/ch-ports.html
+
+# basic toosla
+- ping
+- traceroute
+- whois
+- dig
+- nslookup
+- nmap
+- tcpdump
+- smb
+- telnet
+- ftp
+- nfs
+- smtp
+- mysql
+- postgresql
+- http
+- ssh
+
