@@ -15,7 +15,7 @@
 Reconnaissance is the phase where the attacker gathers information about a target using active or passive means. The tools that are widely used in this process are 
 - NMAP
 - Hping
-- Google Dorks.
+- Google Dorks
 
 ## 2- Scanning
 In this process, the attacker begins to actively probe a target machine or network for vulnerabilities that can be exploited. The tools used in this process are 

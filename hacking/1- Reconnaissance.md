@@ -5,7 +5,7 @@ During reconnaissance, an ethical hacker attempts to gather as much information 
 - IP Addresses [ping]
 - Finding Hosting Company [https://www.ip2location.com/]
 - Website History [https://archive.org/]
-- Employee information [google]
+- Employee information [https://www.google.com/]
 - Phone numbers
 - E-mails
 - Job Information
