@@ -20,7 +20,7 @@ nmap [Scan Type(s)] [Options] {target specification}
 - Scan using Hostname
 - Scan using IP Address
 - Scan Multiple Hosts
-- Scan a whole Subnet
+- Scan a whole Subnet <nmap -sn 192.168.0.0/24>
 - Scan Multiple Servers using last octet of IP address
 - Scan list of Hosts from a File
 - Scan an IP Address Range
