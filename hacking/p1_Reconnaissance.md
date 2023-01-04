@@ -1,7 +1,8 @@
+
 Goal:
 - Gather as much information about a target as possible!
 
-Methods:
+Reconnaissence Methods:
 - Passive: gather information WITHOUT touching target.
 - Active: gather information WITH touching target.
 
@@ -45,7 +46,7 @@ Active Recon Tools:
 - [wpscan]: Wordpress CMS scan. <wpscan --url https://site.com --wp-content-dir -at -eu  >
 
 
-Automated Reconnaissence Framework
+Automated Reconnaissance Framework
 - Sn1per
 - amass
 - recon-ng
