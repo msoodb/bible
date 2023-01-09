@@ -57,3 +57,5 @@ Web Applicatin Vulnerability:
     - Business Logic <script>user.changeEmail('attacker@hacker.thm');</script>
 - [RCE]: Remote Code Execution
 - [SQLi]: SQL Injection
+    - In-Band SQL Injection
+    - Blind SQLi
