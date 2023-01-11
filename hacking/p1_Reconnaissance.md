@@ -31,6 +31,7 @@ Passive Recon Online Tools:
 - [ip2location]: Geo location <https://www.ip2location.com>
 - [alerts]: Set google change alert on target <https://www.google.com/alerts>
 - [shodan]: Shodan <https://www.shodan.io/dashboard>
+- [OSINT]: OSINT Framework <https://osintframework.com/>
 
 
 Active Recon Tools:

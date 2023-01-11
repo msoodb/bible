@@ -20,7 +20,7 @@ nmap [Scan Type(s)] [Options] {target specification}
 ## Practical Approach
 ```sh
 export IP=88.99.66.243
-nmap -p- --min-rate 10000 -v -oN nmap.all $IP
+nmap -p- --min-rate 10000 -v -oN nmap.full $IP
 sudo nmap -sV -sC -Pn -p 21,53,80,110,143,442,587,993,995 -oN nmap.details $IP
 ```
 [-sV]: Version Detector

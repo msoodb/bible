@@ -29,6 +29,7 @@ Vulnerability Scanning Tools and Public Repositories
 - [OpenVAS]
 - [Nikto]
 - [searchsploit]
+- [BurpSuite]
 - [ExploitDB] <https://www.exploit-db.com>
 - [NVD] <https://nvd.nist.gov/vuln/search>
 - [Mitre] <https://www.cve.org>
