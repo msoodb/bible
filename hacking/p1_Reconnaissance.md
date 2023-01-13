@@ -18,7 +18,7 @@ Passive Recon Tools:
 - [whatweb]: Website technology
 - [theHarvester]: OSINT platform <theHarvester -d site.com -b all>
 - [sublist3r]: Subdomain enumeration
-- [subfinder] : Subdomain enumeration
+- [subfinder] : Subdomain enumeration   
 
 Passive Recon Online Tools:
 - [netcraft]: Some usefull information <https://sitereport.netcraft.com/>
