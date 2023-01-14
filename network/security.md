@@ -45,3 +45,32 @@ Traffic Analysis / Network Traffic Analysis
 - [Snort]: Intrusion Detection and Prevention (Covered in Snort room)
 - [NetworkMiner]: Network Forensics (Covered in NetworkMiner room)
 - [Brim]:Threat Hunting (Covered in Brim room)
+
+
+Network Scanning Tools
+- [ping]: ICMP Scanning <ping 192.168.0.1>
+- [fping]: Live Hosts <fping -g -r 1 192.168.0.0/24>
+- [nmap]: Network Scan <nmap -sn 192.168.100.0/24>
+- [hping3]: Packet generator
+- [arp-scan]
+- [masscan]
+- [Wireshark]: Network Sniffing and Packet Analysis
+- [Zeek]: Network Monitoring
+- [Snort]: Intrusion Detection and Prevention
+- [NetworkMiner]: Network Forensics
+- [Brim]:Threat Hunting
+
+Sniffing Attack (Network Packet Capture)
+- [Wireshark]
+- [Tshark]
+- [tcpdump]
+
+Man-in-the-Middle (MITM) Attack Tools
+- [Ettercap]
+- [Bettercap]
+
+Exploitation Attack to Vulnerabilities Tools
+- [BeEF]
+- [MetaSploit]
+- [SQLMap]
+- [Manual]: Find the vulnerability and exploit with searchsploi, read it, and run it with python.

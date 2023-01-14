@@ -1,10 +1,12 @@
+# Recon 
 
-Goal:
-- Gather as much information about a target as possible!
-
-Reconnaissence Methods:
-- Passive: gather information WITHOUT touching target.
-- Active: gather information WITH touching target.
+INPUT: Company Name
+PROCESS:
+- Passive Reconnaissence, gather information WITHOUT touching target.
+- Active Reconnaissence, gather information WITH touching target.
+OUTPUT: 
+- Target IP
+- Information About Target as much as possible!
 
 Passive Recon Tools:
 - [host]: IP addresses 
@@ -40,13 +42,6 @@ Active Recon Tools:
 - [dnsrecon]: Active mode zone transfer, <dnsrecon -d site.com -t axfr>
 - [fierce] : Active Subdomain enumeration brute force
 - [knockpy] : Active Subdomain enumeration brute force
-- [nmap]: Port Scanning
-- [nikto]: Vulnerability scanning <nikto -h site.com>
-- [dirb]: Directory brute force
-- [dirbuster]: Directory brute force
-- [gobuster]: Directory brute force
-- [wfuzz]: Finding and exploiting web application vulnerabilities
-- [wpscan]: Wordpress CMS scan. <wpscan --url https://site.com --wp-content-dir -at -eu>
 
 
 Automated Reconnaissance Framework
