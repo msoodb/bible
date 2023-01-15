@@ -36,6 +36,7 @@ OUPUT:
 | 445      |   SMB  |   Server Message Block                         |  TCP                |
 | 2049     |   NFS  |   Network File System                          |  TCP                |
 | 989, 990 |   FTPS |   FTP over SSL/TLS (implicit mode)             |  TCP                |
+| 3306     |  MySql |   mysql                                        |  TCP                |
 | 3389     |   RDP  |   Remote Desktop Protocol                      |  TCP and UDP        |
 |          |        |                                                |                     |
 
@@ -80,17 +81,19 @@ OUPUT:
     - [hydra]: Wordlist Attack
     - [crunch]: Hybrid Dictionary Attack [crunch]
     - [RainbowCrack]: Rainbow Tables <http://project-rainbowcrack.com/table.htm>
+- [python]: Run python expolit file again
 
 ## FTP
 - [ftp]: ftp to remote server <ftp user@$IP>
+- [ftp]: Anonymous ftp to remote server <ftp anonymous@$IP>
 
 ## SSH
 - [ssh]: ssh to remote server <ssh user@$IP>
 - [hydra]: Brute Force Login
 
 
-
-
+## MySql
+- [mysql]: connet with root:root <mysql -u root -h $IP -p>
 
 
 
@@ -111,3 +114,6 @@ Vulnerability Scanning Tools and Public Repositories
 
 
 
+Stegan
+- [Steghide]
+- [binwalk]
