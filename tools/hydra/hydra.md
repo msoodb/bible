@@ -16,7 +16,7 @@ Hydra is a fairly straight forward tool to use, but we have to first understand 
 
 - Login or Wordlist for Usernames
 - Password or Wordlist for Passwords
-- IP address or Hostname
+- IP address or Hostname        
 - HTTP Method (POST/GET)
 - Directory/Path to the Login Page
 - Request Body for Username/Password

@@ -1,0 +1,1 @@
+nikto -h site.com
