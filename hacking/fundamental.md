@@ -22,8 +22,9 @@ Top 4 Penetration Testing Methodologies
 - PTES
 
 Penetration Test Process
-1- Reconnaissance
-2- Scanning
-3- Gaining Access
-4- Maintaining Access
-5- Clearing Tracks
+1- Recon
+2- Port
+3- Scan
+4- Shell
+5- Root
+6- Cover

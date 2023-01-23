@@ -113,6 +113,8 @@ Vulnerability Scanning Tools and Public Repositories
 - [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
 
 
+Firefox network.security.ports.banned.override
+- network.security.ports.banned.override > string : 22
 
 Stegan
 - [Steghide]

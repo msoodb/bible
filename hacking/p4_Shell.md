@@ -11,7 +11,8 @@ PROCESS:
 - Web Shell
     - webshell.php
 - SSH
-- Metasploit
+- FTP
+- ny Other Exploit
 OUPUT: 
 - shell
 
