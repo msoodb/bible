@@ -1,10 +1,8 @@
-# Deep Scan 
+# Scan 
 
 INPUT: Ports and Services
 PROCESS:
-- Deep Scan Service
-- Enumerate Service
-- Exploit Service
+- Scan/Enumerate/Exploit Service
 - Find Any Access Point
 OUPUT: 
 - user:pass
@@ -12,6 +10,11 @@ OUPUT:
 - exploit
 - RShell Script Upload
 - Any Access Point
+
+
+# can/Enumerate/Exploit Service
+
+Common Port and Services
 
 | Port     |  abbr  |    Service name                                |  Transport protocol |
 | ----     |   ---  |    ---                                         |  --                 |
@@ -40,14 +43,14 @@ OUPUT:
 | 3389     |   RDP  |   Remote Desktop Protocol                      |  TCP and UDP        |
 |          |        |                                                |                     |
 
-
-## HTTP
+## HTTP / Web-Application
 - [Browser]: Source, Network
 - [dirb]: Directory Brute Force
 - [dirbuster]: Directory Brute Force
 - [gobuster]: Directory Brute Force
 - [BurpSuite]: Proxy, Repeater, 
 - [wpscan]: Wordpress CMS scan
+- [OWASP]: OWASP Top 10
 - [Manual]: Find Web Applicatin Vulnerability:
     - IDOR: Insecure Direct Object Reference
         - plain
@@ -83,22 +86,36 @@ OUPUT:
     - [RainbowCrack]: Rainbow Tables <http://project-rainbowcrack.com/table.htm>
 - [python]: Run python expolit file again
 
+## SMB
+- [Enum4Linux]
+- [smbclient]
+
+## Telnet
+- [telnet]
+- [netcat]
+
 ## FTP
-- [ftp]: ftp to remote server <ftp user@$IP>
-- [ftp]: Anonymous ftp to remote server <ftp anonymous@$IP>
+- [ftp]: ftp to remote server 
+    - <ftp user@target.ip>
+    - <ftp anonymous@target.ip>
+- [hydra]: bruteforce the password of the FTP Server. 
+
+## NFS
+- [mount]: Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
+
+## SMTP
+- [msfconsole]
 
 ## SSH
-- [ssh]: ssh to remote server <ssh user@$IP>
+- [ssh]: ssh to remote server <ssh user@target.ip>
 - [hydra]: Brute Force Login
 
-
 ## MySql
-- [mysql]: connet with root:root <mysql -u root -h $IP -p>
+- [mysql]: connet with root:root <mysql -u root -h target.ip -p>
+- [msfconsole]
 
 
-
-
-
+# Find Any Access Point
 
 Vulnerability Scanning Tools and Public Repositories
 - [Nessus]
@@ -114,8 +131,13 @@ Vulnerability Scanning Tools and Public Repositories
 
 
 Firefox network.security.ports.banned.override
-- network.security.ports.banned.override > string : 22
+- [ERR]: network.security.ports.banned.override > string : 22
 
-Stegan
+Stegan files
 - [Steghide]
 - [binwalk]
+
+Crack files and hashs
+- [JtR]
+    - ssh2john
+    - zip2john

@@ -6,13 +6,17 @@ INPUT:
 - Any Access Point
 PROCESS:
 - Reverse Shell
+    - bash-shell
     - php-reverse-shell.php
     - perl-reverse-shell.perl
 - Web Shell
     - webshell.php
 - SSH
 - FTP
-- ny Other Exploit
+- Any Other Exploit
+Tools:
+- [msfconsole]
+- [nc]
 OUPUT: 
 - shell
 
