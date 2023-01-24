@@ -21,4 +21,7 @@ function valid_ip()
 }
 
 sed -i "/$HOST/ s/.*/$IP\t$HOST/g" /etc/hosts
-ssh-keygen -f "/home/$USER/.ssh/known_hosts" -R "target.ip"
+
+echo 'run this command with normal user'
+echo 'ssh-keygen -f "/home/kali/.ssh/known_hosts" -R "target.ip"'
+echo ''

