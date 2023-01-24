@@ -106,9 +106,17 @@ Common Port and Services
 ## SMTP
 - [msfconsole]
 
+## RPC
+- [nmap] <nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount target.ip>
+- [rpcinfo] <rpcinfo target.ip>
+- [showmount] <showmount -e target.ip>
+- [mount] <sudo mount -t nfs target.ip:/share /mnt/nfs>
+- [umount] <sudo umount -f -l /mnt/nfs>
+
 ## SSH
 - [ssh]: ssh to remote server <ssh user@target.ip>
 - [hydra]: Brute Force Login
+- [nmap] <nmap --script ssh-auth-methods target.ip>
 
 ## MySql
 - [mysql]: connet with root:root <mysql -u root -h target.ip -p>
