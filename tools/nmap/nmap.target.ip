@@ -1,7 +1,18 @@
-nmap -p- target.ip -oN nmap.ports
+#!/bin/bash
+
+
+PARAMS=$1
+nmap $PARAMS target.ip -oN nmap.ports
 PORTS=$(cat nmap.ports | grep 'open' | awk '{ print $1 }' | awk '{print ($0+0)}' | sed -z 's/\n/,/g;s/,$/\n/')
 
 for i in $(echo $PORTS | sed "s/,/ /g")
 do
-    nmap -sV -sC -p $i -oN nmap.$i target.ip
+    nmap -vv -sV -sC -p $i -oN nmap.$i target.ip
+done
+
+mkdir nmap.vuln
+
+for i in $(echo $PORTS | sed "s/,/ /g")
+do
+    nmap -vv --script vuln -p $i -oN nmap.vuln/nmap.$i.vuln target.ip
 done

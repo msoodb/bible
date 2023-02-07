@@ -1,21 +1,31 @@
 # Scan 
 
-INPUT: Ports and Services
-PROCESS:
-- Scan/Enumerate/Exploit Service
-- Find Any Access Point
-OUPUT: 
-- user:pass
+INPUT
+- Ports
+- Services
+- Information About Target
+PROCESS
+- Scan and Enumerate Service
+TOOLS
+- gobuster
+- burp suite
+- nikto
+- hydra
+- john
+- sqlmap
+- searchsploit
+- netcat
+- mysql
+- browser
+- source
+- python
+OUPUT
+- service:user:pass
 - vulnerability
-- exploit
-- RShell Script Upload
-- Any Access Point
+- Uploaded RShell Script
 
 
-# can/Enumerate/Exploit Service
-
-Common Port and Services
-
+# Scan and Enumerate Service
 | Port     |  abbr  |    Service name                                |  Transport protocol |
 | ----     |   ---  |    ---                                         |  --                 |
 | 20, 21   |   FTP  |   File Transfer Protocol                       |  TCP                |
@@ -52,6 +62,8 @@ Common Port and Services
 - [wpscan]: Wordpress CMS scan
 - [OWASP]: OWASP Top 10
 - [Manual]: Find Web Applicatin Vulnerability:
+    - /robots.txt
+    - /sitemap.xml
     - IDOR: Insecure Direct Object Reference
         - plain
         - base64
@@ -85,43 +97,39 @@ Common Port and Services
     - [crunch]: Hybrid Dictionary Attack [crunch]
     - [RainbowCrack]: Rainbow Tables <http://project-rainbowcrack.com/table.htm>
 - [python]: Run python expolit file again
-
 ## SMB
 - [Enum4Linux]
 - [smbclient]
-
 ## Telnet
 - [telnet]
 - [netcat]
-
 ## FTP
 - [ftp]: ftp to remote server 
     - <ftp user@target.ip>
     - <ftp anonymous@target.ip>
 - [hydra]: bruteforce the password of the FTP Server. 
-
 ## NFS
 - [mount]: Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
-
 ## SMTP
 - [msfconsole]
-
 ## RPC
 - [nmap] <nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount target.ip>
 - [rpcinfo] <rpcinfo target.ip>
 - [showmount] <showmount -e target.ip>
 - [mount] <sudo mount -t nfs target.ip:/share /mnt/nfs>
 - [umount] <sudo umount -f -l /mnt/nfs>
-
 ## SSH
 - [ssh]: ssh to remote server <ssh user@target.ip>
 - [hydra]: Brute Force Login
 - [nmap] <nmap --script ssh-auth-methods target.ip>
-
 ## MySql
 - [mysql]: connet with root:root <mysql -u root -h target.ip -p>
 - [msfconsole]
 
+## POP3
+- <telnet target.ip 110>
+
+## IMAP
 
 # Find Any Access Point
 
