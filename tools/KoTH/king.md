@@ -106,7 +106,8 @@ Defending
         - changing ssh keys, changing passwords, look for the processes running or give cronjobs a look
         - Make copies of SUID binaries, even though they are easy to find, but can sometimes save get you a root shell from www-data.
         - SSH AuthKey
-            - put your ssh keys on to the user/root authorized_keys       
+            - put your ssh keys on to the user/root authorized_keys
+            - rename the public key to : authorized_keys     
 - Backdoors
 - Aggressive Defense
     - Get your pts number
