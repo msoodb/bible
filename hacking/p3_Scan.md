@@ -53,6 +53,25 @@ OUPUT
 | 3389     |   RDP  |   Remote Desktop Protocol                      |  TCP and UDP        |
 |          |        |                                                |                     |
 
+| Protocol |	Default Port |	Secured Protocol |	Default Port with TLS |
+| ----     |      ---        |        ---        |     --                 |
+| HTTP 	   |     80 	     |       HTTPS 	     |           443          |
+| FTP 	   |     21          |	     FTPS 	     |           990          |
+| SMTP 	   |     25 	     |       SMTPS 	     |           465          |
+| POP3 	   |     110 	     |       POP3S 	     |           995          |
+| IMAP 	   |     143 	     |       IMAPS 	     |           993          |
+
+## SMB
+- [Enum4Linux]
+- [smbclient]
+## FTP
+- [ftp]: ftp to remote server 
+    - <ftp user@target.ip>
+    - <ftp anonymous@target.ip>
+- [hydra]: bruteforce the password of the FTP Server. 
+## Telnet
+- [telnet]
+- [netcat]
 ## HTTP / Web-Application
 - [Browser]: Source, Network
 - [dirb]: Directory Brute Force
@@ -97,17 +116,6 @@ OUPUT
     - [crunch]: Hybrid Dictionary Attack [crunch]
     - [RainbowCrack]: Rainbow Tables <http://project-rainbowcrack.com/table.htm>
 - [python]: Run python expolit file again
-## SMB
-- [Enum4Linux]
-- [smbclient]
-## Telnet
-- [telnet]
-- [netcat]
-## FTP
-- [ftp]: ftp to remote server 
-    - <ftp user@target.ip>
-    - <ftp anonymous@target.ip>
-- [hydra]: bruteforce the password of the FTP Server. 
 ## NFS
 - [mount]: Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
 ## SMTP
@@ -125,14 +133,12 @@ OUPUT
 ## MySql
 - [mysql]: connet with root:root <mysql -u root -h target.ip -p>
 - [msfconsole]
-
 ## POP3
-- <telnet target.ip 110>
-
+- [telnet] <telnet target.ip 110>
 ## IMAP
 
-# Find Any Access Point
 
+# Find Any Access Point
 Vulnerability Scanning Tools and Public Repositories
 - [Nessus]
 - [Nexpose]
@@ -144,15 +150,11 @@ Vulnerability Scanning Tools and Public Repositories
 - [OVAL] <https://oval.cisecurity.org/repository>
 - [rapid7] <https://www.rapid7.com/db/>
 - [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
-
-
 Firefox network.security.ports.banned.override
 - [ERR]: network.security.ports.banned.override > string : 22
-
 Stegan files
 - [Steghide]
 - [binwalk]
-
 Crack files and hashs
 - [JtR]
     - ssh2john

