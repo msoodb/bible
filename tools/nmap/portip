@@ -2,16 +2,26 @@
 
 PARAMS=$1
 nmap $PARAMS target.ip -oN nmap.ports
-PORTS=$(cat nmap.ports | grep 'open' | awk '{ print $1 }' | awk '{print ($0+0)}' | sed -z 's/\n/,/g;s/,$/\n/')
+PORTS=$(cat nmap.ports | grep 'open' | awk '{ print ($0+0 "," $3)}' | sed -z 's/\n/;/g;s/;$/\n/')
 
-for i in $(echo $PORTS | sed "s/,/ /g")
-do
-    nmap -sV -sC -p $i -oN nmap.$i target.ip
-done
 
-mkdir nmap.vuln
+oIFS="$IFS"
+while IFS=';' read -ra PORT; do
+  for i in "${PORT[@]}"; do
+    IFS=','
+    read -a strarr <<< "$i"
+    nmap -sV -sC -p ${strarr[0]} -oN port.${strarr[0]}.${strarr[1]} target.ip
+  done
+done <<< "$PORTS"
 
-for i in $(echo $PORTS | sed "s/,/ /g")
-do
-    nmap -vv --script vuln -p $i -oN nmap.vuln/nmap.$i.vuln target.ip
-done
+mkdir nmap.vulns
+while IFS=';' read -ra PORT; do
+  for i in "${PORT[@]}"; do
+    IFS=','
+    read -a strarr <<< "$i"
+    nmap -vv --script vuln -p ${strarr[0]} -oN nmap.vulns/port.${strarr[0]}.${strarr[1]}.vuln target.ip
+  done
+done <<< "$PORTS"
+
+IFS="$oIFS"
+unset oIFS
