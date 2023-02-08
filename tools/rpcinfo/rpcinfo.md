@@ -1,1 +1,1 @@
-rpcinfo $IP
+rpcinfo target.ip
