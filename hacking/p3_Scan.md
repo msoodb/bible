@@ -6,8 +6,16 @@ INPUT
 - Information About Target
 PROCESS
 - Scan and Enumerate Service
+    - smb
+    - ftp
+    - ssh
+    - http/https
+    - mysql
+    - pop3/imap/
+    - rpc
+    - smtp
 TOOLS
-- gobuster
+- Fuzzing tools
 - burp suite
 - nikto
 - hydra
@@ -44,7 +52,7 @@ OUPUT
 | 135-139  |        |   NetBIOS                                      |  TCP and UDP        |
 | 143      |  IMAP4 |   Internet Message Access Protocol             |  TCP and UDP        |
 | 161, 162 |  SNMP  |   Simple Network Management Protocol           |  TCP and UDP        |
-| 389      |        |   Lightweight Directory Access Protocol        |  TCP and UDP        |
+| 389      |  LDAP  |   Lightweight Directory Access Protocol        |  TCP and UDP        |
 | 443      |   SSL  |   HTTP with Secure Sockets Layer               |  TCP and UDP        |
 | 445      |   SMB  |   Server Message Block                         |  TCP                |
 | 2049     |   NFS  |   Network File System                          |  TCP                |
@@ -65,24 +73,31 @@ OUPUT
 - [Enum4Linux]
 - [smbclient]
 ## FTP
-- [ftp]: ftp to remote server 
-    - <ftp user@target.ip>
-    - <ftp anonymous@target.ip>
+- [ftp]: ftp user/anonymous to remote server 
 - [hydra]: bruteforce the password of the FTP Server. 
 ## Telnet
 - [telnet]
 - [netcat]
 ## HTTP / Web-Application
-- [Browser]: Source, Network
-- [dirb]: Directory Brute Force
-- [dirbuster]: Directory Brute Force
-- [gobuster]: Directory Brute Force
-- [BurpSuite]: Proxy, Repeater, 
-- [wpscan]: Wordpress CMS scan
-- [OWASP]: OWASP Top 10
-- [Manual]: Find Web Applicatin Vulnerability:
+- [Browser]
+    - Source
+    - Network
+    - javascript
     - /robots.txt
     - /sitemap.xml
+- Directory fuzzing
+    - [dirb]
+    - [dirbuster]
+    - [gobuster]
+    - [wfuzz]
+    - [ffuf]
+    - [feroxbuster]
+- [BurpSuite]
+    - Request
+    - Response
+- [wpscan]: Wordpress CMS scan
+- [Manual]: Find Web Applicatin Vulnerability:
+    - OWASP Top 10
     - IDOR: Insecure Direct Object Reference
         - plain
         - base64
@@ -105,17 +120,17 @@ OUPUT
         - In-Band SQL Injection
         - Blind SQLi
 - [nikto]: Vulnerability scanning
-- [wfuzz]: Finding and exploiting web application vulnerabilities
 - [searchsploit]: Finding and web application vulnerabilities
 - [hydra]: Brute Force Login
 - [metasploit]: Finding and exploiting web application vulnerabilities
-- [2to3]: Convert python2 to python3
 - [Password]: Authentication Attack
     - [JtR]: Single Mode / Wordlist / Brute-Force
     - [hydra]: Wordlist Attack
     - [crunch]: Hybrid Dictionary Attack [crunch]
     - [RainbowCrack]: Rainbow Tables <http://project-rainbowcrack.com/table.htm>
-- [python]: Run python expolit file again
+- [python]
+    - [2to3]: Convert python2 to python3
+    - Run python expolit file again
 ## NFS
 - [mount]: Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
 ## SMTP
@@ -130,9 +145,12 @@ OUPUT
 - [ssh]: ssh to remote server <ssh user@target.ip>
 - [hydra]: Brute Force Login
 - [nmap] <nmap --script ssh-auth-methods target.ip>
+- [john]
+    - ssh2john
 ## MySql
 - [mysql]: connet with root:root <mysql -u root -h target.ip -p>
 - [msfconsole]
+- [hydra]: Brute Force Login
 ## POP3
 - [telnet] <telnet target.ip 110>
 ## IMAP

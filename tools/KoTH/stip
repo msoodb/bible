@@ -1,7 +1,7 @@
 #!/bin/bash
-
 IP=$1
 HOST="target.ip"
+File="/etc/hosts"
 
 function valid_ip()
 {
@@ -20,8 +20,11 @@ function valid_ip()
     return $stat
 }
 
-sed -i "/$HOST/ s/.*/$IP\t$HOST/g" /etc/hosts
+if grep -q $HOST "$File";
+    then
+        sed -i "/$HOST/ s/.*/$IP\t$HOST/g" $File
+    else
+        echo $IP$'\t'$HOST >> $File
+fi
 
-echo 'run this command with normal user'
-echo 'ssh-keygen -f "/home/kali/.ssh/known_hosts" -R "target.ip"'
-echo ''
+echo 'ssh-keygen -f "/home/$USER/.ssh/known_hosts" -R "target.ip"'
