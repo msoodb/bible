@@ -4,8 +4,8 @@ PROCESS
 - Make Coffee
 - Check Tools and Scripts
     - vpn connection
-    - stip script
-    - ntip script
+    - setip script
+    - portip script
     - Reverse Shell scripts
     - PrivEsc scripts
     - king.md

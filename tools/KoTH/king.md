@@ -9,8 +9,8 @@ Attacking
     - ~/THM/<Room>/clue.txt
 - Recon
 - Port
-    - sudo set.target.ip <x.x.x.x>
-    - nmap.target.ip
+    - sudo setip <x.x.x.x>
+    - portip
         - 22
         - 80
         - 110
