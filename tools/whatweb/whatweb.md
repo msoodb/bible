@@ -1,0 +1,1 @@
+whatweb -v -a 3 target.ip --log-verbose=ww.80

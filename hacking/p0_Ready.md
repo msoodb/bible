@@ -1,5 +1,6 @@
-# Recon 
+# Ready 
 
+INPUT
 PROCESS
 - Make Coffee
 - Check Tools and Scripts
@@ -16,4 +17,8 @@ PROCESS
     - touch ~/THM/<Room>/clue.txt
 - Play Music
 - Set Timer
-
+TOOLS
+- cofee maker
+- tmux
+OUPUT
+- tmux

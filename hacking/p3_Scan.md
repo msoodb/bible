@@ -129,7 +129,7 @@ OUPUT
     - [crunch]: Hybrid Dictionary Attack [crunch]
     - [RainbowCrack]: Rainbow Tables <http://project-rainbowcrack.com/table.htm>
 - [python]
-    - [2to3]: Convert python2 to python3
+    - [2to3]: Convert pythonRecon2 to python3
     - Run python expolit file again
 ## NFS
 - [mount]: Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
