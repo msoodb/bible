@@ -14,7 +14,7 @@ while IFS=';' read -ra PORT; do
   done
 done <<< "$PORTS"
 
-mkdir nmap.vulns
+mkdir -p nmap.vulns
 while IFS=';' read -ra PORT; do
   for i in "${PORT[@]}"; do
     IFS=','

