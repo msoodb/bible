@@ -178,3 +178,4 @@ Crack files and hashs
 - [JtR]
     - ssh2john
     - zip2john
+    - john
