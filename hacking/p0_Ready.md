@@ -11,7 +11,6 @@ PROCESS
     - PrivEsc scripts
     - king.md
 - Project
-    - ssh-keygen -f "/home/$USER/.ssh/known_hosts" -R "target.ip"
     - mkdir ~/THM/<Room>
     - cd ~/THM/<Room>
     - touch ~/THM/<Room>/clue.txt

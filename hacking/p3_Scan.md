@@ -1,9 +1,10 @@
 # Scan 
 
 INPUT
+- Information About Target
 - Ports
 - Services
-- Information About Target
+- Potentail vulnerability
 PROCESS
 - Scan and Enumerate Service
     - smb
@@ -174,7 +175,7 @@ Stegan files
 - [Steghide]
 - [binwalk]
 Crack files and hashs
-- [dencode] <https://dencode.com/en>
+- [dencode] <https://dencode.com>
 - [JtR]
     - ssh2john
     - zip2john

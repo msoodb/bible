@@ -11,8 +11,14 @@ PROCESS
 TOOLS
 - nmap
     - portip
+        - port.xx.ftp
+        - port.xx.ssh
+        - nmap.vulns/
+            - port.xx.ftp.vuln
+            - port.xx.ssh.vuln
 - rustscan
 OUPUT
 - Ports
 - Services
+- Potentail vulnerability
 
