@@ -22,7 +22,7 @@ TOOLS
     - vim
     - sudo
 - Python Library Hijacking
-OUPUT: 
+OUPUT:
 - root shell
 
 
@@ -34,6 +34,8 @@ OUPUT:
     https://www.exploit-db.com/exploits/50689
     https://github.com/ryaagard/CVE-2021-4034
     https://github.com/c3c/CVE-2021-4034
+[CVE-2017-0143]
+    https://www.exploit-db.com/exploits/43970
 [GTFOBins]
     https://gtfobins.github.io/
 
