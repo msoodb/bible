@@ -38,6 +38,8 @@ OUPUT:
     https://www.exploit-db.com/exploits/43970
 [GTFOBins]
     https://gtfobins.github.io/
+[$PATH]
+    Linux Privilege Escalation Using PATH Variable
 
 ## Maintain Access
 - PowerSploit

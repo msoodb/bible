@@ -65,7 +65,7 @@ KoTH - Attack & defense Tricks
 - Uploading file using SSH
     - ssh user@target.ip -p1337 “cat Pwnkit” < Pwnkit
 - Protect king using while
-    - while true; do echo msood > /root/king.txt; chattr +ia /root/king.txt; set -o noclobber /root/king.txt; done &
+    - while true; do chattr -ia /root/king.txt; echo msoodb > /root/king.txt; chattr +ia /root/king.txt; set -o noclobber /root/king.txt ; done &
 - Blocking password authentication in ssh
     - PasswordAuthentication no in /etc/ssh/sshd_config
     - service sshd restart
