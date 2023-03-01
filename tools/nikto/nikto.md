@@ -1,1 +1,1 @@
-nikto -h site.com
+nikto -h target.ip -o nikto.80 -Format txt 

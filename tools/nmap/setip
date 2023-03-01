@@ -26,5 +26,5 @@ if grep -q $HOST "$File";
     else
         echo $IP$'\t'$HOST >> $File
 fi
-
-echo 'ssh-keygen -f "/home/$USER/.ssh/known_hosts" -R "target.ip"'
+echo $IP$'\t'$HOST added to $File
+su - $SUDO_USER -c "ssh-keygen -f \"/home/$SUDO_USER/.ssh/known_hosts\" -R \"target.ip\""

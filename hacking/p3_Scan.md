@@ -1,9 +1,10 @@
 # Scan 
 
 INPUT
+- Information About Target
 - Ports
 - Services
-- Information About Target
+- Potentail vulnerability
 PROCESS
 - Scan and Enumerate Service
     - smb
@@ -129,7 +130,7 @@ OUPUT
     - [crunch]: Hybrid Dictionary Attack [crunch]
     - [RainbowCrack]: Rainbow Tables <http://project-rainbowcrack.com/table.htm>
 - [python]
-    - [2to3]: Convert python2 to python3
+    - [2to3]: Convert pythonRecon2 to python3
     - Run python expolit file again
 ## NFS
 - [mount]: Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
@@ -142,15 +143,22 @@ OUPUT
 - [mount] <sudo mount -t nfs target.ip:/share /mnt/nfs>
 - [umount] <sudo umount -f -l /mnt/nfs>
 ## SSH
-- [ssh]: ssh to remote server <ssh user@target.ip>
-- [hydra]: Brute Force Login
+- [ssh]:
+    - <ssh user@target.ip -p 22>
+    - <ssh -i id_rsa user@target.ip -p 1337>
+    - <ssh -i id_rsa -T user@target.ip -p 1337>
+- [hydra]
+    - Brute Force Login
 - [nmap] <nmap --script ssh-auth-methods target.ip>
 - [john]
-    - ssh2john
+    - ssh2john id_rsa > id_rsa.hash
+    - john -w=/usr/share/wordlists/rockyou.txt id_rsa.hash
 ## MySql
-- [mysql]: connet with root:root <mysql -u root -h target.ip -p>
+- [mysql]
+    - connet with root:root <mysql -u root -h target.ip -p>
 - [msfconsole]
-- [hydra]: Brute Force Login
+- [hydra]
+    - Brute Force Login
 ## POP3
 - [telnet] <telnet target.ip 110>
 ## IMAP
@@ -174,6 +182,8 @@ Stegan files
 - [Steghide]
 - [binwalk]
 Crack files and hashs
+- [dencode] <https://dencode.com>
 - [JtR]
     - ssh2john
     - zip2john
+    - john
