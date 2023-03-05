@@ -40,6 +40,8 @@ OUPUT:
     https://gtfobins.github.io/
 [$PATH]
     Linux Privilege Escalation Using PATH Variable
+[tmux]
+    tmux -S default attach
 
 ## Maintain Access
 - PowerSploit

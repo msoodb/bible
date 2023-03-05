@@ -70,16 +70,22 @@ OUPUT
 | POP3 	   |     110 	     |       POP3S 	     |           995          |
 | IMAP 	   |     143 	     |       IMAPS 	     |           993          |
 
-## SMB
+# SMB
 - [Enum4Linux]
 - [smbclient]
-## FTP
+- [nmap] <nmap --script smb-enum-shares.nse -p445 target.ip>
+- [VULNERABILITIES]
+    - CVE:CVE-2017-0143, Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+
+# FTP
 - [ftp]: ftp user/anonymous to remote server 
-- [hydra]: bruteforce the password of the FTP Server. 
-## Telnet
+- [hydra]: bruteforce the password of the FTP Server
+
+# Telnet
 - [telnet]
 - [netcat]
-## HTTP / Web-Application
+
+# HTTP / Web-Application
 - [Browser]
     - Source
     - Network
@@ -132,17 +138,21 @@ OUPUT
 - [python]
     - [2to3]: Convert pythonRecon2 to python3
     - Run python expolit file again
-## NFS
+
+# NFS
 - [mount]: Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
-## SMTP
+
+# SMTP
 - [msfconsole]
-## RPC
+
+# RPC
 - [nmap] <nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount target.ip>
 - [rpcinfo] <rpcinfo target.ip>
 - [showmount] <showmount -e target.ip>
 - [mount] <sudo mount -t nfs target.ip:/share /mnt/nfs>
 - [umount] <sudo umount -f -l /mnt/nfs>
-## SSH
+
+# SSH
 - [ssh]:
     - <ssh user@target.ip -p 22>
     - <ssh -i id_rsa user@target.ip -p 1337>
@@ -153,15 +163,18 @@ OUPUT
 - [john]
     - ssh2john id_rsa > id_rsa.hash
     - john -w=/usr/share/wordlists/rockyou.txt id_rsa.hash
-## MySql
+
+# MySql
 - [mysql]
     - connet with root:root <mysql -u root -h target.ip -p>
 - [msfconsole]
 - [hydra]
     - Brute Force Login
-## POP3
+
+# POP3
 - [telnet] <telnet target.ip 110>
-## IMAP
+
+# IMAP
 
 
 # Find Any Access Point
