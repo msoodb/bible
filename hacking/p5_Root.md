@@ -32,6 +32,8 @@ OUPUT:
     https://github.com/c3c/CVE-2021-4034
 [CVE-2017-0143]
     https://www.exploit-db.com/exploits/43970
+[CVE-2014-4014]
+    https://www.exploit-db.com/exploits/33824
 [GTFOBins]
     https://gtfobins.github.io/
 [$PATH]

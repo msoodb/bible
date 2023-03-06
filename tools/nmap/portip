@@ -2,7 +2,7 @@
 
 PARAMS=$1
 nmap $PARAMS target.ip -oN nmap.ports
-PORTS=$(cat nmap.ports | grep 'open' | awk '{ print ($0+0 "," $3)}' | sed -z 's/\n/;/g;s/;$/\n/')
+PORTS=$(cat nmap.ports | grep 'open\|closed\|filtered\|unfiltered\|open|filtered\|closed|filtered' | awk '{ print ($0+0 "," $3)}' | sed -z 's/\n/;/g;s/;$/\n/')
 
 
 oIFS="$IFS"
