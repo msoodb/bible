@@ -24,8 +24,12 @@ OUPUT
 
 ## Stablish Shell   
 [python3]
-    python3 -c 'import pty;pty.spawn("/bin/bash");'
-    export TERM=xterm
+    - Inside the remote shell, run python -c 'import pty;pty.spawn("/bin/bash")'.
+    - Run export TERM=xterm to set the xterm terminal emulator.
+    - Press Ctrl + Z to 'background' the netcat shell. This will return you to the terminal on the attacking computer.
+    - stty raw -echo;fg
+    - Ctrl + C
+    Once you are done with your netcat shell, and you return to the terminal on the attacking computer, you will need to run reset to undo the changes we made in step 6 (stty raw -echo).
 
 
 

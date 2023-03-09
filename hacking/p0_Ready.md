@@ -4,16 +4,18 @@ INPUT
 PROCESS
 - Make Coffee
 - Check Tools and Scripts
+    - tmux
     - vpn connection
+    - explore script
     - setip script
     - portip script
     - Reverse Shell scripts
     - PrivEsc scripts
     - king.md
 - Project
-    - mkdir ~/THM/<Room>
-    - cd ~/THM/<Room>
-    - touch ~/THM/<Room>/clue.txt
+    - mkdir ~/Prohacks/<prohack>
+    - cd ~/Prohacks/<prohack>
+    - touch ~/Prohacks/<prohack>/clue.txt
 - Play Music
 - Set Timer
 TOOLS

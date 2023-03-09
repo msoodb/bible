@@ -23,3 +23,15 @@ searchsploit 38797 --examine
 nmap -sV scanme.nmap.org -oX nmap.xml
 searchsploit --nmap nmap.xml
 ```
+
+# download file with searchsploit
+$ searchsploit ajp
+    ---------------------------------------------------------------------------------------------------------------------------
+    Exploit Title                                                                                    |  Path
+    ---------------------------------------------------------------------------------------------------------------------------
+    AjPortal2Php - 'PagePrefix' Remote File                                                           | php/webapps/3752.txt
+    Apache Tomcat - AJP 'Ghostcat File Read/Inclusion                                                 | multiple/webapps/48143.py
+    Apache Tomcat - AJP 'Ghostcat' File Read/Inclusion                                                | multiple/webapps/49039.rb
+    ---------------------------------------------------------------------------------------------------------------------------
+    Shellcodes: No Results
+$ searchsploit -m multiple/webapps/48143.py

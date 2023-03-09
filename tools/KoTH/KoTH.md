@@ -36,7 +36,8 @@ KoTH - Attack & defense Tricks
         - :shell
 - Patch /etc/sudoers
     - vim /etc/sudoers
-        - remove everything except: root ALL=(ALL=ALL) ALL 
+        - remove everything except: root ALL=(ALL=ALL) ALL
+        - remove #includedir /etc/sudoers.d
 - Patch SUID
     - Find / -perm /4000 2>/dev/null
     - chmod -s /usr/bin/pkexec
@@ -74,3 +75,18 @@ KoTH - Attack & defense Tricks
     - chmod +x .persistence.sh
     - vim /etc/crontab
         - * * * * * root /tmp/.persistence.sh
+
+## kit
+- deploy kit
+- /bin/bash linpeas.sh
+- get root shell
+- config ssh for ONLY root
+    - cat /tmp/.kit/authorized_keys > authorized_keys
+    - chmod 600 authorized_keys
+    - /etc/ssh/sshd_config
+        - AllowUsers root
+        - PasswordAuthentication no
+    - sudo systemctl restart sshd
+- /etc/sudoers
+    - remove everything except: root ALL=(ALL=ALL) ALL
+    - remove #includedir /etc/sudoers.d

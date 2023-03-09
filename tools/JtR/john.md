@@ -23,6 +23,9 @@ run/john
 ```sh
 sudo snap install john-the-ripper
 ```
+## USE CASE
+john --wordlist=/usr/share/wordlists/rockyou.txt hashes.txt
+
 
 ## JtR mode
 - Single crack mode
