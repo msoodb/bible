@@ -6,6 +6,7 @@ PROCESS:
         - find / -perm /4000 2>/dev/null
         - find / -type f -user root -perm -u=s 2>/dev/null
         - find / -perm -u=s -type f 2>/dev/null
+        - find / -type f -perm -u=s -exec ls -ldb {} \; 2>/dev/null
         - sudo -l
         - sudo -V
         - cat .bash_history
@@ -30,8 +31,6 @@ OUPUT:
     https://www.exploit-db.com/exploits/50689
     https://github.com/ryaagard/CVE-2021-4034
     https://github.com/c3c/CVE-2021-4034
-[CVE-2017-0143]
-    https://www.exploit-db.com/exploits/43970
 [CVE-2014-4014]
     https://www.exploit-db.com/exploits/33824
 [GTFOBins]

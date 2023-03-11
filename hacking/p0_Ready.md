@@ -9,17 +9,16 @@ PROCESS
     - explore script
     - setip script
     - portip script
-    - Reverse Shell scripts
-    - PrivEsc scripts
+    - bag
     - king.md
 - Project
-    - mkdir ~/Prohacks/<prohack>
-    - cd ~/Prohacks/<prohack>
-    - touch ~/Prohacks/<prohack>/clue.txt
+    - mkdir -p ~/Operations/<name>
+    - cd ~/Operations/<name>
+    - touch ~/Operations/<name>/clue.txt
 - Play Music
 - Set Timer
 TOOLS
 - cofee maker
-- tmux
+- tmux Ctrl+B `
 OUPUT
 - tmux
