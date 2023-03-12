@@ -21,13 +21,13 @@ Passive Recon Tools:
 - [host]            IP addresses                        -
 - [nslookup]        DNS information                     -
 - [traceroute]      Displaying possible routes          -
-- [dnsrecon]        Pssive mode                         $dnsrecon -d site.com
+- [dnsrecon]        Pssive mode                         dnsrecon -d site.com
 - [wafw00f]         WAF information                     -
 - [dig]             DNS information ANY/MX/TXT          -
 - [whois]           Domain information                  -
 - [DNSenum]         DNS information                     -
 - [whatweb]         Website technology                  -
-- [theHarvester]    OSINT platform                      $theHarvester -d site.com -b all
+- [theHarvester]    OSINT platform                      theHarvester -d site.com -b all
 - [sublist3r]       Subdomain enumeration               -
 - [subfinder]       Subdomain enumeration               -
 - [SocialMedia]     User information                    -
@@ -50,7 +50,7 @@ Passive Recon Online Tools:
 Active Recon Tools:
 - [fping]           Ping Sweep                          -
 - [ping]            IP addresses                        -
-- [dnsrecon]        Active mode zone transfer           $dnsrecon -d site.com -t axfr
+- [dnsrecon]        Active mode zone transfer           dnsrecon -d site.com -t axfr
 - [fierce]          Active Subdomain enum brute-force   -
 - [knockpy]         Active Subdomain enum brute-force   -
 
