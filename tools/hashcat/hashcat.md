@@ -6,5 +6,4 @@ hashcat -m 1800 unshadowed.txt rockyou.txt -O
 
 
 
-# hash with salt
-hashcat -m 1710 -a 0 hash:salt /usr/share/wordlists/rockyou.txt
+[hash-with-salt]            hashcat -m 1710 -a 0 hash:salt /usr/share/wordlists/rockyou.txt
