@@ -1,25 +1,27 @@
 # Ready 
 
-INPUT
 PROCESS
 - Make Coffee
-- Check Tools and Scripts
-    - tmux
-    - vpn connection
-    - explore script
-    - setip script
-    - portip script
-    - Reverse Shell scripts
-    - PrivEsc scripts
-    - king.md
-- Project
-    - mkdir ~/Prohacks/<prohack>
-    - cd ~/Prohacks/<prohack>
-    - touch ~/Prohacks/<prohack>/clue.txt
+- vpn connection
+- Prepare Tools    
+- Create Room
 - Play Music
 - Set Timer
 TOOLS
-- cofee maker
-- tmux
-OUPUT
-- tmux
+- Cofee maker
+- Laptop
+
+
+## Tools
+- cp ~/Projects/bible/tools/tmux/.tmux.conf ~    
+- sudo cp ~/Projects/bible/tools/nmap/setip /usr/local/bin
+- sudo cp ~/Projects/bible/tools/nmap/portip /usr/local/bin
+- sudo cp ~/Projects/bible/tools/nmap/explore /usr/local/bin 
+- code ~/Projects/bible
+
+## Operation Room
+- mkdir -p ~/Operations/<room>
+- cd ~/Operations/<room>
+- touch ~/Operations/<room>/clue.txt
+- tmux; tmux Ctrl+B `
+- cp -r ~/Projects/bible/tools/_AB8G . 

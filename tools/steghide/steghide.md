@@ -1,0 +1,2 @@
+
+steghide extract -sf <file>

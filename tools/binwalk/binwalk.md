@@ -1,0 +1,2 @@
+
+-[extract]          binwalk -e <file>

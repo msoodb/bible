@@ -1,38 +1,22 @@
-# Recon 
 
-INPUT
-- Company name
-PROCESS
-- Passive Reconnaissence.   Gather information WITHOUT touching target.
-- Active Reconnaissence.    Gather information WITH touching target.
-TOOLS
-- Passive Recon Tools
-- Passive Recon Online Tools
-- Active Recon Tools
-- Automated Recon Framework
-OUTPUT
-- Target IPs
-- Information About Target as much as possible!
+1- Reconnaissance
 
+Obtain information on the target.
 
-## Reconnaissence tools
-
-Passive Recon Tools:
+# Passive Reconnaissance
 - [host]            IP addresses                        -
 - [nslookup]        DNS information                     -
 - [traceroute]      Displaying possible routes          -
-- [dnsrecon]        Pssive mode                         dnsrecon -d site.com
+- [dnsrecon]        Pssive mode                         -
 - [wafw00f]         WAF information                     -
 - [dig]             DNS information ANY/MX/TXT          -
 - [whois]           Domain information                  -
 - [DNSenum]         DNS information                     -
 - [whatweb]         Website technology                  -
-- [theHarvester]    OSINT platform                      theHarvester -d site.com -b all
+- [theHarvester]    OSINT platform                      -
 - [sublist3r]       Subdomain enumeration               -
 - [subfinder]       Subdomain enumeration               -
 - [SocialMedia]     User information                    -
-
-Passive Recon Online Tools:
 - [netcraft]        Some usefull information            https://sitereport.netcraft.com
 - [dnsdumpster]     DNS map information                 https://dnsdumpster.com
 - [dnsleaktest]     DNS leak information                https://dnsleaktest.com
@@ -45,23 +29,32 @@ Passive Recon Online Tools:
 - [alerts]          Set google change alert             https://www.google.com/alerts
 - [shodan]          Shodan                              https://www.shodan.io/dashboard
 - [OSINT]           OSINT Framework                     https://osintframework.com
+- [hackertarget]    WhatWeb & Wappalyzer Scan           https://hackertarget.com/whatweb-scan
 
+# Active Reconnaissance
+- [fping]           Ping Sweep                          
+- [ping]            IP addresses                        
+- [dnsrecon]        Active mode zone transfer           
+- [fierce]          Active Subdomain enum brute-force   
+- [knockpy]         Active Subdomain enum brute-force   
+- [nmap]            Find Ports and Service
+- [rustscan]        Fast Port Scan
+- [Service]         Scan and Enumerate Services
+- [Platform]        Scan and Enumerate Platforms
 
-Active Recon Tools:
-- [fping]           Ping Sweep                          -
-- [ping]            IP addresses                        -
-- [dnsrecon]        Active mode zone transfer           dnsrecon -d site.com -t axfr
-- [fierce]          Active Subdomain enum brute-force   -
-- [knockpy]         Active Subdomain enum brute-force   -
-
-Automated Reconnaissance Framework
-- [recon-ng]
-- [maltego]
-- [Sn1per]
-- [amass]
-- [centralops]      https://centralops.net
-
-## References
-[//]: # (References)
-[mitre]             https://attack.mitre.org/
-[hackertarget]      https://hackertarget.com/whatweb-scan/
+# Automated Reconnaissance Framework, and Public Repositories
+- [recon-ng]                https://www.kali.org/tools/recon-ng
+- [maltego]                 https://www.maltego.com
+- [Sn1per]                  https://github.com/1N3/Sn1per
+- [amass]                   https://github.com/OWASP/Amass
+- [centralops]              https://centralops.net
+- [Nessus]                  https://www.tenable.com
+- [Nexpose]                 https://www.rapid7.com/products/nexpose
+- [OpenVAS]                 https://www.openvas.org
+- [ExploitDB]               https://www.exploit-db.com
+- [NVD]                     https://nvd.nist.gov/vuln/search
+- [Mitre]                   https://www.cve.org
+- [OVAL]                    https://oval.cisecurity.org/repository
+- [rapid7]                  https://www.rapid7.com/db/
+- [favicon]                 https://wiki.owasp.org/index.php/OWASP_favicon_database
+- [dencode]                 https://dencode.com

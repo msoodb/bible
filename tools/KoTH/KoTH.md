@@ -56,6 +56,7 @@ KoTH - Attack & defense Tricks
     - find / -name user.txt 2>/dev/null
     - find / -name flag.txt 2>/dev/null
     - find / -name flag 2>/dev/null
+    - find / 2>/dev/null | grep flag
 - Adding user with root privilege
     - adduser USER
     - add USER ALL=(ALL:ALL) ALL to /etc/sudoers
