@@ -1,9 +1,19 @@
 
-1- Reconnaissance
 
-Obtain information on the target.
+INPUT     |  PROCESS               |    TOOLS                                |   OUTPUT
+----------|------------------------|-----------------------------------------|--------------------
+target    |  Gather information    |    Passive Reconnaissance Tools         |  Information
+                                        Active Reconnaissance Tools          |  Network map
+                                        Automated Reconnaissance Framework   |    IPs
+                                        Vulnerability Repositories           |    Ports
+                                                                             |    Services
+                                                                             |    Firewalls
+                                                                             |    Users
+                                                                             |   Vulnerability    
+                                                                                                
 
-# Passive Reconnaissance
+
+# Passive Reconnaissance Tools, Gather information WITHOUT touching target.
 - [host]            IP addresses                        -
 - [nslookup]        DNS information                     -
 - [traceroute]      Displaying possible routes          -
@@ -31,7 +41,7 @@ Obtain information on the target.
 - [OSINT]           OSINT Framework                     https://osintframework.com
 - [hackertarget]    WhatWeb & Wappalyzer Scan           https://hackertarget.com/whatweb-scan
 
-# Active Reconnaissance
+# Active Reconnaissance Tools, Gather information WITH touching target.
 - [fping]           Ping Sweep                          
 - [ping]            IP addresses                        
 - [dnsrecon]        Active mode zone transfer           
@@ -42,7 +52,7 @@ Obtain information on the target.
 - [Service]         Scan and Enumerate Services
 - [Platform]        Scan and Enumerate Platforms
 
-# Automated Reconnaissance Framework, and Public Repositories
+# Automated Reconnaissance Framework, and Vulnerability Repositories
 - [recon-ng]                https://www.kali.org/tools/recon-ng
 - [maltego]                 https://www.maltego.com
 - [Sn1per]                  https://github.com/1N3/Sn1per
