@@ -1,0 +1,4 @@
+
+
+netstat -na
+arp -a
