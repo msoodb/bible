@@ -2,11 +2,11 @@
 
 INPUT     |  PROCESS               |    TOOLS                                |   OUTPUT
 ----------|------------------------|-----------------------------------------|--------------------
-target    |  Gather information    |    Passive Reconnaissance Tools         |  Information
-                                        Active Reconnaissance Tools          |  Network map
-                                        Automated Reconnaissance Framework   |    IPs
-                                        Vulnerability Repositories           |    Ports
-                                                                             |    Services
+target    |  Gather Information    |    Passive Reconnaissance Tools         |  Information
+                                   |    Active Reconnaissance Tools          |  Network map
+                                   |    Automated Reconnaissance Framework   |    IPs
+                                   |    Vulnerability Repositories           |    Ports
+                                        Every tools & techniques             |    Services
                                                                              |    Firewalls
                                                                              |    Users
                                                                              |   Vulnerability    
