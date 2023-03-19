@@ -1,13 +1,13 @@
 
-Offline Password Cracking
+# Offline Password Cracking
     Dictionary attack
     Brute-Force attack
     Rule-Based attacks
 
-Online Password Guessing
-    
+# Online Password Guessing
+      Brute-Force attack
 
-Wordlist
+# Wordlist
     Default Passwords
     Weak Passwords
     Leaked Passwords
@@ -15,7 +15,7 @@ Wordlist
     Customized Wordlists
     Username Wordlists
     
-Tools
+# Tools
     hashid
     hash-identifier
     hashcat

@@ -6,33 +6,34 @@ Scan and Enumerate Service
 # common service and ports
 Port               Abb     Description                            Protocol
 ____________________________________________________________________________
-
-20,21              FTP     File Transfer Protocol                 TCP      
-22                 SSH     Secure Shell                           TCP/UDP  
-23                 Telnet                                         TCP      
-25                 SMTP    Simple Mail Transfer Protocol          TCP      
-50,51              IPSec   IPSec                                             
-53                 DNS     Domain Name System                     TCP/UDP  
-67,68              DHCP    Dynamic Host Configuration Protocol    UDP      
-69                 TFTP    Trivial File Transfer Protocol         UDP      
-80                 HTTP    HyperText Transfer Protocol            TCP      
-110                POP3    Post Office Protocol                   TCP      
-111                RPC     Remote Procedure Call                  TCP      
-119                NNTP    Network News Transport Protocol        TCP      
-123                NTP     Network Time Protocol                  UDP      
-135-139                    NetBIOS                                TCP/UDP  
-143                IMAP4   Internet Message Access Protocol       TCP/UDP  
-161,162            SNMP    Simple Network Management Protocol     TCP/UDP  
-389                LDAP    Lightweight Directory Access Protocol  TCP/UDP  
-443                HTTPS   HTTP with Secure Sockets Layer, SSL    TCP/UDP  
-445                SMB     Server Message Block                   TCP      
-465                SMTP    Secure Simple Mail Transfer Protocol   TCP      
-995                POP3S   Post Office Protocol                   TCP      
-2049               NFS     Network File System                    TCP      
-989,990            FTPS    FTP over SSL/TLS (implicit mode)       TCP      
-3306               MySql   mysql                                  TCP      
-3389               RDP     Remote Desktop Protocol                TCP/UDP  
-6379               Redis   Redis                                  TCP      
+21     FTP       File Transfer Protocol                 TCP      
+22     SSH       Secure Shell                           TCP/UDP  
+23     Telnet    Unencrypted text messages              TCP      
+25     SMTP      Simple Mail Transfer Protocol          TCP      
+53     DNS       Domain Name System                     TCP/UDP  
+67     DHCP      Dynamic Host Configuration Protocol    UDP      
+69     TFTP      Trivial File Transfer Protocol         UDP      
+80     HTTP      HyperText Transfer Protocol            TCP      
+110    POP3      Post Office Protocol                   TCP      
+111    RPC       Remote Procedure Call                  TCP      
+119    NNTP      Network News Transport Protocol        TCP      
+123    NTP       Network Time Protocol                UDP
+135    NetBIOS   Microsoft EPMAP                      TCP/UDP
+137    NetBIOS   NetBIOS Name Service                 TCP/UDP
+138    NetBIOS   NetBIOS Datagram Service             TCP/UDP
+139    NetBIOS   NetBIOS Session Service              TCP/UDP  
+143    IMAP4     Internet Message Access Protocol       TCP/UDP  
+161    SNMP      Simple Network Management Protocol     TCP/UDP  
+389    LDAP      Lightweight Directory Access Protocol  TCP/UDP  
+443    HTTPS     HTTP with Secure Sockets Layer, SSL    TCP/UDP  
+445    SMB       Server Message Block                   TCP      
+465    SMTP      Secure Simple Mail Transfer Protocol   TCP      
+995    POP3S     Post Office Protocol                   TCP      
+2049   NFS       Network File System                    TCP      
+990    FTPS      FTP over SSL/TLS (implicit mode)       TCP      
+3306   MySql     mysql                                  TCP      
+3389   RDP       Remote Desktop Protocol                TCP/UDP  
+6379   Redis     Redis                                  TCP      
 
 # service enum
 SMB             
@@ -44,6 +45,7 @@ SMB
         Remote Code Execution vulnerability in Microsoft SMBv1 servers
         https://www.exploit-db.com/exploits/43970
         https://www.exploit-db.com/exploits/42315
+        [msfconsole]    exploit/windows/smb/ms17_010_eternalblue   
 FTP             
 [ftp]
     ftp user/anonymous to remote server 
