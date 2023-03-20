@@ -5,10 +5,14 @@ Delivery
 - High-risk assignment because it leaves traces
 
 
-INPUT        |      PROCESS                |    TOOLS                        |      OUTPUT
--------------|-----------------------------|---------------------------------|----------------------
-Weapon       |  Transmitting the Weapon    |    Email attachment             |  Shipped Weapon
-                                                Phishing email               |   
-                                                USB drpoing attack
-                                                Watering hole attack
-                                                Uplaod
+INPUT        |      PROCESS                |    Techniques                 |      OUTPUT
+-------------|-----------------------------|-------------------------------|----------------------
+Weapon       |  Transmitting the Weapon    |    Email Delivery             |  Shipped Weapon
+                                           |    Web Delivery               |   
+                                           |    USB Delivery
+                                               
+
+
+[Email]
+[Web]
+[USB]       Rubber Ducky and USBHarpoon, charging USB cable, such as O.MG Cable.
