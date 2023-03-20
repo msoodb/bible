@@ -1,5 +1,6 @@
 
 
+```
 INPUT     |  PROCESS               |    TOOLS                                |   OUTPUT
 ----------|------------------------|-----------------------------------------|--------------------
 target    |  Gather Information    |    Passive Reconnaissance Tools         |  Information
@@ -9,7 +10,8 @@ target    |  Gather Information    |    Passive Reconnaissance Tools         |  
                                         Every tools & techniques             |    Services
                                                                              |    Firewalls
                                                                              |    Users
-                                                                             |   Vulnerability    
+                                                                             |   Vulnerability
+```
                                                                                                 
 
 
