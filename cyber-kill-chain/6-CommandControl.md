@@ -3,7 +3,7 @@ Command and Control
 
 INPUT               |      PROCESS                  |   TOOLS         |  OUTPUT
 --------------------|-------------------------------|-----------------|----------
-Establish Channel   |   Track, monitor, Guide       |                 |  C2
+Establish Channel   |   Track, Monitor, Guide       |                 |  C2
 Backdoor            |                               |                 |   
 
 
