@@ -14,9 +14,12 @@ Weapon       |  Transmitting the Weapon    |    Email Delivery             |  Sh
 
 
 # Email
+- Phishing Attack
 
 # Web
+- RCE
 
 # USB
-- Rubber Ducky and USBHarpoon
-- charging USB cable, such as O.MG Cable.
+- Rubber Ducky and 
+- USBHarpoon
+- Charging USB cable, such as O.MG Cable.

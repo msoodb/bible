@@ -1,5 +1,7 @@
 
 
+
+
 ```
 INPUT     |  PROCESS               |    TOOLS                                |   OUTPUT
 ----------|------------------------|-----------------------------------------|--------------------
@@ -12,7 +14,7 @@ target    |  Gather Information    |    Passive Reconnaissance Tools         |  
                                                                              |    Users
                                                                              |   Vulnerability
 ```
-                                                                                                
+                                                                                               
 
 
 # Passive Reconnaissance Tools, Gather information WITHOUT touching target.
