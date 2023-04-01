@@ -1,4 +1,6 @@
 
+# 2-Weaponization
+
 ```
     INPUT             |      PROCESS                 |       TOOLS                           |      OUTPUT
 ----------------------|------------------------------|---------------------------------------|------------------
@@ -6,7 +8,7 @@
     Network map       |                              |       Development                     |      
         IPs           |                              |       msfconsole                      |
         Ports         |                              |       msfvenom                        |
-        Services      |
+        Services      |3-Delivery
         Firewalls     |
         Users         |
     Vulnerability     |            

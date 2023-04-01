@@ -1,5 +1,5 @@
 
-Command and Control
+# 6-CommandControl
 
 INPUT               |      PROCESS                  |   TOOLS         |  OUTPUT
 --------------------|-------------------------------|-----------------|----------

@@ -1,8 +1,5 @@
 
-
-Delivery
-- Crucial component of the cyber kill chain 
-- High-risk assignment because it leaves traces
+# 3-Delivery
 
 ```
 INPUT        |      PROCESS                |    Techniques                 |      OUTPUT
