@@ -1,6 +1,6 @@
 
 
-Scan and Enumerate Service
+Recon, Scan, and Enumerate Services
 
 
 # common service and ports
@@ -74,6 +74,7 @@ HTTP
     Request
     Response
 [wpscan]: Wordpress CMS scan
+[joomscan]: Joomla CMS scan
 [Manual]: Find Web Applicatin Vulnerability:
     OWASP Top 10
     IDOR: Insecure Direct Object Reference
