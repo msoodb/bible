@@ -24,7 +24,7 @@ target    |  Gather Information    |    Passive Reconnaissance Tools         |  
      - [KeyPerson]
      - [whebsite]     
 - [Website]
-     - [Browse]          Interne Browser                    -
+     - [Firefox]         Browser, Source Code Review        -
      - [host]            IP addresses                       -
      - [whois]           Domain information                 -
      - [ip2location]     Geo location                       https://www.ip2location.com
