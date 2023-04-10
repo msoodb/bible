@@ -2,13 +2,13 @@
 # 2-Weaponization
 
 ```
-    INPUT             |      PROCESS                 |       TOOLS                           |      OUTPUT
+    INPUT             |      PROCESS                 |    TOOLS & TECHNIQUES                 |      OUTPUT
 ----------------------|------------------------------|---------------------------------------|------------------
     Information       |     Creation of Weapon       |       Vulnerability Repositories      |      Weapon
     Network map       |                              |       Development                     |      
         IPs           |                              |       msfconsole                      |
         Ports         |                              |       msfvenom                        |
-        Services      |3-Delivery
+        Services      |
         Firewalls     |
         Users         |
     Vulnerability     |            

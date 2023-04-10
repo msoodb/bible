@@ -2,7 +2,7 @@
 # 1-Reconnaissance
 
 ```
-INPUT     |  PROCESS               |    TOOLS                                |   OUTPUT
+INPUT     |  PROCESS               |    TOOLS & TECHNIQUES                   |   OUTPUT
 ----------|------------------------|-----------------------------------------|--------------------
 target    |  Gather Information    |    Passive Reconnaissance Tools         |  Information
                                    |    Active Reconnaissance Tools          |  Network map

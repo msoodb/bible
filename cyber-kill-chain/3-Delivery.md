@@ -2,7 +2,7 @@
 # 3-Delivery
 
 ```
-INPUT        |      PROCESS                |    Techniques                 |      OUTPUT
+INPUT        |      PROCESS                |  TOOLS & TECHNIQUES           |      OUTPUT
 -------------|-----------------------------|-------------------------------|----------------------
 Weapon       |  Transmitting the Weapon    |    Email Delivery             |  Shipped Weapon
                                            |    Web Delivery               |   
