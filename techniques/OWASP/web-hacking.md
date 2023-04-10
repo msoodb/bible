@@ -21,18 +21,6 @@ This learning track is dedicated to learning the most popular web application vu
 
 # Python for Hackers
 
-
-
-
-
-
-
-
-
-
-
-
-
 # Source Code Review
 static analysis tools, techniques for manual review, and tips and tricks to get through the largest source code reviews.
 - Managing expectations

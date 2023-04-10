@@ -24,3 +24,4 @@
     john
     cewl
     hydra
+    BURP Intruder
