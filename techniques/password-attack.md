@@ -5,7 +5,7 @@
     Rule-Based attacks
 
 # Online Password Guessing
-      Brute-Force attack
+    Brute-Force attack
 
 # Wordlist
     Default Passwords
@@ -24,3 +24,4 @@
     john
     cewl
     hydra
+    BURP Intruder

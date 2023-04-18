@@ -148,3 +148,21 @@ nmap -sC -sV -p445 10.10.254.138 --script=smb-vuln*
 Nmap vulscan: https://github.com/scipag/vulscan -> /usr/share/nmap/scripts
 Nmap-vulners:https://github.com/vulnersCom/nmap-vulners.git -> /usr/share/nmap/scripts
 ```
+
+Decoy(s)
+Using the -D option, you can add decoy source IP addresses to confuse the target. Consider the following command, 
+nmap -sS -Pn -D 10.10.10.1,10.10.10.2,ME -F target.ip
+nmap -sS -Pn -D RND,RND,ME -F target.ip
+
+Proxy
+nmap -sS -Pn --proxies PROXY_URL -F target.ip
+
+
+# This is a quick summary of the Nmap options discussed in this task.
+Evasion Approach 	                               Nmap Argument
+Hide a scan with decoys 	                        -D DECOY1_IP1,DECOY_IP2,ME
+Hide a scan with random decoys 	                    -D RND,RND,ME
+Use an HTTP/SOCKS4 proxy to relay connections 	    --proxies PROXY_URL
+Spoof source MAC address 	                        --spoof-mac MAC_ADDRESS
+Spoof source IP address 	                        -S IP_ADDRESS
+Use a specific source port number 	                -g PORT_NUM or --source-port PORT_NUM

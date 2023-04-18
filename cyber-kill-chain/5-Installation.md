@@ -1,7 +1,8 @@
 
+# 5-Installation
 
 ```
- INPUT              |      PROCESS                  |   TOOLS                    |   OUTPUT
+ INPUT              |      PROCESS                  |   TOOLS & TECHNIQUES       |   OUTPUT
 --------------------|-------------------------------|----------------------------|----------------------
  Initail Access     |   Establish Access            |   Python                   |   Establish Channel
                     |   Privilege Escalation        |   Vectors                  |   Backdoor

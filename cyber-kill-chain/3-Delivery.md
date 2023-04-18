@@ -1,11 +1,8 @@
 
-
-Delivery
-- Crucial component of the cyber kill chain 
-- High-risk assignment because it leaves traces
+# 3-Delivery
 
 ```
-INPUT        |      PROCESS                |    Techniques                 |      OUTPUT
+INPUT        |      PROCESS                |  TOOLS & TECHNIQUES           |      OUTPUT
 -------------|-----------------------------|-------------------------------|----------------------
 Weapon       |  Transmitting the Weapon    |    Email Delivery             |  Shipped Weapon
                                            |    Web Delivery               |   
@@ -14,9 +11,12 @@ Weapon       |  Transmitting the Weapon    |    Email Delivery             |  Sh
 
 
 # Email
+- Phishing Attack
 
 # Web
+- RCE
 
 # USB
-- Rubber Ducky and USBHarpoon
-- charging USB cable, such as O.MG Cable.
+- Rubber Ducky and 
+- USBHarpoon
+- Charging USB cable, such as O.MG Cable.
