@@ -5,7 +5,8 @@
 Many high-profile data breaches in recent years have been the result of SQL injection attacks, leading to reputational damage and regulatory fines. \
 In some cases, an attacker can obtain a persistent backdoor into an organization's systems, leading to a long-term compromise that can go unnoticed for an extended period.
 
-> https://portswigger.net/web-security/sql-injection
+- https://portswigger.net/web-security/sql-injection
+- https://portswigger.net/web-security/sql-injection/cheat-sheet
 
 # Process
 1. Detect
