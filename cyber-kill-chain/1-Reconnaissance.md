@@ -11,7 +11,10 @@ target    |  Gather Information    |    Passive Reconnaissance Tools         |  
                                                                              |    Services
                                                                              |    Firewalls
                                                                              |    Users
-                                                                             |   Vulnerability
+                                                                             |  Vulnerability
+                                                                             |  Domains tree
+                                                                             |    domains
+                                                                             |    subdomains
 ```
                                                                                                
 
