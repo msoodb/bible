@@ -5,6 +5,7 @@ INPUT
 - target
      - core application
      - wildcards
+     - target ip
 - Information About Target
 PROCESS
 - Gather Information
