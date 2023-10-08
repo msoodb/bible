@@ -24,4 +24,4 @@ TOOLS
 - cd ~/Operations/<room>
 - touch ~/Operations/<room>/clue.txt
 - tmux; tmux Ctrl+B `
-- cp -r ~/Projects/bible/tools/_AB8G . 
+- cp -r ~/Projects/bible/tools/abc . 

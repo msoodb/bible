@@ -3,9 +3,12 @@
 # fuff
 <hr/>
 
+## Enumerate URLs with Ffuf
+```sh
+ffuf -u http://localhost:3000/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt
+```
 
 ## username enumeration
-
 http://10.10.13.16/customers/signup
 
 ```sh
