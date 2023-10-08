@@ -34,8 +34,7 @@ OUPUT
      - [Contacts]
      - [KeyPerson]
      - [whebsite]     
-- [Website]
-     - [Firefox]         Browser, Source Code Review        -
+- [Website]     
      - [host]            IP addresses                       -
      - [whois]           Domain information                 -
      - [ip2location]     Geo location                       https://www.ip2location.com
@@ -48,12 +47,14 @@ OUPUT
      - [whatweb]         Website technology                 -
      - [wafw00f]         WAF information                    -
      - [p0f]             TCP/IP stack fingerprinting        -
+     - [Firefox]         Browser, Source Code Review        -
+     - [BurpSuite]       Set Scope, Browser and Log         -
 - [DNS]
      - [dig]             DNS information ANY/MX/TXT         -
      - [nslookup]        DNS information                    -
      - [dnsrecon]        DNS Passive/Active mode            -
      - [dnsdumpster]     DNS map information                https://dnsdumpster.com
-     - [dnsleaktest]     DNS leak information               https://dnsleaktest.com     
+     - [dnsleaktest]     DNS leak information               https://dnsleaktest.com
      - [DNSenum]         DNS information                    -
 - [Domain]
      - [crtsh]           Subdomain enumeration              -
@@ -69,10 +70,11 @@ OUPUT
 - [URL]
      - [waybackurl]      URL enumeration                   -
      - [katana]          Host enumeration                   -
-- [OSINT]
+- [OSINT]     
      - [Framework]       OSINT Framework                    https://osintframework.com
      - [theHarvester]    OSINT platform                     -
      - [google]          Subdomain enumeration              https://www.google.com/> [site:*.bbc.com -site:www.bbc.com]
+     - [rocketreach]     Email and phone                    https://rocketreach.co
      - [GHDB]            Google Hacking Database            https://www.exploit-db.com/google-hacking-database
      - [alerts]          Set google change alert            https://www.google.com/alerts
      - [shodan]          Shodan                             https://www.shodan.io/dashboard
