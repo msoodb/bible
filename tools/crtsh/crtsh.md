@@ -12,3 +12,9 @@ cd crtsh.py
 mv crtsh.py crtsh
 chmod +x crtsh
 cp crtsh /usr/bin/
+
+
+# Usage
+```sh
+for Line in $(cat wildcards);do;$(crtsh -d $Line -r >> domains);done
+```

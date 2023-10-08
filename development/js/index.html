@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+    <title>Document object</title>
+</head>
+  
+<body style="color:white">
+    <h1></h1>
+    <p class="details"></p>
+  
+    <p class="details"></p>
+  
+    <p class="details"></p>
+  
+    <script>
+        document.bgColor = "rgb(89, 135, 235)";
+        const text = prompt('enter the text to appear on screen');
+        const h1 = document.querySelector('h1');
+        h1.textContent = text;
+        const p = document.getElementsByClassName('details');
+        p[0].textContent = "document type:" + 
+              document.contentType;
+        p[1].textContent = "url :" + document.bgColor;
+        p[2].textContent = "title :" + document.title;
+    </script>
+</body>
+  
+</html>
