@@ -32,6 +32,13 @@ Man in the middle proxy
     - Encoding and hashing data
 - Using Intruder 
 
+# Important
+- scope
+    - add/remove to scope
+    - regex in scope for domain and all subdomains      [*.irobot.com]  .*\.irobot\.com$
+    - remove Out of Scope subdomains then.
+
+
 
 # Setup FoxyProxy
 - Add FoxyProxy to Firefox

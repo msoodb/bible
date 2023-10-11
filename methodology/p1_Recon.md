@@ -6,14 +6,14 @@ INPUT
      - core application
      - wildcards
      - target ip
-- Information About Target
+     - info
 PROCESS
-- Gather Information
+- Target Validation
+- Subdomains
+- Fingerprinting
+- Data breach
 TOOLS
-- Passive Reconnaissance Tools  
-- Active Reconnaissance Tools 
-- Automated Reconnaissance Framework 
-- Vulnerability Repositories
+- Reconnaissance Tools 
 OUPUT
 - domain
 - host
@@ -49,6 +49,9 @@ OUPUT
      - [p0f]             TCP/IP stack fingerprinting        -
      - [Firefox]         Browser, Source Code Review        -
      - [BurpSuite]       Set Scope, Browser and Log         -
+     - [securityheaders] Headers missing                    https://securityheaders.com
+     - [weleakinfo.io]   Info                               https://weleakinfo.io/
+     - [hunter.io]       Info                               https://hunter.io/
 - [DNS]
      - [dig]             DNS information ANY/MX/TXT         -
      - [nslookup]        DNS information                    -
@@ -56,8 +59,8 @@ OUPUT
      - [dnsdumpster]     DNS map information                https://dnsdumpster.com
      - [dnsleaktest]     DNS leak information               https://dnsleaktest.com
      - [DNSenum]         DNS information                    -
-- [Domain]
-     - [crtsh]           Subdomain enumeration              -
+- [Subdomain]
+     - [crtsh]           Subdomain enumeration              https://crt.sh/
      - [subfinder]       Subdomain enumeration              -
      - [assetfinder]     Subdomain enumeration              -
      - [subbrute]        Subdomain enumeration              -

