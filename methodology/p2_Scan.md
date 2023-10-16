@@ -96,13 +96,36 @@ OUPUT
     - [telnet]
     - [netcat]
 - HTTP
+    - [whatweb]
     - [Browser]
-        - Source
-        - Network
-        - javascript
         - /robots.txt
         - /sitemap.xml
-        - Debugger
+        - View Source
+            - serach for 'path'
+            - search for 'redirect'
+            - search for 'script'
+            - search for 'href'
+            - search for '<a>'
+            - check all *.js
+            - check the source of js library. are they safe?
+            - diff between local js library and original from cdn
+        - View DOM very carefully
+            - serach for 'path'
+            - search for 'redirect'
+            - search for 'script'
+            - search for 'href'
+            - search for '<a>'
+            - search for any query-string parameter
+            - search for any search parameter
+        - Analyz Network and API
+            - Fuzzing API [ffuf]
+            - Fuzzing parameter [wfuzz]
+        - Read javascript code
+        - Storage
+            - Cookie
+            - Session
+        - Utelize Debugger
+        - Search github.com for any Error or Message
     - Directory fuzzing
         - [dirb]
         - [dirbuster]
@@ -112,6 +135,9 @@ OUPUT
         - [feroxbuster]
         - [waybackurl]
         - [katana]
+    - API fuzzing
+        - [ffuf]
+        - [wfuzz]
     - [BurpSuite]
         - Log every traffic
         - Visit all resources in [Browesr]
@@ -129,8 +155,10 @@ OUPUT
         - Repeater
         - Intruder
     - [wpscan]: Wordpress CMS scan
-    - [Manual]: Find Web Applicatin Vulnerability:
-        - OWASP Top 10
+    - [nikto]:              Vulnerability scanning
+    - [searchsploit]:       Finding web application vulnerabilities
+    - [metasploit]:         Finding and exploiting web application vulnerabilities
+    - [Manual]: Find Web Applicatin Vulnerability, OWASP Top 10 
         - IDOR: Insecure Direct Object Reference
             - plain
             - base64
@@ -151,20 +179,17 @@ OUPUT
         - RCE: Remote Code Execution
         - SQLi: SQL Injection
             - In-Band SQL Injection
-            - Blind SQLi
-    - [whatweb]
-    - [nikto]:              Vulnerability scanning
-    - [searchsploit]:       Finding and web application vulnerabilities
-    - [hydra]:              Brute Force Login
-    - [metasploit]:         Finding and exploiting web application vulnerabilities
-    - [Password]:           Authentication Attack
-        - [JtR]:                Single Mode / Wordlist / Brute-Force
-        - [hydra]:              Wordlist Attack
-        - [crunch]:             Hybrid Dictionary Attack [crunch]
-        - [RainbowCrack]:       Rainbow Tables http://project-rainbowcrack.com/table.htm
-    - [python]
-        - [2to3]:           Convert pythonRecon2 to python3
-        - [python]          Run python expolit file again
+            - Blind SQLi    
+        - Authentication Attack
+        - Brute Force:
+            - [JtR]:                Single Mode / Wordlist / Brute-Force
+            - [hydra]:              Wordlist Attack, Brute Force Login
+            - [crunch]:             Hybrid Dictionary Attack [crunch]
+            - [RainbowCrack]:       Rainbow Tables http://project-rainbowcrack.com/table.htm
+            - [wfuzz]
+        - Script
+            - [2to3]:           Convert pythonRecon2 to python3
+            - [python]          Run python expolit file again
 - NFS
     - [mount]:              Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
 - SMTP

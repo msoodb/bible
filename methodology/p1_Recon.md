@@ -37,27 +37,27 @@ OUPUT
 - [Website]     
      - [host]            IP addresses                       -
      - [whois]           Domain information                 -
-     - [ip2location]     Geo location                       https://www.ip2location.com
+     - [ip2location]     Geo location                       ip2location.com
      - [traceroute]      Displaying possible routes         -
-     - [archive]         Website History                    https://archive.org/web     
-     - [netcraft]        Some usefull information           https://sitereport.netcraft.com
-     - [Wappalyzer]      Website technology                 https://addons.mozilla.org/en-US/firefox/addon/wappalyzer
-     - [BuiltWith]       Website technology                 https://addons.mozilla.org/fi/firefox/addon/builtwith
-     - [hackertarget]    WhatWeb & Wappalyzer Scan          https://hackertarget.com/whatweb-scan
+     - [archive]         Website History                    archive.org/web     
+     - [netcraft]        Some usefull information           sitereport.netcraft.com
+     - [Wappalyzer]      Website technology                 addons.mozilla.org
+     - [BuiltWith]       Website technology                 addons.mozilla.org/
+     - [hackertarget]    WhatWeb & Wappalyzer Scan          hackertarget.com
      - [whatweb]         Website technology                 -
      - [wafw00f]         WAF information                    -
      - [p0f]             TCP/IP stack fingerprinting        -
      - [Firefox]         Browser, Source Code Review        -
      - [BurpSuite]       Set Scope, Browser and Log         -
-     - [securityheaders] Headers missing                    https://securityheaders.com
-     - [weleakinfo.io]   Info                               https://weleakinfo.io/
-     - [hunter.io]       Info                               https://hunter.io/
+     - [securityheaders] Headers missing                    securityheaders.com
+     - [weleakinfo.io]   Info                               weleakinfo.io/
+     - [hunter.io]       Info                               hunter.io/
 - [DNS]
      - [dig]             DNS information ANY/MX/TXT         -
      - [nslookup]        DNS information                    -
      - [dnsrecon]        DNS Passive/Active mode            -
-     - [dnsdumpster]     DNS map information                https://dnsdumpster.com
-     - [dnsleaktest]     DNS leak information               https://dnsleaktest.com
+     - [dnsdumpster]     DNS map information                dnsdumpster.com
+     - [dnsleaktest]     DNS leak information               dnsleaktest.com
      - [DNSenum]         DNS information                    -
 - [Subdomain]
      - [crtsh]           Subdomain enumeration              https://crt.sh/
@@ -66,6 +66,7 @@ OUPUT
      - [subbrute]        Subdomain enumeration              -
      - [amass]           Subdomain enumeration              -
      - [ffuf]            Subdomain enumeration              -
+     - [google]          [site:*.bbc.com -site:www.bbc.com]
 - [Host]
      - [httprobe]        Host enumeration                   -
      - [httpx]           Host enumeration                   -
@@ -74,14 +75,13 @@ OUPUT
      - [waybackurl]      URL enumeration                   -
      - [katana]          Host enumeration                   -
 - [OSINT]     
-     - [Framework]       OSINT Framework                    https://osintframework.com
+     - [Framework]       OSINT Framework                    osintframework.com
      - [theHarvester]    OSINT platform                     -
-     - [google]          Subdomain enumeration              https://www.google.com/> [site:*.bbc.com -site:www.bbc.com]
-     - [rocketreach]     Email and phone                    https://rocketreach.co
-     - [GHDB]            Google Hacking Database            https://www.exploit-db.com/google-hacking-database
-     - [alerts]          Set google change alert            https://www.google.com/alerts
-     - [shodan]          Shodan                             https://www.shodan.io/dashboard
-     - [SocialMedia]     Linkedin, Instagram, facebook      https://www.instagram.com/
+     - [rocketreach]     Email and phone                    rocketreach.co
+     - [GHDB]            Google Hacking Database            exploit-db.com
+     - [alerts]          Set google change alert            google.com/alerts
+     - [shodan]          Shodan                             shodan.io/dashboard
+     - [SocialMedia]     Linkedin, Instagram, facebook      instagram.com/
 
 
 # Active Reconnaissance Tools, Gather information WITH touching target.
