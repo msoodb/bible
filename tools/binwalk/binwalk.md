@@ -1,2 +1,4 @@
 
--[extract]          binwalk -e <file>
+```sh
+binwalk -e <file>
+```
