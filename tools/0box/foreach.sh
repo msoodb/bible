@@ -1,11 +1,3 @@
 #!/bin/bash
 
-FILE=""
-LINES=$(cat $FILE)
-declare -i i=1
-
-for Line in $LINES
-do    
-    echo "subdomains.crtsh.$i"
-    i=$i+1
-done
+for Line in $(cat $FILE);do $(crtsh -d $Line -r >> "domains.dirty");done
