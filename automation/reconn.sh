@@ -20,6 +20,18 @@ set +e
 
 arg1=$1
 
+init ()
+{
+    # Create files
+    touch domains.txt
+    touch wildcards.txt
+    touch outscopes.txt         # Out of Scope domains
+
+    # Path
+    export SECLISTS_DIR=/var/lib/snapd/snap/seclists/37
+    export WORDLIST_DIR=~/wordlist
+}
+
 # No.1
 sub ()
 {
@@ -119,8 +131,6 @@ all ()
     host
     url
     js
-    dns
-    ans
 }
 
 clean ()
