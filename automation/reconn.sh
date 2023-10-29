@@ -4,15 +4,15 @@
 # Subdomain Enumeration
 #
 # Input: 
-#    1- domains.txt         main web application to be hacked
-#    2- wildcards.txt       domain without *. saved in file: wildcards.txt
-#    2- outscopes.txt       domain without *. saved in file: wildcards.txt
+#    1- domains         main web application to be hacked
+#    2- wildcards       domain without *. saved in file: wildcards
+#    2- outscopes       domain without *. saved in file: wildcards
 #
 # Output: 
-#    1- subdomains.txt      subdomains
-#    2- hosts.txt           active subdomains.txt/hosts.txt
-#    3- fff_out/            fetch headers and body of all hosts.txt
-#    4- urls.txt            
+#    1- subdomains      subdomains
+#    2- hosts           active subdomains/hosts
+#    3- fff_out/            fetch headers and body of all hosts
+#    4- urls            
 #####################################################################
 
 #set -x
@@ -23,9 +23,9 @@ arg1=$1
 init ()
 {
     # Create files
-    touch domains.txt
-    touch wildcards.txt
-    touch outscopes.txt         # Out of Scope domains
+    touch domains
+    touch wildcards
+    touch outscopes         # Out of Scope domains
 
     # Path
     export SECLISTS_DIR=/var/lib/snapd/snap/seclists/37
@@ -38,36 +38,36 @@ sub ()
     echo "subdomain enumeration ........................ "
 
     # crtsh
-    for LINE in $(cat wildcards.txt);do crtsh -d $LINE -r >> "subdomains.txt";done
+    for LINE in $(cat wildcards);do crtsh -d $LINE -r >> "subdomains";done
 
     # subfinder
-    subfinder -dL wildcards.txt >> subdomains.txt
+    subfinder -dL wildcards >> subdomains
 
     # assetfinder
     #
-    cat wildcards.txt | assetfinder -subs-only >> subdomains.txt
+    cat wildcards | assetfinder -subs-only >> subdomains
 
     # subbrute
-    #subbrute -s /usr/share/wordlists/subbrute/names.txt -r /usr/share/wordlists/subbrute/resolvers.txt  -t wildcards.txt >> subdomains.txt
+    #subbrute -s /usr/share/wordlists/subbrute/names -r /usr/share/wordlists/subbrute/resolvers  -t wildcards >> subdomains
 
     # amass
-    #for LINE in $(cat wildcards.txt);do amass enum -passive -d $LINE >> "subdomains.txt";done
+    #for LINE in $(cat wildcards);do amass enum -passive -d $LINE >> "subdomains";done
 
     # ffuf
     #
-    #for LINE in $(cat wildcards.txt);do ffuf -u https://FUZZ.$LINE -w $SECLISTS_DIR/Discovery/DNS/subdomains.txt-top1million-5000.txt >> "subdomains.txt";done
+    #for LINE in $(cat wildcards);do ffuf -u https://FUZZ.$LINE -w $SECLISTS_DIR/Discovery/DNS/subdomains-top1million-5000 >> "subdomains";done
 
-    # Add domains.txt to subdomains.txt. Domains are also In scope as well as subdomains.txt
-    if [ -f domains.txt ]; then
-        cat domains.txt >> subdomains.txt
+    # Add domains to subdomains. Domains are also In scope as well as subdomains
+    if [ -f domains ]; then
+        cat domains >> subdomains
     fi
 
-    # Sort and Uniq subdomains.txt
-    cat subdomains.txt | sort | uniq > subdomains.txt~ && rm subdomains.txt && mv subdomains.txt~ subdomains.txt
+    # Sort and Uniq subdomains
+    cat subdomains | sort | uniq > subdomains~ && rm subdomains && mv subdomains~ subdomains
 
     # Remove OOScopes
-    if [ -f outscopes.txt ]; then
-        for LINE in $(cat outscopes.txt);do sed -i "/$LINE/d" subdomains.txt;done
+    if [ -f outscopes ]; then
+        for LINE in $(cat outscopes);do sed -i "/$LINE/d" subdomains;done
     fi
 }
 
@@ -77,11 +77,11 @@ host ()
     echo "host enumeration ........................ "
 
     # httprobe
-    #cat domains.txt | httprobe -c 50 > hosts.txt
+    #cat domains | httprobe -c 50 > hosts
 
     # httpx
-    httpx -l subdomains.txt -nc -o hosts.txt
-    #cat hosts.txt | grep 200 | awk '{print $1}' > hosts.txt.200    #Filter hosts.txt
+    httpx -l subdomains -nc -o hosts
+    #cat hosts | grep 200 | awk '{print $1}' > hosts.200    #Filter hosts
 }
 
 # No.3
@@ -90,13 +90,13 @@ url ()
     echo "url enumeration ........................ "
 
     # waybackurls
-    cat hosts.txt | waybackurls | tee -a urls.txt
+    #cat hosts | waybackurls | tee -a urls
 
     # katana
-    katana -list hosts.txt | tee -a urls.txt
+    katana -list hosts -fs=fqdn | tee -a urls
 
-    # Sort and Uniq urls.txt
-    cat urls.txt | sort | uniq > urls.txt~ && rm urls.txt && mv urls.txt~ urls.txt
+    # Sort and Uniq urls
+    cat urls | sort | uniq > urls~ && rm urls && mv urls~ urls
 }
 
 # No.4
@@ -105,10 +105,10 @@ js ()
     echo "js enumeration ........................ "
     
     # subjs
-    cat urls.txt | subjs | tee -a jss.txt
+    cat urls | subjs | tee -a jss~
 
-    # Sort and Uniq jss.txt
-    cat jss.txt | sort | uniq > jss.txt~ && rm jss.txt && mv jss.txt~ jss.txt
+    # Sort and Uniq jss
+    cat jss~ | sort -u > jss && rm jss~
 }
 
 # No.5
@@ -124,21 +124,68 @@ ans ()
     echo "https://bgp.he.net/"
 }
 
+##############################################
+# Content Gathering
+##############################################
 
-all ()
+crawl ()
 {
-    sub
-    host
-    url
-    js
+    # fff
+    cat hosts | fff -d 1 -S -o _.fff
+
+
+    # directory
+    for LINE in $(awk -F "//" '{print $2}' hosts);do mkdir -p $LINE; done
+
+    # js
+    file="jss"
+    while IFS= read -r link
+    do
+        wget --tries=1 -P _.js/ "$link"
+    done < "$file"
+
+    echo "jsbeautifier-go"
+    echo 'for FILE in _.js/*; do jsbeautifier-go $FILE > $FILE.btfy; done'
+    echo
+
+    echo "delete ugly js"
+    echo 'find _.js/ -type f ! -name "*.btfy" -exec rm -r {} \;'
+    echo    
+
+    # Whatweb
+    for LINE in $(awk -F "//" '{print $2}' hosts);
+    do
+        # whatweb
+        whatweb -v -a 3 https://$LINE --log-verbose=$LINE/whatweb --color=never
+        
+        # robots
+        wget --tries=1 -P $LINE/ $LINE/robots
+
+        # sitemap.xml
+        wget --tries=1 -P $LINE/ $LINE/sitemap.xml
+
+        # index
+        wget --tries=1 -P $LINE/ $LINE
+    done
+
+    # gobuster
+    for LINE in $(awk -F "//" '{print $2}' hosts);
+    do
+        gobuster dir -u https://$LINE  -w $WORDLIST_DIR/common > $LINE/dirs
+    done
+
+    #
+    # find whent it always return 200
+    #
+    #curl -sS -D - https://$TARGET_URL -o /dev/null
+    #ffuf -u https://$TARGET_URL/FUZZ=1 -w $WORDLIST_DIR/fuzz-lfi-params-list -fs 1-20 -s
+
+    # Vulnerability Scan
+    nikto -h https://$TARGET_URL -o nikto -Format txt
+    nuclei -u https://$TARGET_URL -nc -o nuclei
+
+    # for LINE in $(awk -F ".s3" '{print $1}' s3-buckets);do aws s3 ls s3://$LINE --no-sign-request; done
 }
 
-clean ()
-{
-    [ -e subdomains.txt ] && rm subdomains.txt
-    [ -e hosts.txt ] && rm hosts.txt
-    [ -e urls.txt ] && rm urls.txt
-    [ -e jss.txt ] && rm jss.txt
-}
 
 "$@"

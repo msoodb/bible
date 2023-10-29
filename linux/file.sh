@@ -22,8 +22,10 @@ find . -maxdepth 2 -iname "*.txt" 2>/dev/null
 find . -maxdepth 1 -type f -newermt '2023-10-20' -exec mv {} examples.2/ \;    # Find and move
 grep -rnw '/path/to/somewhere/' -e 'pattern'
 
-
-# grep
+# sed
+sed -i '/pattern to match/d' ./infile       # How to delete from a text file, all lines that contain a specific string?
+sed -i 's/old-text/new-text/g' input.txt    # Find and replace text within a file using sed command
+# grep  
 grep [OPTION]... PATTERNS [FILE]...
 
 
