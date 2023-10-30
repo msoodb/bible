@@ -19,7 +19,15 @@ whereis file
 updatedb
 locate file
 find . -maxdepth 2 -iname "*.txt" 2>/dev/null
+find . -maxdepth 1 -type f -newermt '2023-10-20' -exec mv {} examples.2/ \;    # Find and move
 grep -rnw '/path/to/somewhere/' -e 'pattern'
+
+# sed
+sed -i '/pattern to match/d' ./infile       # How to delete from a text file, all lines that contain a specific string?
+sed -i 's/old-text/new-text/g' input.txt    # Find and replace text within a file using sed command
+# grep  
+grep [OPTION]... PATTERNS [FILE]...
+
 
 # ownership -rwxrwxr-x 1 masoud masoud 2814 Oct 26 09:42 curl.sh
 chown samir file.txt

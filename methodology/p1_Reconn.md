@@ -2,37 +2,44 @@
 # 1-Reconnaissance
 
 INPUT
-- target
-     - core application
-     - wildcards
-     - target ip
-     - info
+- domains
+- wildcards
+- scope
+- target ip
+- info
 PROCESS
 - Target Validation
+     - company
+     - website
 - Subdomains
 - Fingerprinting
 - Data breach
 TOOLS
-- Reconnaissance Tools 
+- All Reconn Tools 
 OUPUT
-- domain
-- host
-- url
-- network map
-     - IPs
-     - Ports
-     - Services
-     - Firewalls
-     - Users
-- potential vulnerability
+- targets
+- others
+     - domain
+     - host
+     - url
+     - network map
+          - IPs
+          - Ports
+          - Services
+          - Firewalls
+          - Users
+     - potential vulnerability
 
 
 # Passive Reconnaissance Tools, Gather information WITHOUT touching target.
 - [Company]         
      - [Name]
      - [Location]
+     - [CoreBussines]
+     - [Processes]
      - [Contacts]
      - [KeyPerson]
+     - [Partners]
      - [whebsite]     
 - [Website]     
      - [host]            IP addresses                       -
