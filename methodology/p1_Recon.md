@@ -34,13 +34,13 @@ OUPUT
 # Passive Reconnaissance Tools, Gather information WITHOUT touching target.
 - [Company]         
      - [Name]
-     - [Location]
+     - [Locations]
      - [CoreBussines]
      - [Processes]
      - [Contacts]
-     - [KeyPerson]
+     - [KeyPersons]
      - [Partners]
-     - [whebsite]     
+     - [whebsites]     
 - [Website]     
      - [host]            IP addresses                       -
      - [whois]           Domain information                 -
@@ -89,7 +89,14 @@ OUPUT
      - [alerts]          Set google change alert            google.com/alerts
      - [shodan]          Shodan                             shodan.io/dashboard
      - [SocialMedia]     Linkedin, Instagram, facebook      instagram.com/
-
+     - [censys.io]       censys.io
+     - [zoomeye.org]     zoomeye.org                        https://www.zoomeye.org
+- [Target]
+     - [domain]          Selected domain tcensys.ioo be scanned in next phase
+     - [subdomain]       Selected subdomain to be scanned in next phase
+     - [ip]              Selected ip to be scanned in next phase
+     - [url]             Selected url to be scanned in next phase     
+     - [api]             Selected api to be scanned in next phase
 
 # Active Reconnaissance Tools, Gather information WITH touching target.
 - [Domain]

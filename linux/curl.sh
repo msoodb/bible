@@ -188,8 +188,34 @@ fi
 
 # Search
 RUN_ME=0
-if [ $RUN_ME = 1 ]
+if [ $RUN_ME = 1 ]  
 then
     curl --location --request GET --verbose "$BASEAPI_URL/search.json?key=$API_KEY&q=Lond"
 fi
 
+
+
+# How to Bypass Cloudflare with cURL in 2023 
+- https://www.zenrows.com/blog/curl-bypass-cloudflare#base-curl
+- https://github.com/lwthiker/curl-impersonate/releases
+
+- We can do so by sending a request to httpbin, a website displaying requests and response headers.
+curl http://httpbin.org/headers
+
+
+curl http://httpbin.org/headers \
+    --header "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" \
+    --header "Accept-Encoding: gzip, deflate" \
+    --header "Accept-Language: en-US,en;q=0.5" \
+    --header "Host: httpbin.org" \
+    --header "Upgrade-Insecure-Requests: 1" \
+    --header "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0" \
+    --header "X-Amzn-Trace-Id: Root=1-65436346-288f2cd0586ce6a21abbb9d8"
+
+curl https://www.cointracker.io/ \
+    --header "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" \
+    --header "Accept-Encoding: gzip, deflate" \
+    --header "Accept-Language: en-US,en;q=0.5" \
+    --header "Upgrade-Insecure-Requests: 1" \
+    --header "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0" \
+    --header "X-Amzn-Trace-Id: Root=1-65436346-288f2cd0586ce6a21abbb9d8"
