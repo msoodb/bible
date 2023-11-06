@@ -41,31 +41,20 @@ OUPUT
      - [KeyPersons]
      - [Partners]
      - [whebsites]     
-- [Website]     
+- [DNS]
      - [host]            IP addresses                       -
      - [whois]           Domain information                 -
+     - [dig]             DNS information ANY/MX/TXT         dig +trace example.com
      - [ip2location]     Geo location                       ip2location.com
-     - [traceroute]      Displaying possible routes         -
-     - [archive]         Website History                    archive.org/web     
-     - [netcraft]        Some usefull information           sitereport.netcraft.com
-     - [Wappalyzer]      Website technology                 addons.mozilla.org
-     - [BuiltWith]       Website technology                 addons.mozilla.org/
-     - [hackertarget]    WhatWeb & Wappalyzer Scan          hackertarget.com
-     - [whatweb]         Website technology                 -
-     - [wafw00f]         WAF information                    -
-     - [p0f]             TCP/IP stack fingerprinting        -
-     - [Firefox]         Browser, Source Code Review        -
-     - [BurpSuite]       Set Scope, Browser and Log         -
-     - [securityheaders] Headers missing                    securityheaders.com
-     - [weleakinfo.io]   Info                               weleakinfo.io/
-     - [hunter.io]       Info                               hunter.io/
-- [DNS]
-     - [dig]             DNS information ANY/MX/TXT         -
+     - [reverse-ip]      Find all websites on the ip        https://hackertarget.com/reverse-ip-lookup/
+     - [traceroute]      Displaying possible routes         -     
      - [nslookup]        DNS information                    -
      - [dnsrecon]        DNS Passive/Active mode            -
      - [dnsdumpster]     DNS map information                dnsdumpster.com
      - [dnsleaktest]     DNS leak information               dnsleaktest.com
      - [DNSenum]         DNS information                    -
+     - [wafw00f]         WAF information                    -
+     - [p0f]             TCP/IP stack fingerprinting        -
 - [Subdomain]
      - [crtsh]           Subdomain enumeration              https://crt.sh/
      - [subfinder]       Subdomain enumeration              -
@@ -81,6 +70,18 @@ OUPUT
 - [URL]
      - [waybackurl]      URL enumeration                   -
      - [katana]          Host enumeration                   -
+- [Webapp]     
+     - [archive]         Website History                    archive.org/web     
+     - [netcraft]        Some usefull information           sitereport.netcraft.com
+     - [Wappalyzer]      Website technology                 addons.mozilla.org
+     - [BuiltWith]       Website technology                 addons.mozilla.org/
+     - [hackertarget]    WhatWeb & Wappalyzer Scan          hackertarget.com
+     - [whatweb]         Website technology                 -
+     - [Firefox]         Browser, Source Code Review        -
+     - [BurpSuite]       Set Scope, Browser and Log         -
+     - [securityheaders] Headers missing                    securityheaders.com
+     - [weleakinfo.io]   Info                               weleakinfo.io/
+     - [hunter.io]       Info                               hunter.io/
 - [OSINT]     
      - [Framework]       OSINT Framework                    osintframework.com
      - [theHarvester]    OSINT platform                     -

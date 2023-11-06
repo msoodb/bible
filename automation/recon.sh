@@ -26,32 +26,38 @@ init ()
 }
 
 # ----------------------------------
-#   Wide Recon on wildcards domain 
+#   Wide Recon on wildcards 
 #       - subdomains
 # ----------------------------------
+
+# mkdir <wildcard>
+# cd <wildcard>
+# run recon.sh sub <wildcard>
 sub ()
 {
+    WILDCARD=$1
+
     # crtsh
-    for LINE in $(cat wildcards);do crtsh -d $LINE -r >> "subdomains~";done
+    crtsh -d $WILDCARD -r >> "subdomains~";done
 
     # subfinder
-    subfinder -dL wildcards >> subdomains~
+    subfinder -d $WILDCARD >> subdomains~
     
     # assetfinder
-    cat wildcards | assetfinder -subs-only >> subdomains~
+    echo  $WILDCARD | assetfinder -subs-only >> subdomains~
     
     # pipes subdomains~ in a single file subdomains
     cat subdomains~ | sort -u > subdomains && rm subdomains~
     
     # remove out of scopes 
-    if [ -f outscopes ]; then
-        for LINE in $(cat outscopes);do sed -i "/$LINE/d" subdomains;done
-    fi
+    #if [ -f outscopes ]; then
+    #    for LINE in $(cat outscopes);do sed -i "/$LINE/d" subdomains;done
+    #fi
 }
 
 
 # ----------------------------------
-#   Wide Recon on wildcards domain
+#   Wide Recon on wildcards
 #       - hosts
 #       - urls
 #       - js files
@@ -60,6 +66,8 @@ url ()
 {
     # hosts
     httpx -l subdomains -nc -o hosts
+    httpx -l subdomains -sc -ip -probe -title -o hosts.meta
+    
 
     # urls
     cat hosts | waybackurls  | tee -a urls~
@@ -69,20 +77,11 @@ url ()
     cat urls~ | sort -u > urls && rm urls~
 
     # js files
-    cat urls | subjs | tee -a jss~              
+    cat urls | subjs | tee -a jss~
     
     # pipes jss~ in a single file jss
     cat jss~ | sort -u > jss && rm jss~
 }
-
-
-subdomain takeovers
-
-$ host subdomain.example.com
-subdomain.example.com has address 192.30.252.153
-subdomain.example.com has address 192.30.252.154
-$ whois 192.30.252.153 | grep "Org-naame | orgName"
-OrgName: GitHub, Inc.
 
 
 # ----------------------------------
@@ -93,7 +92,7 @@ OrgName: GitHub, Inc.
 crawl ()
 {
     # fff    
-    cat hosts | fff -d 1 -S -o fff   
+    cat hosts | fff -d 1 -S -o fff
 
     # Bypass Cloudflare 403 if needed
     # Check Headers in curl http://httpbin.org/headers
@@ -114,10 +113,65 @@ crawl ()
 #   OSINT google, github, censys, shodan, medium, twitter
 # ##########################################################
 
-dig ()
+analyse ()
 {
-    gf
-    grep
+
+    # Response Headers and Recommendation
+        # X-Frame-Options: DENY
+        # X-XSS-Protection: 0
+        # X-Content-Type-Options: nosniff
+        # Referrer-Policy: strict-origin-when-cross-origin
+        # Content-Type: text/html; charset=UTF-8
+        # Set-Cookie
+        # Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+        # Expect-CT     !!! Do not use it. Mozilla recommends avoiding it, and removing it from existing code if possible.
+        # Content-Security-Policy   Content Security Policy is complex to configure and maintain.
+        # Access-Control-Allow-Origin: https://yoursite.com
+        # Cross-Origin-Opener-Policy: same-origin
+        # Cross-Origin-Embedder-Policy: require-corp
+        # Cross-Origin-Resource-Policy: same-site
+        # Permissions-Policy: geolocation=(), camera=(), microphone=()
+        # Permissions-Policy: interest-cohort=()
+        # Server: webserver
+        # X-Powered-By: 
+        # X-AspNetMvc-Version
+        # X-DNS-Prefetch-Control: off
+        # Public-Key-Pins
+
+    # Headers vulnerabilities
+        # HTTP-HOST HEADER ATTACKS          https://infosecwriteups.com/http-host-header-attacks-55ca4b7786c
+
+    
+    # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html
+    # https://portswigger.net/web-security/host-header/exploiting
+
+    # SQLi
+    #
+    # Find an URL that potentially sends SQL queries, like this one:
+    # http://w34ksite.com/products.php?category=1 this URL list products, regrouped in the category named 1
+    grep '-iE' 'id=|select=|report=|role=|update=|query=|user=|name=|sort=|where=|search=|params=|process=|row=|view=|table=|from=|sel=|results=|sleep=|fetch=|order=|keyword=|column=|field=|delete=|string=|number=|filter='
+
+
+    # XSS
+    # XSStrike 
+    python ~/Projects/XSStrike/xsstrike.py -u https://edu.varonis.com/lms/assets/14b8f2b0/uid=
+
+    # General tools
+    gf [awskey|base64|json-sec]
+    grep "-roE" ""
 }
 
 "$@"
+
+
+
+
+This is called wide reconn in pentesing and bug bounty. 
+
+The Process:
+
+ 1. Find all subdomains, you can use amass, crtsh, subfinder, assetfinde. 
+ 2. Find all valid host from subdomains. you can user httpx, httprobe.
+ 3. Find all possible urls form hosts using waybackurl, katana.
+
+Good luck.

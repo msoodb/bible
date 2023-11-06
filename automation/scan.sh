@@ -20,6 +20,39 @@
 #####################################################################
 
 
+scan()
+{
+    dig www.varonis.com > dig
+    dig +short www.varonis.com > dig.short
+    dig +short ns www.varonis.com > dig.short.ns
+    dig +trace www.varonis.com > dig.trace
+    
+    curl -I https://www.varonis.com > response.headers
+    wget https://www.varonis.com/robots.txt
+    https://www.varonis.com/sitemap.xml
+
+    whatweb -v -a 3 https://www.varonis.com --log-verbose=whatweb --color=never
+    ffuf -u https://www.varonis.com/FUZZ -w ~/wordlist/fuzz-lfi-params-list.txt -fc 30  # FAILED! Work later
+    katana -u https://www.varonis.com -fs=fqdn | tee -a urls
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 crawl ()
 {
     for LINE in $(awk -F "//" '{print $2}' targets);do mkdir -p $LINE; done
