@@ -11,3 +11,8 @@
 3. Get username and password.
 4. Login in /login
 5. Flag2 is here
+
+## Reproduction Steps
+1. Brutefoce username and find it.
+2. Using username and bruteforce password
+3. Login and see the flag

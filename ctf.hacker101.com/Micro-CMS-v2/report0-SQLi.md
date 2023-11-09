@@ -1,6 +1,6 @@
 
 ## Title
-> Flag
+> SQLi in username field.
 
 ## Description
 > In the "login" page, Username has SQL Injection vulnerability.

@@ -32,7 +32,7 @@ OUPUT
 
 
 # Passive Reconnaissance Tools, Gather information WITHOUT touching target.
-- [Company]         
+- [Company]              - company
      - [Name]
      - [Locations]
      - [CoreBussines]
@@ -40,7 +40,24 @@ OUPUT
      - [Contacts]
      - [KeyPersons]
      - [Partners]
-     - [whebsites]     
+     - [Domains]         - domains
+     - [Wildcards]       - wildcards
+     - [Scope]           - outscopes
+     - [Policy]          - policy
+- [Structure]
+     - company/
+          - wildcard-1/
+          - wildcard-2/
+          - wildcard-3/
+          - domain-1/
+          - domain-2/
+          - company
+          - wildcards
+          - domains
+          - hosts
+          - outscopes
+          - policy
+          - clue
 - [DNS]
      - [host]            IP addresses                       -
      - [whois]           Domain information                 -
@@ -82,6 +99,7 @@ OUPUT
      - [securityheaders] Headers missing                    securityheaders.com
      - [weleakinfo.io]   Info                               weleakinfo.io/
      - [hunter.io]       Info                               hunter.io/
+     - [Original-ip]     Find the real IP of websites       securitytrails.com, zoomeye.org
 - [OSINT]     
      - [Framework]       OSINT Framework                    osintframework.com
      - [theHarvester]    OSINT platform                     -
@@ -90,10 +108,11 @@ OUPUT
      - [alerts]          Set google change alert            google.com/alerts
      - [shodan]          Shodan                             shodan.io/dashboard
      - [SocialMedia]     Linkedin, Instagram, facebook      instagram.com/
-     - [censys.io]       censys.io
+     - [censys.io]       censys.io                          https://search.censys.io/
      - [zoomeye.org]     zoomeye.org                        https://www.zoomeye.org
+     - [github.com]      Code and data leak                 https://github.com
 - [Target]
-     - [domain]          Selected domain tcensys.ioo be scanned in next phase
+     - [domain]          Selected domain to be scanned in next phase
      - [subdomain]       Selected subdomain to be scanned in next phase
      - [ip]              Selected ip to be scanned in next phase
      - [url]             Selected url to be scanned in next phase     

@@ -35,7 +35,7 @@ Man in the middle proxy
 # Important
 - scope
     - add/remove to scope
-    - regex in scope for domain and all subdomains      [*.irobot.com]  .*\.irobot\.com$
+    - regex in scope for domain and all subdomains      [*.example.com]  .*\.example\.com$
     - remove Out of Scope subdomains then.
 
 

@@ -1,5 +1,5 @@
 ## Title
-> Flag
+> Html-based XSS in description field
 
 ## Description
 > In the "edit" page, Description has html-based XSS vulnerability.

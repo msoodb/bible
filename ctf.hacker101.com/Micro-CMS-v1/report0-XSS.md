@@ -1,6 +1,6 @@
 
 ## Title
-> Flag
+> XSS in title field
 
 ## Description
 > In the "edit" page, Title has XSS vulnerability.

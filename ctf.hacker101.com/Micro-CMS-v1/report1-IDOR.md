@@ -1,6 +1,6 @@
 
 ## Title
-> Flag
+> IDOR in post number edit page
 
 ## Description
 > With Burp Intruder we find post with id 5 exist and retuen error 403. 
