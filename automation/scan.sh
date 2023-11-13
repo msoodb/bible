@@ -19,52 +19,84 @@
 #               sqlmap      ------->  ptential sqli
 #####################################################################
 
+# ----------------------------------
+#   ~/Operations/<company>/<domain>
+# ----------------------------------
+init ()
+{    
+    export SECLISTS_DIR=/var/lib/snapd/snap/seclists/37
+    export WORDLIST_DIR=~/wordlist
+}
 
-crawl ()
+# ----------------------------------
+#   ~/Operations/<company>/<domain>       
+# ----------------------------------
+
+# scan.sh basic <domain>
+basic ()
 {
-    for LINE in $(awk -F "//" '{print $2}' targets);do mkdir -p $LINE; done
-    for LINE in $(awk -F "//" '{print $2}' targets);
-    do
-        whatweb -v -a 3 https://$LINE --log-verbose=$LINE/whatweb --color=never
-        wget --tries=1 -P $LINE/ $LINE/robots.txt
-        wget --tries=1 -P $LINE/ $LINE/sitemap.xml
-        wget --tries=1 -P $LINE/ $LINE
+    TARGET=$1
+
+    # Domain Validation
+    dig $TARGET > dig
+    dig +short $TARGET > dig.short
+    dig +short ns $TARGET > dig.short.ns
+    dig +trace $TARGET > dig.trace
+
+    # Sitemap
+    curl -I https://$TARGET > response.headers
+    https://securityheaders.com/?q=&followRedirects=on          # missing.headers
+    wget https://$TARGET/robots.txt
+    wget https://$TARGET/sitemap.xml
+
+    # Tech 
+    whatweb -v -a 3 https://$TARGET --log-verbose=whatweb --color=never   
+    wappalyzer_varonis-com          # export from wappalyzer 
+    wafw00f $TARGET > waf
+    https://www.nmmapper.com/sys/reconnaissance-tools/waf/web-application-firewall-detector/   # WAF Detection
+    
+    # Auto Scan
+    nuclei -u https://$TARGET  -nc -o nuclei
+    nikto -h https://$TARGET -o nikto.output -Format txt
+    nmap $TARGET 
+    reverse.ip                      # https://hackertarget.com/reverse-ip-lookup/
+    
+    # Directory    
+    gobuster dir -u https://$TARGET  -w $WORDLIST_DIR/common.txt > dirs
+    curl -sS -D - https://$TARGET -o /dev/null
+    ffuf -u https://$TARGET/FUZZ -w $WORDLIST_DIR/fuzz-lfi-params-list.txt -fc 30  # -fs 1-20 -s
+
+    # URL
+    katana -u https://$TARGET -fs=fqdn | tee -a urls
+
+    # Javascript
+    cat urls | subjs | tee -a jss~    
+    cat jss~ | sort -u > jss && rm jss~
+
+    # Screenshot
+    gowitness file --file urls
+    for I in $(ls); do 
+        echo "$I" >> index.html;
+        echo "<br/>" >> index.html;
+        echo "<img src=$I><br>" >> index.html;
     done
 
-    for LINE in $(awk -F "//" '{print $2}' hosts);
-    do
-        gobuster dir -u https://$LINE  -w $WORDLIST_DIR/common > $LINE/dirs
-        # curl -sS -D - https://$TARGET_URL -o /dev/null
-        # ffuf -u https://$TARGET_URL/FUZZ=1 -w $WORDLIST_DIR/fuzz-lfi-params-list -fs 1-20 -s
-    done  
+    # OSINT
+    zoomeye
+    censys
+    shodan
 
-    nikto -h https://$TARGET_URL -o nikto -Format txt
-    nuclei -u https://$TARGET_URL -nc -o nuclei
-    # for LINE in $(awk -F ".s3" '{print $1}' s3-buckets);do aws s3 ls s3://$LINE --no-sign-request; done
+    # Known Bugs
+    # 1- 
+    subzy run --target urls
+    socialhunter -f urls 
+
+    # 2- XSS
+    paramspider -d <domain>
+    dalfox -b hahwul.xss.ht file param.txt
+
+    # OWASP
+    Burpsuite  - Scope: .*\.domain\.com$
 }
-
-
-crawl ()
-{
-    export TARGET=
-    mkdir -p $TARGET && cd $TARGET
-    
-    whatweb -v -a 3 https://$TARGET --log-verbose=whatweb --color=never
-    wget --tries=1 -P $TARGET/ robots.txt
-    wget --tries=1 -P $TARGET/ sitemap.xml
-    wget --tries=1 -P $TARGET/ 
-   
-
-    
-    gobuster dir -u https://$TARGET  -w $WORDLIST_DIR/common > dirs
-    # curl -sS -D - https://$TARGET_URL -o /dev/null
-    # ffuf -u https://$TARGET_URL/FUZZ=1 -w $WORDLIST_DIR/fuzz-lfi-params-list -fs 1-20 -s
-
-    nikto -h https://$TARGET -o nikto -Format txt
-    nuclei -u https://$TARGET -nc -o nuclei
-    # for LINE in $(awk -F ".s3" '{print $1}' s3-buckets);do aws s3 ls s3://$LINE --no-sign-request; done
-}
-
-
 
 "$@"

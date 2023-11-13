@@ -1,44 +1,60 @@
 #!/bin/bash
 
 #####################################################################
-# Wide Reconnaissance
-#
-# Input: 
-#    1- domains         main web application subdomains to be hacked
-#    2- wildcards       domain without *. saved in file: wildcards
-#    3- outscopes       out of scope subdomain
-#
-# Output: 
-#    1- targets         subdomains / ips
-#
-# domains  ----------------------------------------->
-# wildcards ---> subdomains ---> hosts ---> urls ---> targets 
-#
+# Reconnaissance
+#   - <company>
+#   - <Wildcard>
 #####################################################################
 
+
+# ----------------------------------
+#   ~/Operations/<company>/       
+# ----------------------------------
 init ()
-{
-    touch domains
-    touch wildcards
-    touch outscopes
+{       
     export SECLISTS_DIR=/var/lib/snapd/snap/seclists/37
     export WORDLIST_DIR=~/wordlist
+
+    touch company
+    echo "company is created successfully!"
+
+    touch domains
+    echo "domains is created successfully!"
+
+    touch wildcards
+    echo "wildcards is created successfully!"
+
+    touch outscopes
+    echo "outscopes is created successfully!"
+
+    touch policy
+    echo "policy is created successfully!"
+
+    touch notbook
+    echo "notbook is created successfully!"
+
+    touch code.sh
+    echo "code.sh is created successfully!"
+
+    echo
+    echo "complete information about company."
 }
 
+
 # ----------------------------------
-#   Wide Recon on wildcards 
-#       - subdomains
+#   ~/Operations/<company>/<wildcard>       
+#   - Set outscopes for this <wildcard>
 # ----------------------------------
 
-# mkdir <wildcard>
-# cd <wildcard>
-# run recon.sh sub <wildcard>
+# ----------------------------------
+#  Wildcard Subdomains Enumeration
+# ----------------------------------
 sub ()
 {
     WILDCARD=$1
 
     # crtsh
-    crtsh -d $WILDCARD -r >> "subdomains~";done
+    crtsh -d $WILDCARD -r >> subdomains~
 
     # subfinder
     subfinder -d $WILDCARD >> subdomains~
@@ -46,36 +62,59 @@ sub ()
     # assetfinder
     echo  $WILDCARD | assetfinder -subs-only >> subdomains~
     
+    # github-subdomains
+    #github-subdomains -d $WILDCARD -t token -o github-subdomains
+    #cat github-subdomains >> subdomains~ && rm github-subdomains
+
     # pipes subdomains~ in a single file subdomains
     cat subdomains~ | sort -u > subdomains && rm subdomains~
-    
+
     # remove out of scopes 
-    #if [ -f outscopes ]; then
-    #    for LINE in $(cat outscopes);do sed -i "/$LINE/d" subdomains;done
-    #fi
+    if [ -f outscopes ]; then
+        for LINE in $(cat outscopes) ;do sed -i "/$LINE/d" subdomains;done
+    fi  
 }
 
+# ----------------------------------
+#   Wildcard Hosts Enumeration
+# ----------------------------------
+host ()
+{
+    # hosts
+    httpx -l subdomains -nc -o hosts~
+    cat subdomains | httprobe >> hosts~
+
+    # pipes hosts~ in a single file subdomains
+    cat hosts~ | sort -u > hosts && rm hosts~
+
+    # hosts.meta
+    httpx -l subdomains -sc -ip -probe -title -o hosts.meta
+}
 
 # ----------------------------------
-#   Wide Recon on wildcards
-#       - hosts
-#       - urls
-#       - js files
+#   Wildcard URLs Enumeration
 # ----------------------------------
 url ()
 {
-    # hosts
-    httpx -l subdomains -nc -o hosts
-    httpx -l subdomains -sc -ip -probe -title -o hosts.meta
-    
-
     # urls
     cat hosts | waybackurls  | tee -a urls~
+
+    # remove out of scopes 
+    if [ -f outscopes ]; then
+        for LINE in $(cat outscopes) ;do sed -i "/$LINE/d" urls~;done
+    fi  
+
     katana -list hosts -fs=fqdn | tee -a urls~
 
     # pipes urls~ in a single file urls
-    cat urls~ | sort -u > urls && rm urls~
+    cat urls~ | sort -u > urls
+}
 
+# ----------------------------------
+#   Wildcard JSs Enumeration
+# ----------------------------------
+js ()
+{
     # js files
     cat urls | subjs | tee -a jss~
     
@@ -83,13 +122,24 @@ url ()
     cat jss~ | sort -u > jss && rm jss~
 }
 
+# ----------------------------------
+#   Capture Screenshot
+# ----------------------------------
+screenshot ()
+{
+    # gowitness
+    gowitness file --file hosts
+    for I in $(ls); do 
+        echo "$I" >> index.html;
+        echo "<br/>" >> index.html;
+        echo "<img src=$I><br>" >> index.html;
+    done
+}
 
 # ----------------------------------
-#   Wide Recon on wildcards domain
-#       - fff/
-#       - jss/
+#   Poke Hosts and JSs
 # ----------------------------------
-crawl ()
+poke ()
 {
     # fff    
     cat hosts | fff -d 1 -S -o fff
@@ -103,14 +153,7 @@ crawl ()
 
 
 # ##########################################################
-#   Header
-#   js
-#   Host
-#   URL
-#   document
-#   api
-#   Source
-#   OSINT google, github, censys, shodan, medium, twitter
+#   Analyse
 # ##########################################################
 
 analyse ()
@@ -159,19 +202,10 @@ analyse ()
     # General tools
     gf [awskey|base64|json-sec]
     grep "-roE" ""
+
+    # AWS 3S
+    gf 3s > s3-buckets
+    for LINE in $(awk -F ".s3" '{print $1}' s3-buckets);do aws s3 ls s3://$LINE --no-sign-request; done
 }
 
 "$@"
-
-
-
-
-This is called wide reconn in pentesing and bug bounty. 
-
-The Process:
-
- 1. Find all subdomains, you can use amass, crtsh, subfinder, assetfinde. 
- 2. Find all valid host from subdomains. you can user httpx, httprobe.
- 3. Find all possible urls form hosts using waybackurl, katana.
-
-Good luck.

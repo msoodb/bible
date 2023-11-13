@@ -32,7 +32,7 @@ OUPUT
 
 
 # Passive Reconnaissance Tools, Gather information WITHOUT touching target.
-- [Company]              - company
+- [Company]
      - [Name]
      - [Locations]
      - [CoreBussines]
@@ -40,24 +40,8 @@ OUPUT
      - [Contacts]
      - [KeyPersons]
      - [Partners]
-     - [Domains]         - domains
-     - [Wildcards]       - wildcards
-     - [Scope]           - outscopes
-     - [Policy]          - policy
 - [Structure]
-     - company/
-          - wildcard-1/
-          - wildcard-2/
-          - wildcard-3/
-          - domain-1/
-          - domain-2/
-          - company
-          - wildcards
-          - domains
-          - hosts
-          - outscopes
-          - policy
-          - clue
+     - ~/Operations/<company>
 - [DNS]
      - [host]            IP addresses                       -
      - [whois]           Domain information                 -

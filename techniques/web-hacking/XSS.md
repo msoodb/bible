@@ -33,3 +33,6 @@ If something from URL reflected in document.
 Stored XSS arises when an application receives data from an untrusted source and includes that data within its later HTTP responses in an unsafe way.
 
 # DOM-based XSS
+
+
+## Automating xss identification with Dalfox & Paramspider

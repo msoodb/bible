@@ -75,4 +75,8 @@ mesg
 while true; do clear; tree ;sleep 1; done
 
 
+# How to open file explorer from terminal on Linux
+GNOME   $nautilus
+KDE     $dolphin
+Xfce    $thunar
 
