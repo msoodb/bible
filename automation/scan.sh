@@ -43,6 +43,12 @@ basic ()
     dig +short ns $TARGET > dig.short.ns
     dig +trace $TARGET > dig.trace
 
+    # OSINT
+    zoomeye
+    censys
+    shodan
+    google dorking
+
     # Sitemap
     curl -I https://$TARGET > response.headers
     https://securityheaders.com/?q=&followRedirects=on          # missing.headers
@@ -68,9 +74,10 @@ basic ()
 
     # URL
     katana -u https://$TARGET -fs=fqdn | tee -a urls
+    paramspider -d $TARGET
 
     # Javascript
-    cat urls | subjs | tee -a jss~    
+    cat urls | subjs | tee -a jss~
     cat jss~ | sort -u > jss && rm jss~
 
     # Screenshot
@@ -81,19 +88,19 @@ basic ()
         echo "<img src=$I><br>" >> index.html;
     done
 
-    # OSINT
-    zoomeye
-    censys
-    shodan
-
     # Known Bugs
     # 1- 
-    subzy run --target urls
-    socialhunter -f urls 
+    subzy
+    socialhunter
 
-    # 2- XSS
-    paramspider -d <domain>
-    dalfox -b hahwul.xss.ht file param.txt
+    # 2- XSS    
+    dalfox -b hahwul.xss.ht file results/$TARGET.txt -o dalfox
+
+    # 3- SQLi
+    salmap -u https://$TARGET/...
+
+    # 4- Brute-force Auth
+    hydra
 
     # OWASP
     Burpsuite  - Scope: .*\.domain\.com$
