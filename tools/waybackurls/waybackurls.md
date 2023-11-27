@@ -9,4 +9,7 @@ sudo cp waybackurlsfff /usr/bin
 
 
 # usage
-waybackurls shopifycloud.com | tee -a urls
+waybackurls www.example.com | tee -a urls.wayback
+
+cat urls.wayback | sort -u > urls.wayback.su
+cat urls.wayback.su | grep -E "^http.?://www\.example\.com" > urls.wayback.su.inscope

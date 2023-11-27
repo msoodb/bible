@@ -11,11 +11,10 @@ but does not properly check the user’s Authentication/Authorization to access 
 # Examples
 - https://insecure-website.com/customer_account?customer_number=132355
 - https://insecure-website.com/static/12144.txt
-
-- http://foo.bar/somepage?invoice=12345
-- http://foo.bar/changepassword?user=someuser
-- http://foo.bar/showImage?img=img00011
-- http://foo.bar/accessPage?menuitem=12
+- https://insecure-website.com/somepage?invoice=12345
+- https://insecure-website.com/changepassword?user=someuser
+- https://insecure-website.com/showImage?img=img00011
+- https://insecure-website.com/accessPage?menuitem=12
 
 
 # Find Potential urls
