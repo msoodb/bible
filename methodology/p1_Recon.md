@@ -40,19 +40,45 @@ OUPUT
      - [Contacts]
      - [KeyPersons]
      - [Partners]
-- [Structure]
-     - ~/Operations/<company>
+     - [Informations]    
+          - [Search-Engin]
+          - [OSINT]
+     - [Website]
+- [Search-Engin]     
+     - [Baidu]
+     - [binsearch.info]
+     - [Bing]
+     - [DuckDuckGo]
+     - [ixquick/Startpage]
+     - [Google]          
+          - site:example.com
+          - filetype:pdf
+          - inurl:login, cache:example.com
+     - [PunkSpider]
+- [OSINT]     
+     - [Framework]       OSINT Framework                    https://osintframework.com
+     - [theHarvester]    OSINT platform                     -
+     - [rocketreach]     Email and phone                    https://rocketreach.co
+     - [GHDB]            Google Hacking Database            https://www.exploit-db.com/google-hacking-database
+     - [alerts]          Set google change alert            https://google.com/alerts
+     - [shodan]          Shodan                             https://shodan.io/dashboard
+     - [SocialMedia]     Linkedin, Instagram, facebook      https://instagram.com/
+     - [censys.io]       censys.io                          https://search.censys.io/
+     - [zoomeye.org]     zoomeye.org                        https://www.zoomeye.org
+     - [github.com]      Code and data leak                 https://github.com
+     - [pastebin]        leaked password                    https://pastebin.com
+     - [haveibeenpwned]  password reuse attack              https://haveibeenpwned.com
 - [DNS]
      - [host]            IP addresses                       -
      - [whois]           Domain information                 -
      - [dig]             DNS information ANY/MX/TXT         dig +trace example.com
-     - [ip2location]     Geo location                       ip2location.com
+     - [ip2location]     Geo location                       https://ip2location.com
      - [reverse-ip]      Find all websites on the ip        https://hackertarget.com/reverse-ip-lookup/
      - [traceroute]      Displaying possible routes         -     
      - [nslookup]        DNS information                    -
      - [dnsrecon]        DNS Passive/Active mode            -
-     - [dnsdumpster]     DNS map information                dnsdumpster.com
-     - [dnsleaktest]     DNS leak information               dnsleaktest.com
+     - [dnsdumpster]     DNS map information                https://dnsdumpster.com
+     - [dnsleaktest]     DNS leak information               https://dnsleaktest.com
      - [DNSenum]         DNS information                    -
      - [wafw00f]         WAF information                    -
      - [p0f]             TCP/IP stack fingerprinting        -
@@ -69,32 +95,21 @@ OUPUT
      - [httpx]           Host enumeration                   -
      - [fff]             Host enumeration                   -
 - [URL]
-     - [waybackurl]      URL enumeration                   -
+     - [waybackurl]      URL enumeration                    -
      - [katana]          Host enumeration                   -
 - [Webapp]     
-     - [archive]         Website History                    archive.org/web     
-     - [netcraft]        Some usefull information           sitereport.netcraft.com
+     - [archive]         Website History                    https://archive.org/web     
+     - [netcraft]        Some usefull information           https://sitereport.netcraft.com
      - [Wappalyzer]      Website technology                 addons.mozilla.org
      - [BuiltWith]       Website technology                 addons.mozilla.org/
-     - [hackertarget]    WhatWeb & Wappalyzer Scan          hackertarget.com
+     - [hackertarget]    WhatWeb & Wappalyzer Scan          https://hackertarget.com
      - [whatweb]         Website technology                 -
      - [Firefox]         Browser, Source Code Review        -
      - [BurpSuite]       Set Scope, Browser and Log         -
-     - [securityheaders] Headers missing                    securityheaders.com
-     - [weleakinfo.io]   Info                               weleakinfo.io/
-     - [hunter.io]       Info                               hunter.io/
-     - [Original-ip]     Find the real IP of websites       securitytrails.com, zoomeye.org
-- [OSINT]     
-     - [Framework]       OSINT Framework                    osintframework.com
-     - [theHarvester]    OSINT platform                     -
-     - [rocketreach]     Email and phone                    rocketreach.co
-     - [GHDB]            Google Hacking Database            exploit-db.com
-     - [alerts]          Set google change alert            google.com/alerts
-     - [shodan]          Shodan                             shodan.io/dashboard
-     - [SocialMedia]     Linkedin, Instagram, facebook      instagram.com/
-     - [censys.io]       censys.io                          https://search.censys.io/
-     - [zoomeye.org]     zoomeye.org                        https://www.zoomeye.org
-     - [github.com]      Code and data leak                 https://github.com
+     - [securityheaders] Headers missing                    https://securityheaders.com
+     - [weleakinfo.io]   Info                               https://weleakinfo.io/
+     - [hunter.io]       Info                               https://hunter.io/
+     - [Original-ip]     Find the real IP of websites       https://securitytrails.com, https://zoomeye.org
 - [Target]
      - [domain]          Selected domain to be scanned in next phase
      - [subdomain]       Selected subdomain to be scanned in next phase

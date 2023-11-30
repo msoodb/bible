@@ -3,209 +3,62 @@
 #####################################################################
 # Reconnaissance
 #   - <company>
-#   - <Wildcard>
 #####################################################################
 
+<<comment
+- [Company]
+     - [Name]
+     - [Locations]
+     - [CoreBussines]
+     - [Processes]
+     - [Contacts]
+     - [KeyPersons]
+     - [Partners]
+     - [Informations]    
+          - [Search-Engin]
+          - [OSINT]
+     - [Website]
+- [Search-Engin]     
+     - [Baidu]
+     - [binsearch.info]
+     - [Bing]
+     - [DuckDuckGo]
+     - [ixquick/Startpage]
+     - [Google]          
+          - site:example.com
+          - filetype:pdf
+          - inurl:login, cache:example.com
+     - [PunkSpider]
+- [OSINT]     
+     - [Framework]       OSINT Framework                    https://osintframework.com
+     - [theHarvester]    OSINT platform                     -
+     - [rocketreach]     Email and phone                    https://rocketreach.co
+     - [GHDB]            Google Hacking Database            https://www.exploit-db.com/google-hacking-database
+     - [alerts]          Set google change alert            https://google.com/alerts
+     - [shodan]          Shodan                             https://shodan.io/dashboard
+     - [SocialMedia]     Linkedin, Instagram, facebook      https://instagram.com/
+     - [censys.io]       censys.io                          https://search.censys.io/
+     - [zoomeye.org]     zoomeye.org                        https://www.zoomeye.org
+     - [github.com]      Code and data leak                 https://github.com
+     - [pastebin]        leaked password                    https://pastebin.com
+     - [haveibeenpwned]  password reuse attack              https://haveibeenpwned.com
+comment
 
 # ----------------------------------
 #   ~/Operations/<company>/       
 # ----------------------------------
 init ()
-{       
-    export SECLISTS_DIR=/var/lib/snapd/snap/seclists/37
-    export WORDLIST_DIR=~/wordlist
-
+{    
     touch company
-    echo "company is created successfully!"
 
-    touch domains
-    echo "domains is created successfully!"
+    # OTG-INFO-001
+    # Conduct search engine discovery/reconnaissance for information leakage
 
-    touch wildcards
-    echo "wildcards is created successfully!"
+<<comment
+     Test Objectives
+     To understand what sensitive design and configuration information of
+     the application/system/organization is exposed both directly (on the
+     organization’s website) or indirectly (on a third party website).
+comment
 
-    touch outscopes
-    echo "outscopes is created successfully!"
-
-    touch policy
-    echo "policy is created successfully!"
-
-    touch notbook
-    echo "notbook is created successfully!"
-
-    touch code.sh
-    echo "code.sh is created successfully!"
-
-    echo
-    echo "complete information about company."
 }
-
-
-# ----------------------------------
-#   ~/Operations/<company>/<wildcard>       
-#   - Set outscopes for this <wildcard>
-# ----------------------------------
-
-# ----------------------------------
-#  Wildcard Subdomains Enumeration
-# ----------------------------------
-sub ()
-{
-    WILDCARD=$1
-
-    # crtsh
-    crtsh -d $WILDCARD -r >> subdomains~
-
-    # subfinder
-    subfinder -d $WILDCARD >> subdomains~
-    
-    # assetfinder
-    echo  $WILDCARD | assetfinder -subs-only >> subdomains~
-    
-    # github-subdomains
-    #github-subdomains -d $WILDCARD -t token -o github-subdomains
-    #cat github-subdomains >> subdomains~ && rm github-subdomains
-
-    # pipes subdomains~ in a single file subdomains
-    cat subdomains~ | sort -u > subdomains && rm subdomains~
-
-    # remove out of scopes 
-    if [ -f outscopes ]; then
-        for LINE in $(cat outscopes) ;do sed -i "/$LINE/d" subdomains;done
-    fi  
-}
-
-# ----------------------------------
-#   Wildcard Hosts Enumeration
-# ----------------------------------
-host ()
-{
-    # hosts
-    httpx -l subdomains -nc -o hosts~
-    cat subdomains | httprobe >> hosts~
-
-    # pipes hosts~ in a single file subdomains
-    cat hosts~ | sort -u > hosts && rm hosts~
-
-    # hosts.meta
-    httpx -l subdomains -sc -ip -probe -title -o hosts.meta
-}
-
-# ----------------------------------
-#   Wildcard URLs Enumeration
-# ----------------------------------
-url ()
-{
-    # urls
-    cat hosts | waybackurls  | tee -a urls~
-
-    # remove out of scopes 
-    if [ -f outscopes ]; then
-        for LINE in $(cat outscopes) ;do sed -i "/$LINE/d" urls~;done
-    fi  
-
-    katana -list hosts -fs=fqdn | tee -a urls~
-
-    # pipes urls~ in a single file urls
-    cat urls~ | sort -u > urls
-}
-
-# ----------------------------------
-#   Wildcard JSs Enumeration
-# ----------------------------------
-js ()
-{
-    # js files
-    cat urls | subjs | tee -a jss~
-    
-    # pipes jss~ in a single file jss
-    cat jss~ | sort -u > jss && rm jss~
-}
-
-# ----------------------------------
-#   Capture Screenshot
-# ----------------------------------
-screenshot ()
-{
-    # gowitness
-    gowitness file --file hosts
-    for I in $(ls); do 
-        echo "$I" >> index.html;
-        echo "<br/>" >> index.html;
-        echo "<img src=$I><br>" >> index.html;
-    done
-}
-
-# ----------------------------------
-#   Poke Hosts and JSs
-# ----------------------------------
-poke ()
-{
-    # fff    
-    cat hosts | fff -d 1 -S -o fff
-
-    # Bypass Cloudflare 403 if needed
-    # Check Headers in curl http://httpbin.org/headers
-
-    # get js files
-    for LINE in $(cat jss);do wget --tries=1 -P js/ "$LINE" ;done
-}
-
-
-# ##########################################################
-#   Analyse
-# ##########################################################
-
-analyse ()
-{
-
-    # Response Headers and Recommendation
-        # X-Frame-Options: DENY
-        # X-XSS-Protection: 0
-        # X-Content-Type-Options: nosniff
-        # Referrer-Policy: strict-origin-when-cross-origin
-        # Content-Type: text/html; charset=UTF-8
-        # Set-Cookie
-        # Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-        # Expect-CT     !!! Do not use it. Mozilla recommends avoiding it, and removing it from existing code if possible.
-        # Content-Security-Policy   Content Security Policy is complex to configure and maintain.
-        # Access-Control-Allow-Origin: https://yoursite.com
-        # Cross-Origin-Opener-Policy: same-origin
-        # Cross-Origin-Embedder-Policy: require-corp
-        # Cross-Origin-Resource-Policy: same-site
-        # Permissions-Policy: geolocation=(), camera=(), microphone=()
-        # Permissions-Policy: interest-cohort=()
-        # Server: webserver
-        # X-Powered-By: 
-        # X-AspNetMvc-Version
-        # X-DNS-Prefetch-Control: off
-        # Public-Key-Pins
-
-    # Headers vulnerabilities
-        # HTTP-HOST HEADER ATTACKS          https://infosecwriteups.com/http-host-header-attacks-55ca4b7786c
-
-    
-    # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html
-    # https://portswigger.net/web-security/host-header/exploiting
-
-    # SQLi
-    #
-    # Find an URL that potentially sends SQL queries, like this one:
-    # http://w34ksite.com/products.php?category=1 this URL list products, regrouped in the category named 1
-    grep '-iE' 'id=|select=|report=|role=|update=|query=|user=|name=|sort=|where=|search=|params=|process=|row=|view=|table=|from=|sel=|results=|sleep=|fetch=|order=|keyword=|column=|field=|delete=|string=|number=|filter='
-
-
-    # XSS
-    # XSStrike 
-    python ~/Projects/XSStrike/xsstrike.py -u https://edu.varonis.com/lms/assets/14b8f2b0/uid=
-
-    # General tools
-    gf [awskey|base64|json-sec]
-    grep "-roE" ""
-
-    # AWS 3S
-    gf 3s > s3-buckets
-    for LINE in $(awk -F ".s3" '{print $1}' s3-buckets);do aws s3 ls s3://$LINE --no-sign-request; done
-}
-
-"$@"
