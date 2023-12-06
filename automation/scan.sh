@@ -27,7 +27,7 @@ export WORDLIST_DIR=~/wordlist
 # ----------------------------------
 
 
-Validation(){
+validation(){
     export TARGET=www.example.com
 
     # Domain Validation
@@ -62,6 +62,13 @@ info ()
     TARGET=www.example.com
   
     # --------------------------------
+    # OTG-INFO-001
+    # --------------------------------
+    #   
+        # Conduct search engine discovery/reconnaissance for information leakage.
+    #
+
+    # --------------------------------
     # OTG-INFO-002
     # --------------------------------
     #   
@@ -80,6 +87,8 @@ info ()
         . https://www.netcraft.com/
         . https://www.wappalyzer.com
         . https://securityheaders.com/?q=&followRedirects=on  #missing.headers
+    . wafw00f $TARGET > WAFirewall
+    . https://www.nmmapper.com/sys/reconnaissance-tools/waf/web-application-firewall-detector/   #WAF Detection
 
 
     # --------------------------------
@@ -110,7 +119,9 @@ info ()
         # 3. Virtual hosts
     #
     . katana -u https://$TARGET -fs=fqdn | tee -a urls
-    . nmap $TARGET
+    . nmap 
+        - nmap $TARGET
+        - portip.sh $IP
     . https://api.hackertarget.com/reverseiplookup/?q=$IP #ip.reverse
 
 
@@ -128,7 +139,7 @@ info ()
     . HTML version information <!DOCTYPE HTML
         • “strict.dtd” -- default strict DTD
         • “loose.dtd” -- loose DTD
-        • “frameset.dtd” -- DTD for frameset documents
+        • “frameset.dtd” -- DTD for https://www.nmmapper.com/sys/reconnaissance-tools/waf/web-application-firewall-detector/   # WAF Detection://www.nmmapper.com/sys/reconnaissance-tools/waf/web-application-firewall-detector/   # WAF Detectionset documents
     . Burpsuite <META> Tags
         . <META name=”Author” content=”Andrew Muller”>
         . <META http-equiv=”Expires” content=”Fri, 21 Dec 201212:34:56 GMT”>
@@ -148,7 +159,12 @@ info ()
         paramspider -d $TARGET
         waybackurls $TARGET | tee -a urls.wayback
         cat urls.wayback | sort -u > urls.wayback.su
-        cat urls.wayback.su | grep -E "^http.?://www\.example\.com" > urls.wayback.su.inscope
+        cat urls.wayback.su | grep -E "^http.?://www\.example\.com" > urls.wayback.su.inscope        
+    . Live URL
+        httpx -l urls -nc -o urls.live
+    . JS URL
+        cat urls | subjs | tee -a jss~
+        cat jss~ | sort -u > jss && rm jss~
     . ZAP
     . Burp Suite
 
@@ -182,7 +198,11 @@ info ()
             echo "<img src=$I><br>" >> index.html;
             echo "<hr/>" >> index.html;
         done
-  
+    • sudo dirsearch
+    • owasp dirbuster
+    • gobuster dir -u https://$TARGET  -w $WORDLIST_DIR/common.txt > dirs
+    • curl -sS -D - https://$TARGET -o /dev/null
+    • ffuf -u https://$TARGET/FUZZ -w $WORDLIST_DIR/fuzz-lfi-params-list.txt -fc 30  # -fs 1-20 -s
 
     # --------------------------------
     # OTG-INFO-008
@@ -200,8 +220,9 @@ info ()
         - CAKEPHP=rm72kprivgmau5fmjdesbuqi71
     • HTML source code
     • Specific files and folders
-    • WhatWeb                                       # https://morningstarsecurity.com/research/whatweb
-    • Wappalyzer
+    • whatweb -v -a 3 https://$TARGET --log-verbose=whatweb --color=never    # https://morningstarsecurity.com/research/whatweb
+    • Wappalyzer                                                             # wappalyzer_varonis-com
+    • https://whatcms.org/?s=www.example.com
 
 
     # --------------------------------
@@ -256,8 +277,10 @@ info ()
     #   
         # Map Application Architecture.
     #
-    • WAFW00F
-    • Nmap
+    • Burp Suite
+        . Site map
+    • ZAP
+    • cat urls | fff -d 1 -S -o fff
 }
 
 
@@ -265,64 +288,19 @@ info ()
 #   ~/Operations/<company>/<domain>       
 # ----------------------------------
 # scan.sh scan <domain>
-scan ()
-{
-    # Tech 
-    whatweb -v -a 3 https://$TARGET --log-verbose=whatweb --color=never   
-    wappalyzer_varonis-com          # export from wappalyzer 
-    wafw00f $TARGET > waf
-    https://www.nmmapper.com/sys/reconnaissance-tools/waf/web-application-firewall-detector/   # WAF Detection
-    
-    # Auto Scan
+auto ()
+{  
+    # General
     nuclei -u https://$TARGET  -nc -o nuclei
     nikto -h https://$TARGET -o nikto.output -Format txt
-    nmap $TARGET
+    nmap $TARGET 
 
-    # Wordpress Auto Scan
+    # Wordpress
     wpscan --url https://$TARGET --wp-content-dir -e --output wpscan.token --format cli-no-color --api-token $WP_TOKEN
     POST https://press.priceline.com/xmlrpc.php
-    
-    
-    # Directory    
-    gobuster dir -u https://$TARGET  -w $WORDLIST_DIR/common.txt > dirs
-    curl -sS -D - https://$TARGET -o /dev/null
-    ffuf -u https://$TARGET/FUZZ -w $WORDLIST_DIR/fuzz-lfi-params-list.txt -fc 30  # -fs 1-20 -s
 
-    # URL
-    katana -u https://$TARGET -fs=fqdn | tee -a urls
-    paramspider -d $TARGET
-
-    # URL, wayback machin
-    waybackurls www.example.com | tee -a urls.wayback
-    cat urls.wayback | sort -u > urls.wayback.su
-    cat urls.wayback.su | grep -E "^http.?://www\.example\.com" > urls.wayback.su.inscope
-    cat urls.wayback.su.inscope >> urls
-
-    # Live URL
-    httpx -l urls -nc -o urls.live
-
-    # JS URL
-    cat urls | subjs | tee -a jss~
-    cat jss~ | sort -u > jss && rm jss~
-
-    # Screenshot
-    gowitness file --file urls
-    for I in $(ls); do 
-        echo "$I" >> index.html;
-        echo "<br/>" >> index.html;
-        echo "<img src=$I><br>" >> index.html;
-        echo "<hr/>" >> index.html;
-    done
-
-    # Poke
-    cat urls | fff -d 1 -S -o fff
-    
-    # OSINT
-    zoomeye             # https://www.zoomeye.org/
-    censys              # https://censys.com/
-    shodan              # https://www.shodan.io/
-    google dorking      # https://gist.github.com/sundowndev/283efaddbcf896ab405488330d1bbc06
-    reverse ip          # https://hackertarget.com/reverse-ip-lookup/
+    # Joomla
+    joomscan -u https://$TARGET
 }
 
 
@@ -377,6 +355,7 @@ Bug (){
         url https://$TARGET/...
         file urls 
         -o dalfox
+    dalfox -b hahwul.xss.ht file paramspider.txt
     
     # Local storage
     sqlmap --cookie "TrackingId=xxx; session=xxx" --level 3

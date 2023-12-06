@@ -1,61 +1,25 @@
 
 # 1-Reconnaissance
 
-INPUT
-- domains
-- wildcards
-- scope
-- target ip
-- info
-PROCESS
-- Target Validation
-     - company
-     - website
-- Subdomains
-- Fingerprinting
-- Data breach
-TOOLS
-- All Reconn Tools 
-OUPUT
-- targets
-- others
-     - domain
-     - host
-     - url
-     - network map
-          - IPs
-          - Ports
-          - Services
-          - Firewalls
-          - Users
-     - potential vulnerability
-
-
 # Passive Reconnaissance Tools, Gather information WITHOUT touching target.
 - [Company]
      - [Name]
      - [Locations]
-     - [CoreBussines]
+     - [Services]
      - [Processes]
      - [Contacts]
      - [KeyPersons]
      - [Partners]
-     - [Informations]    
-          - [Search-Engin]
-          - [OSINT]
+     - [Payment]
      - [Website]
-- [Search-Engin]     
+- [Leaked-info]
      - [Baidu]
      - [binsearch.info]
      - [Bing]
      - [DuckDuckGo]
      - [ixquick/Startpage]
-     - [Google]          
-          - site:example.com
-          - filetype:pdf
-          - inurl:login, cache:example.com
+     - [Google]                                             site:example.com filetype:pdf inurl:login cache:example.com
      - [PunkSpider]
-- [OSINT]     
      - [Framework]       OSINT Framework                    https://osintframework.com
      - [theHarvester]    OSINT platform                     -
      - [rocketreach]     Email and phone                    https://rocketreach.co
@@ -68,6 +32,34 @@ OUPUT
      - [github.com]      Code and data leak                 https://github.com
      - [pastebin]        leaked password                    https://pastebin.com
      - [haveibeenpwned]  password reuse attack              https://haveibeenpwned.com
+- [Infrastructure]
+     - [Technology]
+     - [Network]
+     - [Firewall]
+          - [IPS]
+          - [Firewall]
+          - [WAF]
+     - [Cloud]
+          - [IaaS]
+          - [CaaS]
+          - [PaaS]
+          - [FaaS]
+          - [SaaS]
+          - [Storage]
+- [Applications]
+     - [Web-servers]
+     - [Mail-server]
+     - [CRM]
+     - [HR]
+     - [ERP]
+     - [E-Learning]
+     - [User-Directory]
+- [Scopes]
+     - [Wildcards]
+     - [Mobile-apps]
+     - [Domains]
+     - [CIDR]
+     - [Out-of-Scope]
 - [DNS]
      - [host]            IP addresses                       -
      - [whois]           Domain information                 -

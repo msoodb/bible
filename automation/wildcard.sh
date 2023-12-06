@@ -85,7 +85,7 @@ url ()
     katana -list hosts -fs=fqdn | tee -a urls~
 
     # pipes urls~ in a single file urls
-    cat urls~ | sort -u > urls
+    cat urls~ | sort -u > urls && rm urls~
 }
 
 # ----------------------------------
