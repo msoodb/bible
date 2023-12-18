@@ -167,6 +167,7 @@ info ()
         cat jss~ | sort -u > jss && rm jss~
     . ZAP
     . Burp Suite
+    . vim entrypoints
 
 
     # --------------------------------
@@ -296,7 +297,7 @@ auto ()
     nmap $TARGET 
 
     # Wordpress
-    wpscan --url https://$TARGET --wp-content-dir -e --output wpscan.token --format cli-no-color --api-token $WP_TOKEN
+    wpscan --url https://$TARGET --random-user-agent --wp-content-dir -e --output wpscan.token --format cli-no-color --api-token $WP_TOKEN
     POST https://press.priceline.com/xmlrpc.php
 
     # Joomla
