@@ -89,4 +89,8 @@ https://worpress-site.com/wp-json/oembed/1.0/proxy?url=ybdk28vjsa9yirr7og2lukt10
 
 
 ## Auto scan
-wpscan
+ - [wpscan]
+    - scan
+    - brut-force
+    - php-reverse-shell to 404.php
+    - run 404.php on browser ann get shell
