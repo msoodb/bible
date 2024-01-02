@@ -1,4 +1,0 @@
-
-```sh
-binwalk -e <file>
-```

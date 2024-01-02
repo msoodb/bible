@@ -1,6 +1,0 @@
-root
-admin
-user
-molly
-steve
-richard

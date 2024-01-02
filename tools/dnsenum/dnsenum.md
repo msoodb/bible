@@ -1,2 +1,0 @@
-
-dnsenum target.ip

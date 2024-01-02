@@ -1,1 +1,0 @@
-paramspider -d <domain>

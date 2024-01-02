@@ -1,1 +1,0 @@
-rpcinfo target.ip
